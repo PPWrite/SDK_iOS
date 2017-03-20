@@ -11,6 +11,8 @@
 #import "Header.h"
 #import "RobotSqlManager.h"
 #import "Video.h"
+#import <AVFoundation/AVFoundation.h>
+#import <AVKit/AVKit.h>
 static int interval_Board = 10;
 @interface WhiteBoardMicroViewController ()<WhiteBoardViewDelegate,RobotPenDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
@@ -53,7 +55,7 @@ static int interval_Board = 10;
     [self.StopRecordingButton setTitle:@"继续" forState:UIControlStateSelected];
     [self.StopRecordingButton addTarget:self action:@selector(StopRecordingClicked:) forControlEvents:UIControlEventTouchUpInside];
     
-    DeviceTypes = 1;
+    DeviceTypes = 1;//
     [self BulidWhiteBoard];
     [_BackButton addTarget:self action:@selector(BackButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     // Do any additional setup after loading the view from its nib.
@@ -61,6 +63,28 @@ static int interval_Board = 10;
 
 #pragma mark - 按钮点击事件
 
+//取消录制
+- (IBAction)CancelVideoClicked:(id)sender
+{
+    self.RecordingButton.selected = NO;
+    self.StopRecordingButton.selected = NO;
+    self.TimeLabel.text = @"00:00:00";
+    [self.WhiteBoardView CancelVideoRecord];
+    
+}
+//播放视频
+- (IBAction)VideoPlayClicked:(id)sender
+{
+    
+    AVPlayerViewController *player = [[AVPlayerViewController alloc] init];
+    player.player = [[AVPlayer alloc] initWithURL:videoPathUrl];
+    [self presentViewController:player animated:YES completion:^{
+    }];
+
+    
+}
+
+//视频地址
 - (IBAction)VideoAddressClicked:(id)sender
 {
     [RobotSqlManager GetVideoListWithPage:0 Success:^(id responseObject) {
@@ -347,7 +371,7 @@ static int interval_Board = 10;
  白板创建
  */
 - (void)BulidWhiteBoard{
-    RobotWhiteBoard_MicroView *wbView = [[RobotWhiteBoard_MicroView alloc] init];
+    RobotWhiteBoard_MicroView *wbView = [[RobotWhiteBoard_MicroView alloc] init];//此处不要设置大小（在setWB方法里设置）
     wbView.whiteBoardDelegate = self;
     self.WhiteBoardView = wbView;
     [self.WBBView addSubview:_WhiteBoardView];
@@ -357,10 +381,10 @@ static int interval_Board = 10;
 - (void)setWB{
     
     
-    [self.WhiteBoardView setDeviceType: DeviceTypes];
-    [self.WhiteBoardView setIsHorizontal:isHorizontal];
-    [self.WhiteBoardView setDrawAreaFrame:CGRectMake(interval_Board , interval_Board , self.WBBView.frame.size.width - 2 * interval_Board,self.WBBView.frame.size.height - 2 * interval_Board)];
-    [self.WhiteBoardView RefreshAll];
+    [self.WhiteBoardView setDeviceType: DeviceTypes];// 手写板类型（必须设置）
+    [self.WhiteBoardView setIsHorizontal:isHorizontal];//设置画板的横竖方向 0：竖 1：横（必须设置）
+    [self.WhiteBoardView setDrawAreaFrame:CGRectMake(interval_Board , interval_Board , self.WBBView.frame.size.width - 2 * interval_Board,self.WBBView.frame.size.height - 2 * interval_Board)];//设置画板的大小和位置（必须设置）
+    [self.WhiteBoardView RefreshAll];//刷新笔记（本地数据库）（用不到数据库的可以不写）
     
 }
 
@@ -372,12 +396,13 @@ static int interval_Board = 10;
     //数据库
     [RobotSqlManager checkRobotSqlManager];
     if (![RobotSqlManager checkNoteWithNoteKey:@"WBMicro"]) {
-        [self BuildTempNote];
+        [self BuildTempNote]; //数据库中创建笔记
     }
     
     //白板
-    _NoteKey = @"WBMicro";
-    _NoteTitle = @"录制白板";
+    _NoteKey = @"WBMicro";//数据库中笔记的Key
+    _NoteTitle = @"录制白板";//数据库中笔记的标题
+    
     _PenColor = [UIColor redColor];
     _PenWidth = 1;
     [self.WhiteBoardView SetDrawType:0];
@@ -387,7 +412,7 @@ static int interval_Board = 10;
 }
 -(void)BuildTempNote
 {
-    [RobotSqlManager checkRobotSqlManager];
+//    [RobotSqlManager checkRobotSqlManager];
     RobotNote *notemodel =  [[RobotNote alloc]init];
     notemodel.NoteKey = @"WBMicro";
     notemodel.Title = @"录制白板";

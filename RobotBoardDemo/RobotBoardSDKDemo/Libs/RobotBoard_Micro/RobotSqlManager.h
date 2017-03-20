@@ -54,15 +54,15 @@ typedef enum {
     IMG_DEL = 21,
 }TrailType;
 
-//#ifdef DEBUG
-//
-//#define RobotLog(fmt, ...) NSLog((@"Robot Log :   %s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
-//
-//#else
-//
-//#define RobotLog(...)
-//
-//#endif
+#ifdef DEBUG
+
+#define RobotSqlLog(fmt, ...) NSLog((@"RobotSql Log :   %s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+
+#else
+
+#define RobotSqlLog(...)
+
+#endif
 
 
 #import <Foundation/Foundation.h>
@@ -86,6 +86,9 @@ typedef enum {
                        Failure:(void (^)(NSError *error))Failure;
 //获取截图图片路径
 + (NSString *)GetImagePathWithKey:(NSString *)Key;
+
+//获取截图图片总数
++ (long)GetImageNumber;
 
 //删除图片
 + (void)DeleteImageWithKeyArray:(NSArray *)KeyArray Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
@@ -149,6 +152,7 @@ typedef enum {
 //自己主动翻页 （没有则新建）
 + (NSString *)getNextWithNoteKey:(NSString *)NoteKey BlockKey:(NSString *)ActivityBlockKey;
 + (NSString *)getFrontWithNoteKey:(NSString *)NoteKey BlockKey:(NSString *)ActivityBlockKey;
+
 //插页
 + (NSString *)GetNewNextWithNoteKey:(NSString *)NoteKey BlockKey:(NSString *)ActivityBlockKey;
 
@@ -173,6 +177,9 @@ typedef enum {
 
 //还原笔记数据
 + (void)GetNoteTrailsWithBlockKey:(NSString *)ActivityBlockKey SuccessTrails:(void (^)(id responseObject))SuccessTrails SuccessImages:(void (^)(id responseObject))SuccessImages Failure:(void (^)(NSError *error))Failure;
+
+//查询白板中的最后五张图片
++ (void)GetFiveImageWith:(NSString *)ActivityBlockKey Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
 
 //删除图片
 + (void)DelNoteImgsWithBlockKey:(NSString *)ActivityBlockKey Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
@@ -203,10 +210,26 @@ typedef enum {
 + (void)DeleteNoteWithPage:(int)Page Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
 
 
+////获取所有轨迹
+//+ (void)GetAllTrailsWithNoteKey:(NSString *)NoteKey Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
+
+//获取某一页的所有轨迹
++ (void)GetAllTrailsWithNoteKey:(NSString *)NoteKey WithBlockKey:(NSString *)BlockKey Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
+
+////新建下一页
+//+ (void)NextNewPage:(int)OldPage WithNoteKey:(NSString *)NoteKey Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
+//向上合并
++ (void)MergeTrailsWithBlockKey:(NSString *)Blockkey WithEndTime:(long long)endTime WithActivityBlockKey:(NSString *)ActivityBlockKey Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
+
+//向下分离
++ (void)SeparateTrailsWithBlockKey:(NSString *)Blockkey WithEndTime:(long long)endTime WithActivityBlockKey:(NSString *)ActivityBlockKey Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
+
 
 + (NSTimeInterval)GetTimeInterval;
 + (NSString *)GetNewKey;
 
+//更改默认拉取条数
++ (void)SetNumberOfPageWith:(int)page;
 
 
 

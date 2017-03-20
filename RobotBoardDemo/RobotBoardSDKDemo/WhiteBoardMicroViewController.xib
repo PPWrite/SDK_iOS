@@ -91,9 +91,9 @@
                             <rect key="frame" x="202" y="8" width="80" height="30"/>
                             <color key="backgroundColor" red="0.13524937000000001" green="0.75138332819999998" blue="0.7129908036" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <state key="normal" title="视频地址"/>
+                            <state key="normal" title="取消录制"/>
                             <connections>
-                                <action selector="VideoAddressClicked:" destination="-1" eventType="touchUpInside" id="QMB-Io-Tnd"/>
+                                <action selector="CancelVideoClicked:" destination="-1" eventType="touchUpInside" id="bqW-3q-HEI"/>
                             </connections>
                         </button>
                     </subviews>
@@ -281,26 +281,53 @@
                         <constraint firstItem="CMI-mB-jTU" firstAttribute="leading" secondItem="TcM-TL-Grb" secondAttribute="trailing" constant="17" id="pcl-D2-MEq"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3XD-Ca-TlB">
+                    <rect key="frame" x="290" y="72" width="80" height="30"/>
+                    <color key="backgroundColor" red="0.13524937000000001" green="0.75138332819999998" blue="0.7129908036" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="播放视频"/>
+                    <connections>
+                        <action selector="VideoPlayClicked:" destination="-1" eventType="touchUpInside" id="d6M-Jw-zo4"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJt-t4-ck4">
+                    <rect key="frame" x="290" y="103" width="80" height="30"/>
+                    <color key="backgroundColor" red="0.13524937000000001" green="0.75138332819999998" blue="0.7129908036" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="视频地址"/>
+                    <connections>
+                        <action selector="VideoAddressClicked:" destination="-1" eventType="touchUpInside" id="qu5-rx-tEk"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="dH8-68-Ful" secondAttribute="trailing" id="097-ga-JOh"/>
+                <constraint firstItem="3XD-Ca-TlB" firstAttribute="width" secondItem="9Mi-g3-h9X" secondAttribute="width" id="9fx-Gw-nCn"/>
                 <constraint firstItem="usb-Oi-Fah" firstAttribute="leading" secondItem="U8U-GU-5JD" secondAttribute="leading" id="FM5-93-Tc6"/>
                 <constraint firstItem="ZMI-9G-msM" firstAttribute="top" secondItem="usb-Oi-Fah" secondAttribute="bottom" constant="8" id="GDg-Ta-HzO"/>
                 <constraint firstAttribute="bottom" secondItem="GBN-RM-ZDG" secondAttribute="bottom" id="HNJ-KL-GNZ"/>
                 <constraint firstAttribute="trailing" secondItem="U8U-GU-5JD" secondAttribute="trailing" id="HdB-GY-Phb"/>
                 <constraint firstItem="ZMI-9G-msM" firstAttribute="leading" secondItem="usb-Oi-Fah" secondAttribute="leading" id="LJG-H6-IrV"/>
+                <constraint firstItem="vJt-t4-ck4" firstAttribute="top" secondItem="3XD-Ca-TlB" secondAttribute="bottom" constant="1" id="Lqb-9q-dXI"/>
+                <constraint firstAttribute="trailing" secondItem="vJt-t4-ck4" secondAttribute="trailing" constant="5" id="Xad-QS-hsp"/>
+                <constraint firstItem="3XD-Ca-TlB" firstAttribute="top" secondItem="9Mi-g3-h9X" secondAttribute="top" id="ZRT-yS-2nw"/>
+                <constraint firstAttribute="trailing" secondItem="3XD-Ca-TlB" secondAttribute="trailing" constant="5" id="cLY-a9-jya"/>
                 <constraint firstItem="dH8-68-Ful" firstAttribute="height" secondItem="ZMI-9G-msM" secondAttribute="height" id="dGT-RY-b5d"/>
                 <constraint firstItem="ZMI-9G-msM" firstAttribute="width" secondItem="usb-Oi-Fah" secondAttribute="width" id="fX6-x7-Chb"/>
                 <constraint firstItem="GBN-RM-ZDG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="h1a-MP-c6O"/>
                 <constraint firstItem="usb-Oi-Fah" firstAttribute="top" secondItem="U8U-GU-5JD" secondAttribute="bottom" id="jWB-VH-wcF"/>
                 <constraint firstItem="U8U-GU-5JD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="lbH-Va-nM7"/>
+                <constraint firstItem="vJt-t4-ck4" firstAttribute="height" secondItem="3XD-Ca-TlB" secondAttribute="height" id="no7-rH-Zt2"/>
+                <constraint firstItem="3XD-Ca-TlB" firstAttribute="height" secondItem="9Mi-g3-h9X" secondAttribute="height" id="oG8-b8-tUf"/>
                 <constraint firstAttribute="trailing" secondItem="usb-Oi-Fah" secondAttribute="trailing" constant="87" id="sQ0-Pb-aiB"/>
                 <constraint firstItem="GBN-RM-ZDG" firstAttribute="top" secondItem="ZMI-9G-msM" secondAttribute="bottom" constant="8" id="tm0-fF-h3o"/>
                 <constraint firstItem="dH8-68-Ful" firstAttribute="leading" secondItem="ZMI-9G-msM" secondAttribute="trailing" constant="-2" id="vBP-s5-xCw"/>
+                <constraint firstItem="vJt-t4-ck4" firstAttribute="width" secondItem="3XD-Ca-TlB" secondAttribute="width" id="vZQ-l0-Dz1"/>
                 <constraint firstItem="GBN-RM-ZDG" firstAttribute="width" secondItem="ZMI-9G-msM" secondAttribute="width" id="w7Y-xm-wQO"/>
                 <constraint firstItem="dH8-68-Ful" firstAttribute="top" secondItem="ZMI-9G-msM" secondAttribute="top" id="xav-9Z-tiu"/>
                 <constraint firstItem="U8U-GU-5JD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="z7N-vv-ZYx"/>
+                <constraint firstItem="3XD-Ca-TlB" firstAttribute="leading" secondItem="9Mi-g3-h9X" secondAttribute="trailing" constant="8" id="zxG-7x-igG"/>
             </constraints>
             <point key="canvasLocation" x="35.5" y="54.5"/>
         </view>

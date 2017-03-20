@@ -17,6 +17,8 @@
 - (void)PauseVideoRecord; // 暂停录制
 - (void)ContinueVideoRecord;// 继续录制 
 
+- (void)CancelVideoRecord;// 取消录制
+
 - (void)SendStateInfo:(NSDictionary *)StateInfo;
 
 

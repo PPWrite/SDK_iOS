@@ -146,7 +146,7 @@ static int interval_Board = 10;
 
 -(void)BuildTempNote
 {
-    [RobotSqlManager checkRobotSqlManager];
+//    [RobotSqlManager checkRobotSqlManager];
     RobotNote *notemodel =  [[RobotNote alloc]init];
     notemodel.NoteKey = @"WB";
     notemodel.Title = @"白板";
