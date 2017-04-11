@@ -2,7 +2,7 @@
 //  RobotPenManager.h
 //  RobotPenManager
 //
-//  Created by JMS on 2016/11/15.
+//  Created by chong gao on 2016/11/15.
 //  Copyright © 2016年 Robot.cn. All rights reserved.
 //
 
@@ -202,6 +202,7 @@
 //发送页码信息
 - (void)SendPage:(int)Current :(int)Totla;
 
-
+//修改设备名字
+- (void)changeName:(NSString *)name;
 
 @end

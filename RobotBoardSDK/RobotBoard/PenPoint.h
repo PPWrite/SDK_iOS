@@ -32,6 +32,7 @@
  */
 - (CGPoint)getOriginalPoint;
 
+
 /**
  获取显示场景点坐标
  
@@ -41,4 +42,14 @@
  @return
  */
 - (CGPoint)getScenePointWith :(float)sceneWidth :(float)sceneHeight :(BOOL)isHorizontal;
+
+/**
+ 根据缩放比例获取场景点坐标
+ 
+ @param scaling 缩放比例（0 - 1）
+ @param distance 最小的点间隔(重复点)
+ @param isHorizontal 场景是否竖屏
+ @return 返回坐标点（-10000，-10000）表示重复点（需要手动丢掉）
+ */
+- (CGPoint)getScenePointWithScaling:(float)scaling MinimumDistance:(float)distance isHorizontal:(BOOL)isHorizontal;
 @end

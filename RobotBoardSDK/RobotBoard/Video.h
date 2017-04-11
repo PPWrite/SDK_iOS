@@ -2,7 +2,7 @@
 //  Video.h
 //  SqlManager
 //
-//  Created by JMS on 2016/12/1.
+//  Created by chong gao on 2016/12/1.
 //  Copyright © 2016年 Robot.cn. All rights reserved.
 //
 

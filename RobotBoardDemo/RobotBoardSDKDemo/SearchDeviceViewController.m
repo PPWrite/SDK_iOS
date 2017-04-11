@@ -55,6 +55,7 @@
     [_blueToothButton setTitle:@"查找设备" forState:UIControlStateNormal];
     [_blueToothButton setTitle:@"断开连接" forState:UIControlStateSelected];
     [_blueToothButton addTarget:self action:@selector(blueToothButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+
     _SyncButton.hidden = YES;
     _UpdateButton.hidden = YES;
     
@@ -113,6 +114,9 @@
 -(void)getPointInfo:(PenPoint *)point{
     self.xValue.text = [NSString stringWithFormat:@"%hd",point.originalX];
     self.yValue.text = [NSString stringWithFormat:@"%hd",point.originalY];
+    //    CGPoint newPoint = [point getScenePointWithScaling:0.2 MinimumDistance:1 isHorizontal:NO];
+    //    self.xValue.text = [NSString stringWithFormat:@"%f",newPoint.x];
+    //    self.yValue.text = [NSString stringWithFormat:@"%f",newPoint.y];
     self.pressureLabel.text = [NSString stringWithFormat:@"%hd",point.pressure];
     if (point.isTrail == YES) {
         self.routeLabel.text = [NSString stringWithFormat:@"%d",point.isTrail];
@@ -149,9 +153,6 @@
             isConnect = YES;
             _blueToothButton.selected = YES;
             self.device = [[RobotPenManager sharePenManager] getConnectDevice];
-            self.deviceName.text = [NSString stringWithFormat:@"%@",[self.device getName]];
-            self.deviceUUID.text = [NSString stringWithFormat:@"%@",self.device.uuID];
-            self.VersionLabel.text =[NSString stringWithFormat:@"%@",self.device.SWStr];
             [[RobotPenManager sharePenManager] stopScanDevice];
             
             [self.deviceArray removeAllObjects];
@@ -164,6 +165,14 @@
         case DEVICE_UPDATE:
         {
             _UpdateButton.hidden = NO;
+            
+        }
+            break;
+        case DEVICE_INFO_END:
+        {
+            self.deviceName.text = [NSString stringWithFormat:@"%@",[self.device getName]];
+            self.deviceUUID.text = [NSString stringWithFormat:@"%@",self.device.uuID];
+            self.VersionLabel.text =[NSString stringWithFormat:@"%@",self.device.SWStr];
             
         }
             break;

@@ -2,7 +2,7 @@
 //  PenDevice.h
 //  RobotPenManager
 //
-//  Created by chong gao on 2016/11/15.
+//  Created by JMS on 2016/11/15.
 //  Copyright © 2016年 Robot.cn. All rights reserved.
 //
 
@@ -23,6 +23,10 @@
 @property (nonatomic, copy) NSString *HWStr;
 
 @property (nonatomic, copy) NSString *SWStr;
+
+@property (nonatomic, assign) int Battery;//电池电量 (1-7个等级)
+
+@property (nonatomic, assign) int RSSI;//信号强度
 
 - (NSString *)getName;
 @end
