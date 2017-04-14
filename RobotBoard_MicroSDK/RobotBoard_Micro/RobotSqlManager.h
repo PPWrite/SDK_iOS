@@ -175,6 +175,9 @@ typedef enum {
 //保存轨迹数据
 + (void)SaveTrails:(RobotTrails *)TrailsObj Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
 
+//删除轨迹数据
++ (void)DeleteTrails:(RobotTrails *)TrailsObj Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
+
 //还原笔记数据
 + (void)GetNoteTrailsWithBlockKey:(NSString *)ActivityBlockKey SuccessTrails:(void (^)(id responseObject))SuccessTrails SuccessImages:(void (^)(id responseObject))SuccessImages Failure:(void (^)(NSError *error))Failure;
 
