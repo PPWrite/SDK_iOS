@@ -29,7 +29,7 @@ static int interval_Board = 10;
 @property (weak, nonatomic) IBOutlet UILabel *TimeLabel;
 @property (weak, nonatomic) IBOutlet UIView *WBBView;
 
-@property (nonatomic, assign) UIColor *PenColor;
+@property (nonatomic, strong) UIColor *PenColor;
 @property (nonatomic, assign) CGFloat PenWidth;
 @property (nonatomic, copy) NSString *NoteKey;
 @property (nonatomic, copy) NSString *NoteTitle;

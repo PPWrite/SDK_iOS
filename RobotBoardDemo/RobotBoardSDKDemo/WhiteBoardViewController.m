@@ -25,7 +25,7 @@ static int interval_Board = 10;
 
 
 
-@property (nonatomic, assign) UIColor *PenColor;
+@property (nonatomic, strong) UIColor *PenColor;
 @property (nonatomic, assign) CGFloat PenWidth;
 @property (nonatomic, copy) NSString *NoteKey;
 @property (nonatomic, copy) NSString *NoteTitle;
