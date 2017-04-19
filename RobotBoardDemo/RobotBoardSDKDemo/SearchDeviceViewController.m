@@ -164,7 +164,7 @@
             break;
         case DEVICE_UPDATE:
         {
-            _UpdateButton.hidden = NO;
+            _UpdateButton.hidden = ![[RobotPenManager sharePenManager] getIsNeedUpdate];
             
         }
             break;
