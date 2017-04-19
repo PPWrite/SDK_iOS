@@ -132,6 +132,12 @@
 //获取版本号
 - (NSDictionary *)getDeviceVersion;
 
+/**
+ 获取是否需要更新
+ */
+- (BOOL)getIsNeedUpdateWithURL:(NSString *)urlString;
+
+- (BOOL)getIsNeedUpdate;
 
 /**
  获取设备类型

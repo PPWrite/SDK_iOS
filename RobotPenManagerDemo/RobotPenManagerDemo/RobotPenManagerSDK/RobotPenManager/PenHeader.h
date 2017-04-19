@@ -118,7 +118,7 @@ typedef enum {
     PEN_INIT_COMPLETE,
     /**设备信息获取**/
     DEVICE_INFO_END,
-    /**设备可以更新**/
+    /**检查设备更新**/
     DEVICE_UPDATE
     
 }DeviceState;

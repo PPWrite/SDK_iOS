@@ -2,7 +2,7 @@
 //  RobotPenManager.h
 //  RobotPenManager
 //
-//  Created by chong gao on 2016/11/15.
+//  Created by JMS on 2016/11/15.
 //  Copyright © 2016年 Robot.cn. All rights reserved.
 //
 
@@ -132,6 +132,12 @@
 //获取版本号
 - (NSDictionary *)getDeviceVersion;
 
+/**
+ 获取是否需要更新
+ */
+- (BOOL)getIsNeedUpdateWithURL:(NSString *)urlString;
+
+- (BOOL)getIsNeedUpdate;
 
 /**
  获取设备类型
