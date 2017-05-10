@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C071D3381E6D351100B53A65 /* libRobotPenManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C071D3371E6D351100B53A65 /* libRobotPenManager.a */; };
+		C07D9FA01E9C9F5C00E53C05 /* libRobotPenManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C07D9F971E9C9F5C00E53C05 /* libRobotPenManager.a */; };
 		C09057581E57DED0000D004D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C09057571E57DED0000D004D /* main.m */; };
 		C090575B1E57DED0000D004D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C090575A1E57DED0000D004D /* AppDelegate.m */; };
 		C090575E1E57DED0000D004D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C090575D1E57DED0000D004D /* ViewController.m */; };
@@ -19,14 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C071D3371E6D351100B53A65 /* libRobotPenManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libRobotPenManager.a; sourceTree = "<group>"; };
-		C071D3391E6D35C400B53A65 /* PenDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PenDevice.h; sourceTree = "<group>"; };
-		C071D33A1E6D35C400B53A65 /* PenHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PenHeader.h; sourceTree = "<group>"; };
-		C071D33B1E6D35C400B53A65 /* PenPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PenPoint.h; sourceTree = "<group>"; };
-		C071D33C1E6D35C400B53A65 /* RobotNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotNote.h; sourceTree = "<group>"; };
-		C071D33D1E6D35C400B53A65 /* RobotPenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenManager.h; sourceTree = "<group>"; };
-		C071D33E1E6D35C400B53A65 /* RobotTrailBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotTrailBlock.h; sourceTree = "<group>"; };
-		C071D33F1E6D35C400B53A65 /* RobotTrails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotTrails.h; sourceTree = "<group>"; };
+		C07D9F971E9C9F5C00E53C05 /* libRobotPenManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libRobotPenManager.a; sourceTree = "<group>"; };
 		C09057531E57DED0000D004D /* RobotPenManagerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RobotPenManagerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C09057571E57DED0000D004D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C09057591E57DED0000D004D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -39,6 +32,15 @@
 		C09057681E57DED0000D004D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C090576A1E57DED0000D004D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C09057AA1E57F1CA000D004D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		C0D2C98C1EC32140001D0AF5 /* RobotNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotNote.h; sourceTree = "<group>"; };
+		C0D2C98D1EC32140001D0AF5 /* RobotPenDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenDevice.h; sourceTree = "<group>"; };
+		C0D2C98E1EC32140001D0AF5 /* RobotPenHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenHeader.h; sourceTree = "<group>"; };
+		C0D2C98F1EC32140001D0AF5 /* RobotPenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenManager.h; sourceTree = "<group>"; };
+		C0D2C9901EC32140001D0AF5 /* RobotPenPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenPoint.h; sourceTree = "<group>"; };
+		C0D2C9911EC32140001D0AF5 /* RobotPenUtilPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenUtilPoint.h; sourceTree = "<group>"; };
+		C0D2C9921EC32140001D0AF5 /* RobotTrailBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotTrailBlock.h; sourceTree = "<group>"; };
+		C0D2C9931EC32140001D0AF5 /* RobotTrails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotTrails.h; sourceTree = "<group>"; };
+		C0D2C9941EC32140001D0AF5 /* RobotVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotVideo.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C071D3381E6D351100B53A65 /* libRobotPenManager.a in Frameworks */,
+				C07D9FA01E9C9F5C00E53C05 /* libRobotPenManager.a in Frameworks */,
 				C09057AB1E57F1CA000D004D /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,6 +56,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C07D9F981E9C9F5C00E53C05 /* RobotPenManager */ = {
+			isa = PBXGroup;
+			children = (
+				C0D2C98C1EC32140001D0AF5 /* RobotNote.h */,
+				C0D2C98D1EC32140001D0AF5 /* RobotPenDevice.h */,
+				C0D2C98E1EC32140001D0AF5 /* RobotPenHeader.h */,
+				C0D2C98F1EC32140001D0AF5 /* RobotPenManager.h */,
+				C0D2C9901EC32140001D0AF5 /* RobotPenPoint.h */,
+				C0D2C9911EC32140001D0AF5 /* RobotPenUtilPoint.h */,
+				C0D2C9921EC32140001D0AF5 /* RobotTrailBlock.h */,
+				C0D2C9931EC32140001D0AF5 /* RobotTrails.h */,
+				C0D2C9941EC32140001D0AF5 /* RobotVideo.h */,
+			);
+			path = RobotPenManager;
+			sourceTree = "<group>";
+		};
 		C090574A1E57DED0000D004D = {
 			isa = PBXGroup;
 			children = (
@@ -100,8 +118,8 @@
 		C09057701E57E29C000D004D /* RobotPenManagerSDK */ = {
 			isa = PBXGroup;
 			children = (
-				C071D3371E6D351100B53A65 /* libRobotPenManager.a */,
-				C0F5363C1E5AE93900C41699 /* RobotPenManager */,
+				C07D9F971E9C9F5C00E53C05 /* libRobotPenManager.a */,
+				C07D9F981E9C9F5C00E53C05 /* RobotPenManager */,
 			);
 			path = RobotPenManagerSDK;
 			sourceTree = "<group>";
@@ -112,20 +130,6 @@
 				C09057AA1E57F1CA000D004D /* libsqlite3.tbd */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C0F5363C1E5AE93900C41699 /* RobotPenManager */ = {
-			isa = PBXGroup;
-			children = (
-				C071D3391E6D35C400B53A65 /* PenDevice.h */,
-				C071D33A1E6D35C400B53A65 /* PenHeader.h */,
-				C071D33B1E6D35C400B53A65 /* PenPoint.h */,
-				C071D33C1E6D35C400B53A65 /* RobotNote.h */,
-				C071D33D1E6D35C400B53A65 /* RobotPenManager.h */,
-				C071D33E1E6D35C400B53A65 /* RobotTrailBlock.h */,
-				C071D33F1E6D35C400B53A65 /* RobotTrails.h */,
-			);
-			path = RobotPenManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

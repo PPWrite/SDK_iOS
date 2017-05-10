@@ -1,47 +1,26 @@
 //
 //  RobotTrailBlock.h
-//  PPWrite
+//  PPNote
 //
-//  Created by JMS on 2017/1/4.
-//  Copyright © 2017年 Robot. All rights reserved.
+//  Created by JMS on 2017/4/22.
+//  Copyright © 2017年 JMS. All rights reserved.
 //
-/**
-*
-*  ━━━━━━━━━━━━━━━━━━神兽出没━━━━━━━━━━━━━━━━━━
-*
-*          ┏━┓        ┏━┓
-*         ┏┛━┻━━━━━━━━┛━┻━┓
-*         ┃               ┃
-*         ┃               ┃
-*         ┃       ━       ┃
-*         ┃   ┳┛     ┗┳   ┃
-*         ┃               ┃
-*         ┃       ┻       ┃
-*         ┃               ┃
-*         ┗━━━━┳━━━━━━━━━━┛
-*              ┃　　　 ┃　　　　Code is far away from bug with the animal protecting
-*              ┃　　　 ┃ + 　　　　神兽保佑,永无bug
-*              ┃　　　 ┃
-*              ┃　　　 ┃　　+
-*              ┃　 　　┗━━━━━━┓ + +
-*              ┃ 　　　　　　　  ┣┓
-*              ┃ 　　　　　　　  ┏┛
-*              ┗━┓ ┓━┳━┓━┓━┓━━┛ + + + +
-*                ┃━┫━┫ ┃━┫━┫
-*                ┗━┻━┛ ┗━┻━┛+ + + +
-*
-*  ━━━━━━━━━━━━━━━━━━感觉萌萌哒━━━━━━━━━━━━━━━━━━
-*/
+
 
 #import <Foundation/Foundation.h>
 
 @interface RobotTrailBlock : NSObject
-
+/** BlockID*/
 @property (nonatomic, assign) int BlockID;
+/** NoteKey*/
 @property (nonatomic, copy) NSString *NoteKey;
+/** BlockKey*/
 @property (nonatomic, copy) NSString *BlockKey;
+/** NextBlockKey*/
 @property (nonatomic, copy) NSString *NextBlockKey;
+/** 创建时间*/
 @property (nonatomic, assign)NSTimeInterval CreateTime;
+/** 更新时间*/
 @property (nonatomic, assign)NSTimeInterval UpdateTime;
 
 @end

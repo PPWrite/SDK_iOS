@@ -8,8 +8,8 @@
 
 #import "SearchDeviceViewController.h"
 #import "RobotPenManager.h"
-#import "PenDevice.h"
-#import "PenPoint.h"
+#import "RobotPenDevice.h"
+#import "RobotPenPoint.h"
 
 #define SCREEN_WIDTH self.view.bounds.size.width
 #define SCREEN_HEIGHT self.view.bounds.size.height
@@ -32,8 +32,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *SyncButton;
 @property (weak, nonatomic) IBOutlet UILabel *VersionLabel;
 @property (weak, nonatomic) IBOutlet UIButton *UpdateButton;
+@property (weak, nonatomic) IBOutlet UILabel *BatteryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *RSSILabel;
 @property (weak, nonatomic) IBOutlet UIButton *BackButton;
-@property(nonatomic,strong)PenDevice *device;
+@property(nonatomic,strong)RobotPenDevice *device;
 @property(nonatomic,strong)NSMutableArray *deviceArray;
 
 
@@ -55,7 +57,6 @@
     [_blueToothButton setTitle:@"查找设备" forState:UIControlStateNormal];
     [_blueToothButton setTitle:@"断开连接" forState:UIControlStateSelected];
     [_blueToothButton addTarget:self action:@selector(blueToothButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-
     _SyncButton.hidden = YES;
     _UpdateButton.hidden = YES;
     
@@ -111,29 +112,21 @@
 /**
  获取点的信息
  */
--(void)getPointInfo:(PenPoint *)point{
+-(void)getPointInfo:(RobotPenPoint *)point{
     self.xValue.text = [NSString stringWithFormat:@"%hd",point.originalX];
     self.yValue.text = [NSString stringWithFormat:@"%hd",point.originalY];
-    //    CGPoint newPoint = [point getScenePointWithScaling:0.2 MinimumDistance:1 isHorizontal:NO];
-    //    self.xValue.text = [NSString stringWithFormat:@"%f",newPoint.x];
-    //    self.yValue.text = [NSString stringWithFormat:@"%f",newPoint.y];
-    self.pressureLabel.text = [NSString stringWithFormat:@"%hd",point.pressure];
-    if (point.isTrail == YES) {
-        self.routeLabel.text = [NSString stringWithFormat:@"%d",point.isTrail];
-    }else{
-        self.routeLabel.text = [NSString stringWithFormat:@"%d",point.isTrail];
-    }
-    if (point.isMove == YES) {
-        self.xValue.text = [NSString stringWithFormat:@"0.0"];
-        self.yValue.text = [NSString stringWithFormat:@"0.0"];
-        self.routeLabel.text = [NSString stringWithFormat:@"0"];
-    }
     
+
+
+    self.pressureLabel.text = [NSString stringWithFormat:@"%hd",point.pressure];
+    self.pressureLabel.text = [NSString stringWithFormat:@"%hd",point.pressure];
+    
+    self.routeLabel.text = [NSString stringWithFormat:@"%d",point.touchState];
     
     
 }
 
--(void)getBufferDevice:(PenDevice *)device{
+-(void)getBufferDevice:(RobotPenDevice *)device{
     
     [self.deviceArray addObject:device];
     [self.tableView reloadData];
@@ -173,6 +166,8 @@
             self.deviceName.text = [NSString stringWithFormat:@"%@",[self.device getName]];
             self.deviceUUID.text = [NSString stringWithFormat:@"%@",self.device.uuID];
             self.VersionLabel.text =[NSString stringWithFormat:@"%@",self.device.SWStr];
+            self.BatteryLabel.text =[NSString stringWithFormat:@"%d",self.device.Battery];
+            self.RSSILabel.text =[NSString stringWithFormat:@"%d",self.device.RSSI];
             
         }
             break;
@@ -205,7 +200,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"%s",__func__);
     if (!self.device) {
-        PenDevice *selectItem = [self.deviceArray objectAtIndex:[indexPath row]];
+        RobotPenDevice *selectItem = [self.deviceArray objectAtIndex:[indexPath row]];
         [[RobotPenManager sharePenManager] connectDevice:selectItem :self];
         
     }
@@ -222,7 +217,9 @@
     _deviceUUID.text = @"";
     _deviceName.text = @"";
     _SyncNumberLabel.text = @"0";
-    _VersionLabel.text = @"0.0.0";
+    _VersionLabel.text = @"0.0.0.0";
+    _BatteryLabel.text = @"0";
+    _RSSILabel.text = @"0";
     _SyncButton.hidden = YES;
     _UpdateButton.hidden = YES;
     self.device = nil;

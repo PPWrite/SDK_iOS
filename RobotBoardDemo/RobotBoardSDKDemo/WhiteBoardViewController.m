@@ -92,7 +92,7 @@ static int interval_Board = 10;
 }
 
 
--(void)getPointInfo:(PenPoint *)point{
+-(void)getPointInfo:(RobotPenPoint *)point{
     //    NSLog(@"%hd %hd",point.originalX,point.originalY);
     [self.WhiteBoardView drawLine:point];
 }
@@ -113,7 +113,7 @@ static int interval_Board = 10;
     [self.WhiteBoardView setDeviceType: DeviceTypes];
     [self.WhiteBoardView setIsHorizontal:isHorizontal];
 
-    [self.WhiteBoardView setDrawAreaFrame:CGRectMake(interval_Board , interval_Board , ScreenWidth - 2 * interval_Board,ScreenHeight - 2 * interval_Board - 64)];
+    [self.WhiteBoardView setSceneSize:CGRectMake(interval_Board , interval_Board , ScreenWidth - 2 * interval_Board,ScreenHeight - 2 * interval_Board - 64)];
 
     [self.WhiteBoardView RefreshAll];
     
@@ -122,7 +122,7 @@ static int interval_Board = 10;
 - (void)viewWillAppear:(BOOL)animated{
     //笔服务
     [[RobotPenManager sharePenManager] setPenDelegate:self];
-    PenDevice *device = [[RobotPenManager sharePenManager] getConnectDevice];
+    RobotPenDevice *device = [[RobotPenManager sharePenManager] getConnectDevice];
     DeviceTypes = device.deviceType;
     //数据库
     [RobotSqlManager checkRobotSqlManager];
@@ -135,7 +135,7 @@ static int interval_Board = 10;
     _NoteTitle = @"白板";
     _PenColor = [UIColor redColor];
     _PenWidth = 1;
-    [self.WhiteBoardView SetDrawType:0];
+    [self.WhiteBoardView SetDrawType:1];
 
     [self setWB];
 

@@ -10,7 +10,7 @@
 #import "RobotWhiteBoard_MicroView.h"
 #import "Header.h"
 #import "RobotSqlManager.h"
-#import "Video.h"
+#import "RobotVideo.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AVKit/AVKit.h>
 static int interval_Board = 10;
@@ -92,7 +92,7 @@ static int interval_Board = 10;
         NSArray *videoPathArray = [NSArray arrayWithArray:[responseObject objectForKey:@"Data"]];
        
         if (videoPathArray.count >0) {
-            Video *models = [videoPathArray objectAtIndex:0];
+            RobotVideo *models = [videoPathArray objectAtIndex:0];
             videoPathUrl = [NSURL fileURLWithPath:[RobotSqlManager GetVideoPathWithNameKey:models.NameKey]];
 
         }
@@ -383,7 +383,7 @@ static int interval_Board = 10;
     
     [self.WhiteBoardView setDeviceType: DeviceTypes];// 手写板类型（必须设置）
     [self.WhiteBoardView setIsHorizontal:isHorizontal];//设置画板的横竖方向 0：竖 1：横（必须设置）
-    [self.WhiteBoardView setDrawAreaFrame:CGRectMake(interval_Board , interval_Board , self.WBBView.frame.size.width - 2 * interval_Board,self.WBBView.frame.size.height - 2 * interval_Board)];//设置画板的大小和位置（必须设置）
+    [self.WhiteBoardView setSceneSize:CGRectMake(interval_Board , interval_Board , self.WBBView.frame.size.width - 2 * interval_Board,self.WBBView.frame.size.height - 2 * interval_Board)];//设置画板的大小和位置（必须设置）
     [self.WhiteBoardView RefreshAll];//刷新笔记（本地数据库）（用不到数据库的可以不写）
     
 }
@@ -391,7 +391,7 @@ static int interval_Board = 10;
 - (void)viewWillAppear:(BOOL)animated{
     //笔服务
     [[RobotPenManager sharePenManager] setPenDelegate:self];
-    PenDevice *device = [[RobotPenManager sharePenManager] getConnectDevice];
+    RobotPenDevice *device = [[RobotPenManager sharePenManager] getConnectDevice];
     DeviceTypes = device.deviceType;
     //数据库
     [RobotSqlManager checkRobotSqlManager];
@@ -430,7 +430,7 @@ static int interval_Board = 10;
 }
 
 
--(void)getPointInfo:(PenPoint *)point{
+-(void)getPointInfo:(RobotPenPoint *)point{
     //    NSLog(@"%hd %hd",point.originalX,point.originalY);
     [self.WhiteBoardView drawLine:point];
 }

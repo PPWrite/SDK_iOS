@@ -1,37 +1,11 @@
 //
 //  RobotSqlManager.h
-//  PPWrite
+//  PPNote
 //
-//  Created by chong gao on 2017/1/4.
-//  Copyright © 2017年 Robot. All rights reserved.
+//  Created by JMS on 2017/4/22.
+//  Copyright © 2017年 JMS. All rights reserved.
 //
-/**
-*
-*  ━━━━━━━━━━━━━━━━━━神兽出没━━━━━━━━━━━━━━━━━━
-*
-*          ┏━┓        ┏━┓
-*         ┏┛━┻━━━━━━━━┛━┻━┓
-*         ┃               ┃
-*         ┃               ┃
-*         ┃       ━       ┃
-*         ┃   ┳┛     ┗┳   ┃
-*         ┃               ┃
-*         ┃       ┻       ┃
-*         ┃               ┃
-*         ┗━━━━┳━━━━━━━━━━┛
-*              ┃　　　 ┃　　　　Code is far away from bug with the animal protecting
-*              ┃　　　 ┃ + 　　　　神兽保佑,永无bug
-*              ┃　　　 ┃
-*              ┃　　　 ┃　　+
-*              ┃　 　　┗━━━━━━┓ + +
-*              ┃ 　　　　　　　  ┣┓
-*              ┃ 　　　　　　　  ┏┛
-*              ┗━┓ ┓━┳━┓━┓━┓━━┛ + + + +
-*                ┃━┫━┫ ┃━┫━┫
-*                ┗━┻━┛ ┗━┻━┛+ + + +
-*
-*  ━━━━━━━━━━━━━━━━━━感觉萌萌哒━━━━━━━━━━━━━━━━━━
-*/
+
 //笔迹消息类型
 typedef enum {
     /**轨迹数据**/
@@ -67,7 +41,7 @@ typedef enum {
 
 #import <Foundation/Foundation.h>
 
-@class Video;
+@class RobotVideo;
 @class RobotNote;
 @class RobotTrails;
 @class RobotTrailBlock;
@@ -78,6 +52,11 @@ typedef enum {
 
 //检查数据库
 + (void)checkRobotSqlManager;
+
+//获取截图图片路径
++ (NSString *)GetNoteImagePathWithKey:(NSString *)Key;
+//获取笔记分享截图图片路径
++ (NSString *)GetNoteShareImagePathWithKey:(NSString *)Key andBlockKey:(NSString *)blockkey;
 //保存截图信息
 + (void)SaveImageKeySuccess:(void (^)(id responseObject))Success
                     Failure:(void (^)(NSError *error))Failure;
@@ -100,7 +79,7 @@ typedef enum {
                       Failure:(void (^)(NSError *error))Failure;
 //完善Video信息
 
-+ (void)PerfectVideoInfosWithVideo:(Video *)Video Success:(void (^)(id responseObject))Success
++ (void)PerfectVideoInfosWithVideo:(RobotVideo *)Video Success:(void (^)(id responseObject))Success
                            Failure:(void (^)(NSError *error))Failure;
 //改名
 
