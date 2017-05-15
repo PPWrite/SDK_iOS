@@ -32,9 +32,15 @@
 /**
  获取点数据
  
- @param point 原始点：pressure 为压力值 屏幕点：pressure 为线条宽度
+ @param point 原始点
  */
 - (void)getPointInfo:(RobotPenPoint *)point;
+/**
+ 获取优化点数据
+ 
+ @param point 优化点
+ */
+- (void)getOptimizesPointInfo:(RobotPenUtilPoint *)point;
 
 /**
  获取设备信息
