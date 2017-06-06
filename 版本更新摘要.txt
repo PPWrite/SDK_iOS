@@ -1,0 +1,31 @@
+6.6 libRobotBoard_MicroSDK更新内容
+1、RobotPenHeader.h
+
+/**设备可更新**/
+    DEVICE_UPDATE_CAN,
+
+2、RobotPenManager.h
+由- (BOOL)getIsNeedUpdate;变为- (void)getIsNeedUpdate;
+有更新则通过-(void)getDeviceState:(DeviceState)State；返回/**设备可更新**/
+    DEVICE_UPDATE_CAN,状态
+/**
+ 获取固件是否需要更新
+ */
+- (void)getIsNeedUpdateWithURL:(NSString *)urlString;
+
+- (void)getIsNeedUpdate;
+
+3、RobotBoard_MicroSDK
+图片记录删除过程记录。
+
+4.RobotWhiteBoardView.h
+
+/**
+ 设置 不可书写图标 (仅用于笔模式，手写提示)
+
+ @param image <#image description#>
+ */
+- (void)setPenModleBanIcon:(UIImage *)image;
+
+
+5. 优化了录制微课的稳定性
