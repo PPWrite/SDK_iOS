@@ -1,4 +1,9 @@
 
+/*********************************************************/
+/*********************************************************/
+/*----------------------SDK 3.1.0------------------------*/
+/*********************************************************/
+/*********************************************************/
 #ifdef DEBUG
 
 #define RobotBLELog(fmt, ...) NSLog((@"RobotBLE Log :   %s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
@@ -8,6 +13,12 @@
 #define RobotBLELog(...)
 
 #endif
+//注意：必看！！！
+//此处的宽高为板子横向的宽高。
+//即
+//WIDTH 表示板子长边的像素值
+//HEIGHT 表示板子长边的像素值
+
 
 /**USB P1纵向 宽度**/ //4
 #define VALUE_P1_WIDTH  17407.0f
@@ -19,35 +30,35 @@
 /**BLE P7纵向 高度**/
 #define VALUE_P7_HEIGHT  8191.0f
 
-/**BLE ELITE纵向 宽度**/ //2
-#define VALUE_ELITE_WIDTH  14335.0f
-/**BLE ELITE纵向 高度**/
-#define VALUE_ELITE_HEIGHT  8191.0f
+/**BLE T7纵向 宽度**/ //2
+#define VALUE_T7_WIDTH  14335.0f
+/**BLE T7纵向 高度**/
+#define VALUE_T7_HEIGHT  8191.0f
 
-/**BLE ELITE PLUS纵向 宽度**/ //3 5
-#define VALUE_ELITE_PLUS_WIDTH  22015.0f
-/**BLE ELITE PLUS纵向 高度**/
-#define VALUE_ELITE_PLUS_HEIGHT  15359.0f
+/**BLE T7 PLUS纵向 宽度**/ //3 5
+#define VALUE_T7P_WIDTH  22015.0f
+/**BLE T7 PLUS纵向 高度**/
+#define VALUE_T7P_HEIGHT  15359.0f
 
 /**BLE T8A 纵向 宽度**/ // 6
 #define VALUE_T8A_WIDTH  22600.0f
 /**BLE T8A 纵向 高度**/
 #define VALUE_T8A_HEIGHT  16650.0f
 
-/**BLE ELITE 好写纵向 宽度**/ // 7
-#define VALUE_ELITE_XY_WIDTH  14300.0f
-/**BLE ELITE 好写纵向 高度**/
-#define VALUE_ELITE_XY_HEIGHT  7950.0f
+/**BLE T7 好写纵向 宽度**/ // 7
+#define VALUE_T7_XY_WIDTH  14300.0f
+/**BLE T7 好写纵向 高度**/
+#define VALUE_T7_XY_HEIGHT  7950.0f
 
-/**BLE ELITE PLUS J0 纵向 宽度**/ //8
+/**BLE T7 PLUS J0 纵向 宽度**/ //8
 #define VALUE_J0_A5_WIDTH  14435.0f
-/**BLE ELITE PLUS J0 纵向 高度**/
+/**BLE T7 PLUS J0 纵向 高度**/
 #define VALUE_J0_A5_HEIGHT  8191.0f
 
 /**BLE J0_A4 纵向 宽度**/ //11
-#define VALUE_J0_A4_WIDTH  22015.0f
+#define VALUE_J0_A4_WIDTH  22600.0f
 /**BLE J0_A4 纵向 高度**/
-#define VALUE_J0_A4_HEIGHT  15359.0f
+#define VALUE_J0_A4_HEIGHT  16650.0f
 
 
 /**BLE T9A 纵向 宽度**/ //12
@@ -56,17 +67,26 @@
 #define VALUE_T9A_HEIGHT  16650.0f
 
 /**BLE X8 纵向 宽度**/ //13
-#define VALUE_X8_WIDTH  14335.0f
+#define VALUE_X8_A5_WIDTH  22100.0f
 /**BLE X8 纵向 高度**/
-#define VALUE_X8_HEIGHT  8191.0f
+#define VALUE_X8_A5_HEIGHT  14650.0f
+
 //OTA状态
 typedef enum {
+    /** OTA升级错误*/
     OTA_ERROR,
+    /** OTA数据传输*/
     OTA_DATA,
+    /** OTA升级*/
     OTA_UPDATE,
+    /** OTA成功*/
     OTA_SUCCESS,
+    /** 复位*/
     OTA_RESET,
-    OTA_ONE_SUCCESS,//一个升级成功
+    /** 单个升级成功*/
+    OTA_ONE_SUCCESS,
+    /** 低电不能升级*/
+    OTA_STATUS_ERROR,
     
 }OTAState;
 
@@ -90,12 +110,19 @@ typedef enum {
 
 //同步笔记状态
 typedef enum {
+    /** 同步错误*/
     SYNC_ERROR,
+    /** 有未同步笔记*/
     SYNC_NOTE,
+    /** 没有未同步笔记*/
     SYNC_NO_NOTE,
+    /** 同步成功（一个）*/
     SYNC_SUCCESS,
+    /** 开始同步*/
     SYNC_START,
+    /** 停止同步*/
     SYNC_STOP,
+    /** 同步完成（全部）*/
     SYNC_COMPLETE,
     
 }SYNCState;
@@ -103,28 +130,29 @@ typedef enum {
 
 
 /**
-
- 板子方向：
- //与Elite_Plus的区别在于顶点坐标在左下角
- Elite
- Elite_XY
- Elite_Plus_New
- J0_A5
- J0_A4
  
- //与Elite_Plus_New的区别在于顶点坐标在右上角
- Elite_Plus
+ 板子方向：
+ //与T7P的区别在于顶点坐标在左下角
+ T7
+ T7_XY
+ T7P_New
+ J0_A5
+ X8
+ 
+ 
+ //与T7P_New的区别在于顶点坐标在右上角
+ T7P
  RobotPen_P7
  T8A
  T9A
- 
+ J0_A4
  
  别名：
- Elite          == T7
- Elite_Plus     == T7P/Elite_Plus_A4
- Elite_Plus_New == T7P/Elite_Plus_A5
+ T7          == T7
+ T7P     == T7P/T7P_A4
+ T7P_New == T7P/T7P_A5
  T8A            == NEBULA_Node
- Elite_XY       == T7_XY
+ T7_XY       == T7_XY
  J0_A5          == J0_A5 -> T7
  J0_A4          ==       ->T7P
  T9A            ==       -> T8A
@@ -132,7 +160,7 @@ typedef enum {
  G1             == NEBULA_Gateway ->PC
  D1             == Dongle         ->PC
  
- X8             == Elite
+ X8             == T7
  
  T8A:与T9A尺寸一样 同步笔记：T7P
  T9A:与T8A尺寸一样 同步笔记：T7
@@ -141,7 +169,7 @@ typedef enum {
  J0_A4: 尺寸：T7P 同步笔记：T7P
  
  
-*/
+ */
 
 
 //设备类型
@@ -150,30 +178,30 @@ typedef enum {
     UnKnown = 0,
     
     RobotPen_P7  = 1,
-
-    Elite = 2,
     
-    Elite_Plus = 3,
+    T7 = 2,
+    
+    T7P = 3,
     
     RobotPen_P1 = 4,
     
-    Elite_Plus_New  =5,
+    T7P_New  =5,
     
     T8A = 6,
-   
-    Elite_XY = 7,
+    
+    T7_XY = 7,
     
     J0_A5 = 8,
-
-//    NEBULA_Gateway = 9,
-
-//    Dongle = 10,
-
+    
+    //    NEBULA_Gateway = 9,
+    
+    //    Dongle = 10,
+    
     J0_A4 = 11,
-
+    
     T9A = 12,
     
-    X8 = 13,
+    X8_A5 = 13,
     
     
     
@@ -207,12 +235,20 @@ typedef enum {
     DEVICE_INFO_END,
     /**检查设备更新*/
     DEVICE_UPDATE,
+    /**检查设备更新失败*/
+    DEVICE_UPDATE_FAIL,
     /**设备可更新*/
     DEVICE_UPDATE_CAN,
+    /**设备不可更新*/
+    DEVICE_UPDATE_CANT,
     /**设备名字修改成功*/
     DEVICE_NAME_UPDATED,
     /**设备名字更新*/
     DEVICE_NAME_UPDATE,
+    /**支持频率校准*/
+    DEVICE_CALIBRATION_SUPPORT,
+    /**不支持频率校准*/
+    DEVICE_CALIBRATION_NONSUPPORT,
     /**进入频率校准模式*/
     DEVICE_CALIBRATION_REDAY,
     /**进入频率校准超时*/
@@ -221,12 +257,22 @@ typedef enum {
     DEVICE_CALIBRATION_SUCCESS,
     /**频率校准失败*/
     DEVICE_CALIBRATION_FAIL,
+    /**退出频率校准模式*/
+    DEVICE_CALIBRATION_QUIT,
     /**支持模组升级*/
-    DEVICE_SENSOR_UPDATE,
+    DEVICE_SENSOR_SUPPORT,
+    /**不支持模组升级*/
+    DEVICE_SENSOR_NONSUPPORT,
+    /**模组必须更新,否则无法使用*/
+    DEVICE_SENSOR_UPDATE_MUST,
+    /**模组不用强制更新*/
+    DEVICE_SENSOR_UPDATE_MUSTNOT,
     /**模组可更新*/
     DEVICE_SENSOR_UPDATE_CAN,
+    /**模组不可更新*/
+    DEVICE_SENSOR_UPDATE_CANT,
     
-
+    
     
 }DeviceState;
 

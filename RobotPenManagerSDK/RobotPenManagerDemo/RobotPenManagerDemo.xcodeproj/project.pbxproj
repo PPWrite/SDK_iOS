@@ -323,7 +323,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = DYC8577H8P;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = RobotPenManagerDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -331,8 +332,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/RobotPenManagerDemo/RobotPenManagerSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jms.RobotPenManagerDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.robotpen.everwrite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -340,7 +344,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = DYC8577H8P;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = RobotPenManagerDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -348,8 +353,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/RobotPenManagerDemo/RobotPenManagerSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jms.RobotPenManagerDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.robotpen.everwrite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -1,3 +1,63 @@
+iOS SDK 3.1.0已更新
+地址：https://github.com/PPWrite/SDK_iOS
+版本号在RobotPenHeader可见。
+更新内容详情见“更新摘要”
+
+
+更新概要：
+1、优化了笔迹。
+2、优化了设备通讯、升级逻辑。
+3、增加了新设备的支持。
+4、增加了新功能的支持。
+5、增加了配对设备列表。
+6、增加了外部升级API。
+7、增加了画布区域截图功能。
+
+更新详情：
+—————————————————————————————————
+修改项：
+SDK中
+ELITE 变更为T7
+ELITE_PLUS变更为T7P
+
+RobotPenHeader.h
+getIsNewDeviceVersion 变更为 getIsMACAndNameDevice
+
+getIsNewOTADevice 变更为 getIsBLEAndMCUOTADevice
+—————————————————————————————————
+增加项：
+
+增加J0-A4支持。
+增加T9A支持。
+—————————————————————————————————
+笔服务相关
+RobotPenDevice.h中
+/** 模组版本*/
+@property (nonatomic, copy) NSString *MWStr;
+
+RobotPenHeader.h中
+/**
+ 是否支持获取模组版本
+ */
+- (BOOL)getIsSensorDevice;
+—————————————————————————————————
+数据库相关
+RobotSqlManager.h中
+/**
+ 获取列表笔记单个信息
+ */
++ (void)GetNoteListInfoWithNoteKey:(NSString *)NoteKey Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
+/**
+ 获取page之前所有笔记列表，返回0 - page页的数据
+ */
++ (void)GetAllNoteListBeforePage:(int)Page Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
+
+/**
+ 获取page之前的所有视频列表，返回0-page页的所有数据
+ */
++ (void)GetAllVideoListBeforePage:(int)Page Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
+
+
 6.6 libRobotBoard_MicroSDK更新内容
 1、RobotPenHeader.h
 

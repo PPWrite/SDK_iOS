@@ -84,7 +84,15 @@ typedef enum {
  @param Failure <#Failure description#>
  */
 + (void)SaveNote:(RobotNote *)NoteObj Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
-
+/**
+ 保存页码识别离线笔记
+ PS:页码识别准用
+ @param NoteObj <#NoteObj description#>
+ @param Page <#Page description#>
+ @param Success <#Success description#>
+ @param Failure <#Failure description#>
+ */
++ (void)SaveTANote:(RobotNote *)NoteObj andPage:(int)Page Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
 /**
  更新笔记的UpdateTime
  
@@ -97,7 +105,7 @@ typedef enum {
 
 
 /**
- 获取笔记列表
+ 获取单页笔记列表，返回page页的数据
  
  @param Page page >=0
  @param Success <#Success description#>
@@ -105,9 +113,29 @@ typedef enum {
  */
 + (void)GetAllNoteListWithPage:(int)Page Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
 
+/**
+ 获取page之前所有笔记列表，返回0 - page页的数据
+ 
+ @param Page page >=0
+ @param Success <#Success description#>
+ @param Failure <#Failure description#>
+ */
++ (void)GetAllNoteListBeforePage:(int)Page Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
+
 
 /**
- 获取笔记信息
+ 获取列表笔记单个信息
+ 
+ @param NoteKey NoteKey
+ @param Success <#Success description#>
+ @param Failure <#Failure description#>
+ */
++ (void)GetNoteListInfoWithNoteKey:(NSString *)NoteKey Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
+
+
+/**
+ 获取当前笔记页码信息
+ 总页码 当前页 活动页
  
  @param NoteKey NoteKey
  @param Success <#Success description#>
@@ -411,11 +439,11 @@ typedef enum {
 
 
 /**
- 获取截图图片路径
+ 获取截图图片(笔记缩略图)路径（用于笔记缩略图）
  */
 + (NSString *)GetNoteImagePathWithKey:(NSString *)Key;
 /**
- 获取笔记分享截图图片路径
+ 获取笔记分享截图图片(白板截图)路径（用于每页笔记截图）
  */
 + (NSString *)GetNoteShareImagePathWithKey:(NSString *)Key andBlockKey:(NSString *)blockkey;
 
@@ -430,7 +458,7 @@ typedef enum {
 + (void)GetImagesArrayWithPage:(int)Page Success:(void (^)(id responseObject))Success
                        Failure:(void (^)(NSError *error))Failure;
 /**
- 获取截图图片路径
+ 获取截图图片路径（用于主动截图，key为时间戳）
  */
 + (NSString *)GetImagePathWithKey:(NSString *)Key;
 
@@ -531,13 +559,22 @@ typedef enum {
 
 
 /**
- 获取视频列表
+ 获取单页视频列表，返回当前page页的所有数据
 
  @param Page page >= 0
  @param Success <#Success description#>
  @param Failure <#Failure description#>
  */
 + (void)GetVideoListWithPage:(int)Page Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
+
+/**
+ 获取page之前的所有视频列表，返回0-page页的所有数据
+ 
+ @param Page page >= 0
+ @param Success <#Success description#>
+ @param Failure <#Failure description#>
+ */
++ (void)GetAllVideoListBeforePage:(int)Page Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
 
 /**
   获取视频总个数
@@ -598,6 +635,41 @@ typedef enum {
  @param page <#page description#>
  */
 + (void)SetNumberOfPageWith:(int)page;
+
+
+
+
+/**-----------------------------------页码检测专用---------------------------------**/
+
+
+/**
+ 根据页码信息获取Blockkey，为空则新建
+ PS:页码检测专用
+ @param Notekey Notekey
+ @param Page 页码
+ @return <#return value description#>
+ */
++ (NSString *)getOrBuildBlockKeyWithNoteKey:(NSString *)Notekey PageNumber:(int)Page;
+
+/**
+ 根据页码信息获取Blockkey
+ PS:页码检测专用
+ @param Notekey Notekey
+ @param Page 页码
+ @return <#return value description#>
+ */
++ (NSString *)getBlockKeyWithNoteKey:(NSString *)Notekey PageNumber:(int)Page;
+
+/**
+ 根据BlockKey获取PageNumber
+ PS:页码检测专用
+ 
+ @param NoteKey <#NoteKey description#>
+ @param BlockKey <#BlockKey description#>
+ @return <#return value description#>
+ */
++ (int)getPageNumberWithNoteKey:(NSString *)NoteKey BlockKey:(NSString *)BlockKey;
+
 
 
 

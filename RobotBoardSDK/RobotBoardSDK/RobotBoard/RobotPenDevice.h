@@ -10,7 +10,7 @@
 #import "RobotPenHeader.h"
 #import <CoreBluetooth/CoreBluetooth.h>
 
-@interface RobotPenDevice : NSObject
+@interface RobotPenDevice : NSObject<NSCoding>
 /** 设备类型*/
 @property (nonatomic, assign) DeviceType deviceType;
 /** 蓝牙*/
@@ -33,6 +33,8 @@
   5 == 3格
   6 == 4格
   7 == 4格
+  254:充电中
+  255:已充满
  */
 @property (nonatomic, assign) int Battery;
 /** 信号强度*/
@@ -43,11 +45,18 @@
 
 /** 设备离线笔记数量*/
 @property (nonatomic, assign) int NoteNumber;
+
+/**
+ 固件mac标识
+ */
+@property (nonatomic, assign) int MacSign;
 /**
  获取设备名
 
  @return 设备名
  */
 - (NSString *)getName;
+
+
 
 @end

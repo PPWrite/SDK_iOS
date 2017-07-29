@@ -155,13 +155,13 @@
  */
 - (void)getDeviceEvent:(DeviceEventType)Type;
 
-/** T9A----------------------------专用**/
+/** 页码检测专用----------------------------专用**/
 /**
- 获取设备当前页（仅限T9A）
+ 获取设备当前页（仅限页码检测）
 
  @param page 当前页
  */
-- (void)getDevicePage:(int)page;
+- (void)getDevicePage:(int)page andNoteKey:(NSString *)NoteKey;
 
 /**
  T9A获取笔迹数据
@@ -193,9 +193,10 @@
 /**
  同步离线笔记抛点
  
- @param isoptimize 是否是优化点，默认为原始点
+ @param isoptimize 是否是优化点，默认为YES
  */
 - (void)setSyncOptimizeType:(BOOL)isoptimize;
+
 
 /**
  是否开启优化笔迹
@@ -216,9 +217,9 @@
 /**
  设置场景尺寸(isOriginal = NO时需要设置)
 
- @param width <#width description#>
- @param height <#height description#>
- @param isHorizontal <#isHorizontal description#>
+ @param width 场景（显示区域）的宽度
+ @param height 场景（显示区域）的高度
+ @param isHorizontal 显示的方向
  */
 - (void)setSceneSizeWithWidth:(float)width andHeight:(float)height andIsHorizontal:(BOOL)isHorizontal;
 
@@ -230,7 +231,18 @@
  */
 - (void)setStrokeWidth:(float)width;
 
+/**
+ 设置是否上报悬浮点，默认打开
 
+ @param isReport 默认为YES
+ */
+- (void)setReportSuspensionPoint:(BOOL)isReport;
+/**
+ 设置抛出优化点时是否抛出原始点
+ 
+ @param isoriginal 默认为NO
+ */
+- (void)setSendOriginalPointWhenIsOptimize:(BOOL)isoriginal;
 /**
  设置中心偏移
 
@@ -294,12 +306,20 @@
 - (BOOL)getIsHaveSensor;
 
 /**
+ 获取模组版本信息、是否支持笔校准模式
+ */
+- (void)getSensorVersion;
+
+/**
  开始SENSOR升级
  
  @param delegate <#delegate description#>
  */
 - (void)startSensor:(id<RobotPenDelegate>)delegate;
 
+/**
+  开始SENSOR升级 PS：遵循了delegate建议使用这个方法。
+ */
 - (void)startSensor;
 
 /**
@@ -349,17 +369,44 @@
 - (BOOL)checkIsHaveMatch;
 
 /**
- 自动链接
+ 获取配对设备列表
+
+ @return <#return value description#>
+ */
+- (NSArray *)getPairingDevice;
+
+/**
+ 删除指定的配对设备
+
+ @param device <#device description#>
+ */
+- (void)deletePairingMacDevice:(RobotPenDevice *)device;
+
+/**
+ 配对指定的设备
+
+ @param device <#device description#>
+ */
+- (void)savePairingMacDevice:(RobotPenDevice *)device;
+
+
+/**
+ 清空所有配对设备
+ */
+- (void)cleanAllPairingDevice;
+
+/**
+ 自动链接（自动连接配对列表中的最后一个）
  */
 - (void)AutoCheckDeviceConnect;
 
 /**
- 设置是否自动链接
+ 设置是否自动链接（自动连接配对列表中的最后一个）
  */
 - (void)setAutoCheckDeviceConnect:(BOOL)autoConnect;
 
 /**
- 取消配对
+ 取消当前配对
  */
 - (void)deleteConnect;
 
@@ -405,6 +452,54 @@
 
 #pragma mark Other
 
+
+/**
+ 
+ 设置升级地址是否是外接
+ 用于固件自己下载
+ @param isOther 默认为No
+ */
+- (void)setOtherUpdateAddress:(BOOL)isOther;
+
+
+
+/**
+
+ 设置升级目标的固件版本号
+
+ @param bleVersion ble版本号
+ @param mcuVersion mcu版本号
+ */
+- (void)setHardWareUpdateVerSionWithBLEVersion:(int)bleVersion andMCUVersion:(int)mcuVersion;
+
+
+/**
+ 设置升级目标的固件数据
+
+ @param bleData ble数据
+ @param mcuData mcu数据
+ */
+- (void)setHardWareUpdateDataWithBLEData:(NSData *)bleData andMCUData:(NSData *)mcuData;
+
+
+
+/**
+ 设置模组升级版本
+
+ @param sensorType 模组类型 Ps:目前只支持128
+ @param sensorVersion 模组版本
+ */
+- (void)setSensorUpdateVerSionWithSensorType:(int)sensorType andSensorVersion:(int)sensorVersion;
+
+/**
+ 设置模组升级数据
+
+ @param sensorDatas sensor数据
+ */
+- (void)setSensorUpdateDataWithSensorData:(NSData *)sensorDatas;
+
+
+
 /**
  发送页码信息
  */
@@ -420,22 +515,47 @@
  */
 - (void)SetBlockWithBlock:(NSString *)blocks;
 
-/** T9A----------------------------专用**/
-//设置离线笔记轨迹的Block
-- (void)SetBlockWithBlock:(NSString *)blocks andPage:(int)page;
-
-
 
 /**
- 是否是新的版本规则
+ 是否支持获取MAC和设备名称
+ @return <#return value description#>
+ */
+- (BOOL)getIsMACAndNameDevice;
+
+/**
+ 是否是支持BLE和MCU的OTA升级
  
  @return <#return value description#>
  */
-- (BOOL)getIsNewDeviceVersion;
+- (BOOL)getIsBLEAndMCUOTADevice;
 
+
+/**
+ 是否支持获取模组版本
+ 
+ @return <#return value description#>
+ */
+- (BOOL)getIsSensorDevice;
 /**
  取消请求固件版本
  */
 - (void)cancelSession;
+
+/** 页码检测专用----------------------------专用**/
+
+/**
+ 设置离线笔记轨迹的Block
+
+ @param blocks <#blocks description#>
+ @param page <#page description#>
+ */
+- (void)SetBlockWithBlock:(NSString *)blocks andPage:(int)page;
+
+/**
+ 获取页码信息（页码检测设备专用）
+ */
+-(void)getTAPageInfo;
+
+
 
 @end
