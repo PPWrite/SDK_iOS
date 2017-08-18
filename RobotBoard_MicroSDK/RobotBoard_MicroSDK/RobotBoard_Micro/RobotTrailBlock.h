@@ -22,5 +22,6 @@
 @property (nonatomic, assign)NSTimeInterval CreateTime;
 /** 更新时间*/
 @property (nonatomic, assign)NSTimeInterval UpdateTime;
-
+/** 页码信息*/
+@property (nonatomic, assign)int PageNumber;
 @end

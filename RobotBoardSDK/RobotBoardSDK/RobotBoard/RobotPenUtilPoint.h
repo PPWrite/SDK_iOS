@@ -20,7 +20,7 @@
 @property (nonatomic, assign) DeviceType deviceType;
 /** 点的速度*/
 @property (nonatomic,assign) float speed;
-/** 状态 0：离开状态 1：touchBegin状态 2：touchMove状态 3：touchEnd状态 4:离开感应范围 */
+/** 状态 0：离开(悬浮)状态 1：touchBegin状态 2：touchMove状态 3：touchEnd状态 4:离开感应范围 */
 @property (nonatomic, assign) int touchState;
 
 /**
@@ -31,12 +31,23 @@
 
 
 /**
- 获取显示场景点坐标
+ 根据原始点获取显示场景点坐标
  
  @param sceneWidth 场景宽
  @param sceneHeight 场景高
  @param isHorizontal 场景是否竖屏
  @return 屏幕点
  */
-- (CGPoint)getScenePointWith :(float)sceneWidth :(float)sceneHeight :(BOOL)isHorizontal;
+- (CGPoint)getScenePointWithSceneWidth:(float)sceneWidth SceneHeight:(float)sceneHeight IsHorizontal:(BOOL)isHorizontal;
+
+/**
+ 根据屏幕点获取原始点坐标
+ 
+ @param sceneWidth 场景宽
+ @param sceneHeight 场景高
+ @param isHorizontal 场景是否竖屏
+ @return 屏幕点
+ */
+- (CGPoint)getOriginalPointWithSceneWidth:(float)sceneWidth SceneHeight:(float)sceneHeight IsHorizontal:(BOOL)isHorizontal;
+
 @end

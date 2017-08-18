@@ -409,17 +409,30 @@
  */
 - (UIImage *)getWhiteBoardImage;
 
+/**
+ 获取当前画板的大小
+
+ @return <#return value description#>
+ */
+- (CGSize)getWhiteBoardSceneSize;
 
 #pragma mark 使用类方法
 /** --------------------------------------使用类--------------------------------------------------*/
 
 /**
- 根据坐标点画线方法
+ 根据原始点画线方法
 
- @param penPoint 坐标点
+ @param penPoint 原始点
  */
 - (void)drawLine:(RobotPenPoint *)penPoint;
 
+
+/**
+ 根据优化点画线方法
+
+ @param penpoint 优化点
+ */
+- (void)drawLineWithUtilPoint:(RobotPenUtilPoint *)penpoint;
 
 /**
  刷新画板
@@ -591,22 +604,6 @@
  */
 - (void)saveSQLWithTag:(NSString *)tag ForFull:(BOOL)isFull;
 
-
-/**
- 获取原始点坐标
-
- @param scenePoint 屏幕点坐标
- @return 原始点坐标
- */
-- (CGPoint)getOriginalPointWith:(CGPoint)scenePoint;
-
-/**
- 获取原始设备尺寸
-
- @param sceneSize 屏幕尺寸
- @return 原始尺寸
- */
-- (CGSize)getOriginalSizeWith:(CGSize)sceneSize;
 
 
 /**

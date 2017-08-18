@@ -129,6 +129,12 @@
  */
 - (void)getStorageNum:(int)num andBattery:(int)battery;
 
+
+/**
+ 获取设备电量百分比
+ @param percentageBattery 电量百分比
+ */
+- (void)getDevicePercentageBattery:(PercentageBattery)percentageBattery;
 /**
  获取MAC地址
  @param mac <#num description#>
@@ -154,6 +160,14 @@
  @param Type <#Type description#>
  */
 - (void)getDeviceEvent:(DeviceEventType)Type;
+
+
+/**
+ 获取蓝牙状态
+ 
+ @param State <#State description#>
+ */
+- (void)getBLEState:(CBManagerState)State;
 
 /** 页码检测专用----------------------------专用**/
 /**
@@ -454,6 +468,52 @@
 
 
 /**
+ 以设备宽和场景宽为基础，获取原始/场景的笔迹宽度
+ @param W 场景/原始的笔迹宽度
+ @param width 场景/原始宽度
+ @param ishorizontal 是否是横向
+ @param deviceType 设备类型
+ @param isOriginal 原始/场景
+ @return <#return value description#>
+ */
+- (CGFloat)getWidth:(CGFloat)W  andSceneWidth:(CGFloat)width andisHorizontal:(BOOL)ishorizontal andDevicetype:(DeviceType)deviceType  isOriginal:(BOOL)isOriginal;
+
+
+/**
+ 获取电磁板宽高比
+ ishorizontal = yes 长边/短边
+ @param deviceType 设备类型
+ @param ishorizontal 是否为横向
+ @return <#return value description#>
+ */
+- (CGFloat)getDeviceScaleWithDeviceType:(DeviceType)deviceType andIsHorizontal:(BOOL)ishorizontal;
+
+
+
+/**
+ 根据原始图片尺寸获取屏幕图片尺寸
+ 
+ @param sceneImageSize 屏幕图片尺寸
+ @param sceneWidth 屏幕显示宽度
+ @param deviceType 设备类型
+ @param isHorizontal 电磁板方向
+ @return <#return value description#>
+ */
+- (CGSize)getSceneImageSizeWith:(CGSize)sceneImageSize WithSceneWidth:(float)sceneWidth DeviceType:(int)deviceType IsHorizontal:(BOOL)isHorizontal;
+
+
+/**
+ 根据屏幕图片尺寸获取原始图片尺寸
+ 
+ @param sceneImageSize 屏幕图片尺寸
+ @param sceneWidth 屏幕显示宽度
+ @param deviceType 设备类型
+ @param isHorizontal 电磁板方向
+ @return <#return value description#>
+ */
+- (CGSize)getOriginalImageSizeWith:(CGSize)sceneImageSize WithSceneWidth:(float)sceneWidth DeviceType:(int)deviceType IsHorizontal:(BOOL)isHorizontal;
+
+/**
  
  设置升级地址是否是外接
  用于固件自己下载
@@ -542,14 +602,6 @@
 - (void)cancelSession;
 
 /** 页码检测专用----------------------------专用**/
-
-/**
- 设置离线笔记轨迹的Block
-
- @param blocks <#blocks description#>
- @param page <#page description#>
- */
-- (void)SetBlockWithBlock:(NSString *)blocks andPage:(int)page;
 
 /**
  获取页码信息（页码检测设备专用）

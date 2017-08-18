@@ -1,7 +1,7 @@
 
 /*********************************************************/
 /*********************************************************/
-/*----------------------SDK 3.1.0------------------------*/
+/*----------------------SDK 3.1.1------------------------*/
 /*********************************************************/
 /*********************************************************/
 #ifdef DEBUG
@@ -13,6 +13,10 @@
 #define RobotBLELog(...)
 
 #endif
+
+/** 蓝牙系统提示框*/
+#define ShowBLEAlert NO
+
 //注意：必看！！！
 //此处的宽高为板子横向的宽高。
 //即
@@ -30,7 +34,7 @@
 /**BLE P7纵向 高度**/
 #define VALUE_P7_HEIGHT  8191.0f
 
-/**BLE T7纵向 宽度**/ //2
+/**BLE T7 / T7_TS / T7_LW纵向 宽度**/ //2 / 16 / 17
 #define VALUE_T7_WIDTH  14335.0f
 /**BLE T7纵向 高度**/
 #define VALUE_T7_HEIGHT  8191.0f
@@ -55,7 +59,7 @@
 /**BLE T7 PLUS J0 纵向 高度**/
 #define VALUE_J0_A5_HEIGHT  8191.0f
 
-/**BLE J0_A4 纵向 宽度**/ //11
+/**BLE J0_A4 / T9_J0 / J0_A4_P 纵向 宽度**/ //11 / 18 / 19
 #define VALUE_J0_A4_WIDTH  22600.0f
 /**BLE J0_A4 纵向 高度**/
 #define VALUE_J0_A4_HEIGHT  16650.0f
@@ -70,6 +74,7 @@
 #define VALUE_X8_A5_WIDTH  22100.0f
 /**BLE X8 纵向 高度**/
 #define VALUE_X8_A5_HEIGHT  14650.0f
+
 
 //OTA状态
 typedef enum {
@@ -146,6 +151,8 @@ typedef enum {
  T8A
  T9A
  J0_A4
+ T9_J0
+ J0_A4_P
  
  别名：
  T7          == T7
@@ -177,13 +184,13 @@ typedef enum {
     
     UnKnown = 0,
     
-    RobotPen_P7  = 1,
+    P7  = 1,
     
     T7 = 2,
     
     T7P = 3,
     
-    RobotPen_P1 = 4,
+    P1 = 4,
     
     T7P_New  =5,
     
@@ -193,9 +200,9 @@ typedef enum {
     
     J0_A5 = 8,
     
-    //    NEBULA_Gateway = 9,
-    
-    //    Dongle = 10,
+//    Gateway = 9,
+//
+//    Dongle = 10,
     
     J0_A4 = 11,
     
@@ -203,32 +210,36 @@ typedef enum {
     
     X8_A5 = 13,
     
+//    T7PL = 14,
+//    
+//    T7E = 15,
+//    
+    T7_TS = 16,
     
+    T7_LW = 17,
     
+    T9_J0 = 18,
+    
+    J0_A4_P = 19,
+    
+ 
 } DeviceType;
 
 //连接状态
 typedef enum {
-    /**没有找到设备*/
-    NOTHING,
+    /**设备已连接（已经存在连接设备）*/
+    /**连接设备时候用,防止重复连接*/
+    DEVICE_CONNECTED,
     /**正在连接*/
     CONNECTING,
     /**连接成功*/
     CONNECTED,
     /**连接错误*/
     CONNECT_FAIL,
-    /**正在断开*/
-    DISCONNECTING,
     /**已断开*/
     DISCONNECTED,
-    /**开始发现服务*/
-    SERVICES_START,
     /**服务准备完成*/
     SERVICES_READY,
-    /**发现服务失败*/
-    SERVICES_FAIL,
-    /**笔准备完成*/
-    PEN_READY,
     /**笔初始化完成*/
     PEN_INIT_COMPLETE,
     /**设备信息获取*/
@@ -292,6 +303,28 @@ typedef enum{
 
 
 
+//电磁板电量状态
+typedef enum {
+    /** 0  */
+    Battery_0,
+    /** 10 */
+    Battery_10,
+    /** 20*/
+    Battery_20,
+    /** 50*/
+    Battery_50,
+    /** 75*/
+    Battery_75,
+    /** 85*/
+    Battery_85,
+    /** 100*/
+    Battery_100,
+    /** 充电中*/
+    Battery_Charge,
+    /**充电完成*/
+    Battery_Charged,
+    
+}PercentageBattery;
 
 
 
