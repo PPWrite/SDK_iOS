@@ -1,14 +1,14 @@
 //
 //  RobotPenUtilPoint.h
-//  PPNote
+//  RobotPenManagerMacSDKDemo
 //
-//  Created by JMS on 2017/4/22.
+//  Created by JMS on 2017/8/17.
 //  Copyright © 2017年 JMS. All rights reserved.
 //
-
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "RobotPenHeader.h"
+
 @interface RobotPenUtilPoint : NSObject
 /** 优化后的坐标点 X*/
 @property (nonatomic,assign) float optimizeX;
@@ -49,5 +49,11 @@
  @return 屏幕点
  */
 - (CGPoint)getOriginalPointWithSceneWidth:(float)sceneWidth SceneHeight:(float)sceneHeight IsHorizontal:(BOOL)isHorizontal;
-
+/**
+ 转换mac Y坐标
+ 
+ @param isHorizontal 是否是横屏
+ @return 坐标
+ */
+- (CGPoint)changeMacPointWithIsHorizontal:(BOOL)isHorizontal;
 @end

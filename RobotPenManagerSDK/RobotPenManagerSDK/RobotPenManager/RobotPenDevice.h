@@ -1,14 +1,15 @@
 //
 //  RobotPenDevice.h
-//  PPNote
+//  RobotPenManagerMacSDKDemo
 //
-//  Created by JMS on 2017/4/22.
+//  Created by JMS on 2017/8/17.
 //  Copyright © 2017年 JMS. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "RobotPenHeader.h"
 #import <CoreBluetooth/CoreBluetooth.h>
+
 
 @interface RobotPenDevice : NSObject<NSCoding>
 /** 设备类型*/
@@ -47,7 +48,7 @@
 @property (nonatomic, assign) int NoteNumber;
 
 /**
- 固件mac标识
+ BLE:固件mac标识
  */
 @property (nonatomic, assign) int MacSign;
 /**
@@ -58,6 +59,12 @@
 - (NSString *)getName;
 
 
+/**
+ 获取电量百分比显示
+ 
+ @return <#return value description#>
+ */
+- (int)getDevicePercentageBattery;
 /**
  获取倒序的MAC地址
  

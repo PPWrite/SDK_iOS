@@ -1,0 +1,395 @@
+
+/************************************3.1.2**************************************/
+iOS SDK 3.1.2已更新
+地址：https://github.com/PPWrite/SDK_iOS
+版本号在RobotPenHeader可见。
+更新内容详情见“更新概要”
+
+
+更新概要：
+注：本次更新删除了重复接口，更换时请注意替换。
+1、优化了蓝牙扫描连接流程。
+2、增加了新设备的支持。
+3、添加了新的方法。
+4、删除了重复接口。
+
+重点：
+1、统一了重复设备尺寸。
+//对应设备：T8A/J0_A4/T9A/T9_J0/J0_A4_P/T9E 硬件号 6/11/12/18/19/20
+/** 标准A4设备纵向 纵向 宽度**/
+#define VALUE_A4_WIDTH  22600.0f
+/** 标准A4设备纵向 高度**/
+#define VALUE_A4_HEIGHT 16650.0f
+
+//对应设备：P7/T7/T7E/T7_TS/T7_LW 硬件号 1/2/15/16/17
+/** 标准A5设备纵向 纵向 宽度**/
+#define VALUE_A5_WIDTH  14335.0f
+/** 标准A5设备纵向 高度**/
+#define VALUE_A5_HEIGHT 8191.0f
+
+2、- (void)getBLEState:(CBManagerState)State;替换为- (void)getOSDeviceState:(OSDeviceStateType)State;
+3、其他见详情。
+
+本次
+修改项：
+
+添加项：
+RobotPenManager.h中
+/**
+ 获取当前的系统服务状态
+ 
+ @return <#return value description#>
+ */
+- (OSDeviceStateType)getOSDeviceState;
+
+/**
+ 监听系统蓝牙状态
+ 
+ @param State <#State description#>
+ */
+- (void)getOSDeviceState:(OSDeviceStateType)State;
+
+typedef enum{
+    /** 未知设备*/
+    OSDeviceState_BLE_Unknown = 0,
+    OSDeviceState_BLE_Resetting,
+    OSDeviceState_BLE_Unsupported,
+    OSDeviceState_BLE_Unauthorized,
+    OSDeviceState_BLE_PoweredOff,
+    OSDeviceState_BLE_PoweredOn,
+
+}OSDeviceStateType;
+
+删除项：
+/**
+ 监听系统蓝牙状态
+ 
+ @param State <#State description#>
+ */
+- (void)getBLEState:(CBManagerState)State;
+添加RobotPenDelegate.h文件
+去除
+
+/**
+ 自动连接的中的设备
+ 
+ @param device <#device description#>
+ */
+- (void)AutoConnectingDevice:(RobotPenDevice *)device;
+
+  获取设备信息
+ 
+ @param infos <#infos description#>
+ */
+- (void)getDeviceVersion:(NSDictionary *)infos;
+
+/**
+获取MAC地址
+ @param mac <#num description#>
+ */
+- (void)getMac:(NSString *)mac;
+
+/**
+.获取设备名称
+ @param name <#num description#>
+ */
+- (void)getDeviceName:(NSString *)name;
+
+/**
+.获取电量、同步笔记信息
+ 
+ @return <#return value description#>
+ */
+- (NSDictionary *)getDeviceBattery;
+
+/**
+获取设备电量百分比
+ @param percentageBattery 电量百分比
+ */
+- (void)getDevicePercentageBattery:(PercentageBattery)percentageBattery;
+协议方法
+
+
+/**
+连接设备
+
+ @param penDevice <#penDevice description#>
+ @param delegate <#delegate description#>
+ */
+- (void)connectDevice:(RobotPenDevice *)penDevice :(id<RobotPenDelegate>)delegate;
+
+/**
+ 扫描设备
+ @param delegate <#delegate description#>
+ */
+- (void)scanDevice:(id<RobotPenDelegate>)delegate;
+
+/**
+开始SENSOR升级
+ 
+ @param delegate <#delegate description#>
+ */
+- (void)startSensor:(id<RobotPenDelegate>)delegate;
+/**
+开始OTA升级
+ 
+ @param delegate <#delegate description#>
+ */
+-(void)startOTA:(id<RobotPenDelegate>)delegate;
+
+/**
+同步笔记 开始
+ 
+ @param delegate <#delegate description#>
+ */
+- (void)startSyncNote:(id<RobotPenDelegate>)delegate;
+
+/**
+.获取设备类型
+
+ @return <#return value description#>
+ */
+- (DeviceType)getConnectDeviceType;   ——> getConnectDevice——>deviceType
+
+/**
+检查设备是否连接
+ */
+- (BOOL)checkDeviceConnect;——> getConnectDevice
+
+/**
+ 是否支持模组升级
+
+ @return <#return value description#>
+ */
+- (BOOL)getIsHaveSensor;
+
+/**
+ 获取版本号
+ */
+- (NSDictionary *)getDeviceVersion;
+
+
+/************************************3.1.2**************************************/
+iOS SDK 3.1.1已更新
+地址：https://github.com/PPWrite/SDK_iOS
+版本号在RobotPenHeader可见。
+更新内容详情见“更新摘要”
+
+更新概要：
+1、优化了笔迹算法。
+2、增加了新设备的支持。
+3、添加了新的方法。
+4、删除了无用枚举。
+
+修改项：
+RobotPenHeader.h中
+RobotPen_P1 -> P1
+RobotPen_P7 -> P7
+
+注：DeviceState枚举中删除了几个枚举值，用数字判断的，请注意更新下判断。
+
+更新详情：
+—————————————————————————————————
+一、修改项：
+RobotPenHeader.h中
+RobotPen_P1 -> P1
+RobotPen_P7 -> P7
+增加项：
+
+二、RobotPenHeader.中
+1、添加了BLE系统弹框的宏定义ShowBLEAlert，默认为NO。
+2、//电磁板电量状态
+PercentageBattery枚举
+
+3、DeviceState枚举中
+  删除以下5项
+1、/**没有找到设备*/NOTHING
+2、/**开始发现服务*/ SERVICES_START,
+3、/**笔准备完成*/PEN_READY,
+4、/**正在断开*/ DISCONNECTING,
+5、/**发现服务失败*/SERVICES_FAIL,
+增加以下1项：
+/**设备已连接（已经存在连接设备）*/
+    /**连接设备时候用,防止重复连接*/
+    DEVICE_CONNECTED,
+4、DeviceType枚举中新的设备号
+
+三、RobotPenUtilPoint.h 中
+/**
+ 根据原始点获取显示场景点坐标
+
+ */
+- (CGPoint)getScenePointWithSceneWidth:(float)sceneWidth SceneHeight:(float)sceneHeight IsHorizontal:(BOOL)isHorizontal;
+
+/**
+ 根据屏幕点获取原始点坐标
+
+ */
+- (CGPoint)getOriginalPointWithSceneWidth:(float)sceneWidth SceneHeight:(float)sceneHeight IsHorizontal:(BOOL)isHorizontal;
+
+RobotPenDevice.h中
+
+/**
+ 获取倒序的MAC地址
+ */
+- (NSString *)getReverseMAC;
+
+四、RobotPenManager.h中
+
+/**
+ 获取设备电量百分比
+ */
+- (void)getDevicePercentageBattery:(PercentageBattery)percentageBattery;
+/**
+ 以设备宽和场景宽为基础，获取原始/场景的笔迹宽度
+ */
+- (CGFloat)getWidth:(CGFloat)W  andSceneWidth:(CGFloat)width andisHorizontal:(BOOL)ishorizontal  isOriginal:(BOOL)isOriginal;
+
+/**
+ 获取电磁板宽高比
+ */
+- (CGFloat)getDeviceScaleWithDeviceType:(DeviceType)deviceType andIsHorizontal:(BOOL)ishorizontal;
+
+/**
+ 根据原始图片尺寸获取屏幕图片尺寸
+ */
+- (CGSize)getSceneImageSizeWith:(CGSize)sceneImageSize WithSceneWidth:(float)sceneWidth DeviceType:(int)deviceType IsHorizontal:(BOOL)isHorizontal;
+
+/**
+ 根据屏幕图片尺寸获取原始图片尺寸
+ */
+- (CGSize)getOriginalImageSizeWith:(CGSize)sceneImageSize WithSceneWidth:(float)sceneWidth DeviceType:(int)deviceType IsHorizontal:(BOOL)isHorizontal;
+
+/**
+ 获取蓝牙状态
+ */
+- (void)getBLEState:(CBManagerState)State;
+
+
+iOS SDK 3.1.0已更新
+地址：https://github.com/PPWrite/SDK_iOS
+版本号在RobotPenHeader可见。
+更新内容详情见“更新摘要”
+
+
+更新概要：
+1、优化了笔迹。
+2、优化了设备通讯、升级逻辑。
+3、增加了新设备的支持。
+4、增加了新功能的支持。
+5、增加了配对设备列表。
+6、增加了外部升级API。
+7、增加了画布区域截图功能。
+
+更新详情：
+—————————————————————————————————
+修改项：
+SDK中
+ELITE 变更为T7
+ELITE_PLUS变更为T7P
+
+RobotPenHeader.h
+getIsNewDeviceVersion 变更为 getIsMACAndNameDevice
+
+getIsNewOTADevice 变更为 getIsBLEAndMCUOTADevice
+—————————————————————————————————
+增加项：
+
+增加J0-A4支持。
+增加T9A支持。
+—————————————————————————————————
+笔服务相关
+RobotPenDevice.h中
+/** 模组版本*/
+@property (nonatomic, copy) NSString *MWStr;
+
+RobotPenHeader.h中
+/**
+ 是否支持获取模组版本
+ */
+- (BOOL)getIsSensorDevice;
+—————————————————————————————————
+数据库相关
+RobotSqlManager.h中
+/**
+ 获取列表笔记单个信息
+ */
++ (void)GetNoteListInfoWithNoteKey:(NSString *)NoteKey Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
+/**
+ 获取page之前所有笔记列表，返回0 - page页的数据
+ */
++ (void)GetAllNoteListBeforePage:(int)Page Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
+
+/**
+ 获取page之前的所有视频列表，返回0-page页的所有数据
+ */
++ (void)GetAllVideoListBeforePage:(int)Page Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
+
+
+6.6 libRobotBoard_MicroSDK更新内容
+1、RobotPenHeader.h
+
+/**设备可更新**/
+    DEVICE_UPDATE_CAN,
+
+2、RobotPenManager.h
+由- (BOOL)getIsNeedUpdate;变为- (void)getIsNeedUpdate;
+有更新则通过-(void)getDeviceState:(DeviceState)State；返回/**设备可更新**/
+    DEVICE_UPDATE_CAN,状态
+/**
+ 获取固件是否需要更新
+ */
+- (void)getIsNeedUpdateWithURL:(NSString *)urlString;
+
+- (void)getIsNeedUpdate;
+
+3、RobotBoard_MicroSDK
+图片记录删除过程记录。
+
+4.RobotWhiteBoardView.h
+
+/**
+ 设置 不可书写图标 (仅用于笔模式，手写提示)
+
+ @param image <#image description#>
+ */
+- (void)setPenModleBanIcon:(UIImage *)image;
+
+
+5. 优化了录制微课的稳定性
+
+5.10
+iOS SDK更新：https://github.com/PPWrite/SDK_iOS 
+
+1、规整了类名。
+2、添加了很多给力的方法。
+
+建议最近要发版的亲们，慎用（因为需要修改类名）。
+
+
+5.15
+iOS SDK更新：https://github.com/PPWrite/SDK_iOS 
+1、优化了笔迹方法
+2、修正设置是否自动链接接口
+- (void)setAutoCheckDeviceConnect:(BOOL)autoConnect;
+
+
+
+4.19
+iOS SDK更新：https://github.com/PPWrite/SDK_iOS 
+
+1、分离检查固件升级
+PenHeader.h中修改：
+DeviceState的DEVICE_UPDATE 由需要升级改为需要手动检测固件是否需要升级的状态。
+
+RobotPenManager.h中添加：
+/**
+ 获取固件是否需要更新
+ */
+- (BOOL)getIsNeedUpdateWithURL:(NSString *)urlString;
+
+- (BOOL)getIsNeedUpdate;
+详情见demo
+
+2、修正离线笔记重复抛出笔迹问题。
+_timeKeyArray
