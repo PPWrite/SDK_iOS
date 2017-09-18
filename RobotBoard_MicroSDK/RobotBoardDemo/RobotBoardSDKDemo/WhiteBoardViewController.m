@@ -138,7 +138,7 @@ static int interval_Board = 10;
      // 创建一本笔记
     [RobotSqlManager BulidNote:notemodel Success:^(id responseObject) {
         
-        NSLog(@"responseObject = %@",responseObject);
+//        NSLog(@"responseObject = %@",responseObject);
         
     } Failure:^(NSError *error) {
         
@@ -166,7 +166,7 @@ static int interval_Board = 10;
 //大于0表示是有压感，需要用到压感功能则需要实现
 - (int)getIsPressure
 {
-    return 0;
+    return 1;
 }
 
 //获取当前笔记本Key，需要用到画板功能则需要实现
@@ -210,7 +210,7 @@ static int interval_Board = 10;
 //白板相关回调，用于返回白板状态信息，具体状态请查看RobotWhiteBoardView.h文件。
 - (void)GetWhiteBoardState:(NSDictionary *)StateInfo{
     
-    NSLog(@"StateInfo = %@",StateInfo);
+//    NSLog(@"StateInfo = %@",StateInfo);
     
 }
 

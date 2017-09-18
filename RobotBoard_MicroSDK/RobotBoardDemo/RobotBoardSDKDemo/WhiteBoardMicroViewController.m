@@ -162,7 +162,7 @@ static int interval_Board = 10;
     // 创建一本笔记
     [RobotSqlManager BulidNote:notemodel Success:^(id responseObject) {
         
-        NSLog(@"responseObject = %@",responseObject);
+//        NSLog(@"responseObject = %@",responseObject);
         
     } Failure:^(NSError *error) {
         
@@ -231,8 +231,8 @@ static int interval_Board = 10;
 //电磁板报点数据
 -(void)getPointInfo:(RobotPenPoint *)point{
     
-    //    NSLog(@"%hd %hd",point.originalX,point.originalY);
-    
+//        NSLog(@"%hd %hd",point.originalX,point.originalY);
+
     //画板画线
     [self.WhiteBoardView drawLine:point];
     
@@ -264,7 +264,7 @@ static int interval_Board = 10;
 //录课白板相关回调，用于返回录课白板状态信息，具体状态请查看RobotWhiteBoardView.h文件。
 - (void)GetVideoRecordState:(NSDictionary *)StateInfo{
     
-    NSLog(@"StateInfo = %@",StateInfo);
+//    NSLog(@"StateInfo = %@",StateInfo);
     
 }
 

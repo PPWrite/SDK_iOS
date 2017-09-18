@@ -16,6 +16,7 @@
 		C07C08221E5BCB3800D290A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C07C08211E5BCB3800D290A7 /* Assets.xcassets */; };
 		C07C08251E5BCB3800D290A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C07C08231E5BCB3800D290A7 /* LaunchScreen.storyboard */; };
 		C07C0AC91E5C216700D290A7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C07C0AC81E5C216700D290A7 /* libsqlite3.tbd */; };
+		C09E6B001F6FE747003A399E /* libRobotBoard_Micro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C09E6AED1F6FE747003A399E /* libRobotBoard_Micro.a */; };
 		C0D9C8A11E5C3125008D0093 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C0D9C8A01E5C3125008D0093 /* libsqlite3.0.tbd */; };
 		C0D9C8A21E5C312C008D0093 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C07C0AC61E5C215B00D290A7 /* libz.tbd */; };
 		C0D9C8A51E5C339D008D0093 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C07C0ABF1E5C1F2D00D290A7 /* UIKit.framework */; };
@@ -31,7 +32,6 @@
 		C0D9C9B91E5D8B27008D0093 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0D9C9B81E5D8B27008D0093 /* CoreTelephony.framework */; };
 		C0D9C9BB1E5D8B2F008D0093 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0D9C9BA1E5D8B2F008D0093 /* CoreText.framework */; };
 		C0D9C9BC1E5D8EEC008D0093 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C07C0ABD1E5C1F2000D290A7 /* Foundation.framework */; };
-		C0FEB25A1F694AF30022FA82 /* libRobotBoard_Micro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0FEB2451F694AF30022FA82 /* libRobotBoard_Micro.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +57,24 @@
 		C07C0AC61E5C215B00D290A7 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		C07C0AC81E5C216700D290A7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		C07C0ACA1E5C217500D290A7 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		C09E6AED1F6FE747003A399E /* libRobotBoard_Micro.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libRobotBoard_Micro.a; sourceTree = "<group>"; };
+		C09E6AEF1F6FE747003A399E /* RobotNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotNote.h; sourceTree = "<group>"; };
+		C09E6AF01F6FE747003A399E /* RobotPenDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenDelegate.h; sourceTree = "<group>"; };
+		C09E6AF11F6FE747003A399E /* RobotPenDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenDevice.h; sourceTree = "<group>"; };
+		C09E6AF21F6FE747003A399E /* RobotPenHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenHeader.h; sourceTree = "<group>"; };
+		C09E6AF31F6FE747003A399E /* RobotPenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenManager.h; sourceTree = "<group>"; };
+		C09E6AF41F6FE747003A399E /* RobotPenPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenPoint.h; sourceTree = "<group>"; };
+		C09E6AF51F6FE747003A399E /* RobotPenUtilPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenUtilPoint.h; sourceTree = "<group>"; };
+		C09E6AF61F6FE747003A399E /* RobotPhotoImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPhotoImage.h; sourceTree = "<group>"; };
+		C09E6AF71F6FE747003A399E /* RobotPhotoImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPhotoImageView.h; sourceTree = "<group>"; };
+		C09E6AF81F6FE747003A399E /* RobotSqlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotSqlManager.h; sourceTree = "<group>"; };
+		C09E6AF91F6FE747003A399E /* RobotTrailBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotTrailBlock.h; sourceTree = "<group>"; };
+		C09E6AFA1F6FE747003A399E /* RobotTrails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotTrails.h; sourceTree = "<group>"; };
+		C09E6AFB1F6FE747003A399E /* RobotVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotVideo.h; sourceTree = "<group>"; };
+		C09E6AFC1F6FE747003A399E /* RobotVideoImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotVideoImage.h; sourceTree = "<group>"; };
+		C09E6AFD1F6FE747003A399E /* RobotWhiteBoard_MicroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotWhiteBoard_MicroView.h; sourceTree = "<group>"; };
+		C09E6AFE1F6FE747003A399E /* RobotWhiteBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotWhiteBoardView.h; sourceTree = "<group>"; };
+		C09E6AFF1F6FE747003A399E /* WhiteBoardHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhiteBoardHeader.h; sourceTree = "<group>"; };
 		C0D9C8A01E5C3125008D0093 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		C0D9C8A91E5C3D71008D0093 /* SearchDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDeviceViewController.h; sourceTree = "<group>"; };
 		C0D9C8AA1E5C3D71008D0093 /* SearchDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDeviceViewController.m; sourceTree = "<group>"; };
@@ -73,26 +91,6 @@
 		C0D9C9B61E5D8AC9008D0093 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C0D9C9B81E5D8B27008D0093 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		C0D9C9BA1E5D8B2F008D0093 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		C0FEB2451F694AF30022FA82 /* libRobotBoard_Micro.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libRobotBoard_Micro.a; sourceTree = "<group>"; };
-		C0FEB2471F694AF30022FA82 /* RobotNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotNote.h; sourceTree = "<group>"; };
-		C0FEB2481F694AF30022FA82 /* RobotPenDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenDelegate.h; sourceTree = "<group>"; };
-		C0FEB2491F694AF30022FA82 /* RobotPenDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenDevice.h; sourceTree = "<group>"; };
-		C0FEB24A1F694AF30022FA82 /* RobotPenHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenHeader.h; sourceTree = "<group>"; };
-		C0FEB24B1F694AF30022FA82 /* RobotPenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenManager.h; sourceTree = "<group>"; };
-		C0FEB24C1F694AF30022FA82 /* RobotPenPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenPoint.h; sourceTree = "<group>"; };
-		C0FEB24D1F694AF30022FA82 /* RobotPenUtilPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenUtilPoint.h; sourceTree = "<group>"; };
-		C0FEB24E1F694AF30022FA82 /* RobotPhotoImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPhotoImage.h; sourceTree = "<group>"; };
-		C0FEB24F1F694AF30022FA82 /* RobotPhotoImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPhotoImageView.h; sourceTree = "<group>"; };
-		C0FEB2501F694AF30022FA82 /* RobotSqlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotSqlManager.h; sourceTree = "<group>"; };
-		C0FEB2511F694AF30022FA82 /* RobotTrailBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotTrailBlock.h; sourceTree = "<group>"; };
-		C0FEB2521F694AF30022FA82 /* RobotTrails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotTrails.h; sourceTree = "<group>"; };
-		C0FEB2531F694AF30022FA82 /* RobotVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotVideo.h; sourceTree = "<group>"; };
-		C0FEB2541F694AF30022FA82 /* RobotVideoImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotVideoImage.h; sourceTree = "<group>"; };
-		C0FEB2551F694AF30022FA82 /* RobotWhiteBoard_MicroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotWhiteBoard_MicroView.h; sourceTree = "<group>"; };
-		C0FEB2561F694AF30022FA82 /* RobotWhiteBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotWhiteBoardView.h; sourceTree = "<group>"; };
-		C0FEB2571F694AF30022FA82 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
-		C0FEB2581F694AF30022FA82 /* UIViewExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExtension.h; sourceTree = "<group>"; };
-		C0FEB2591F694AF30022FA82 /* WhiteBoardHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhiteBoardHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +104,7 @@
 				C0D9C9BB1E5D8B2F008D0093 /* CoreText.framework in Frameworks */,
 				C0D9C9B91E5D8B27008D0093 /* CoreTelephony.framework in Frameworks */,
 				C0D9C9B71E5D8AC9008D0093 /* AudioToolbox.framework in Frameworks */,
-				C0FEB25A1F694AF30022FA82 /* libRobotBoard_Micro.a in Frameworks */,
+				C09E6B001F6FE747003A399E /* libRobotBoard_Micro.a in Frameworks */,
 				C0D9C8A51E5C339D008D0093 /* UIKit.framework in Frameworks */,
 				C0D9C8A21E5C312C008D0093 /* libz.tbd in Frameworks */,
 				C0D9C8A11E5C3125008D0093 /* libsqlite3.0.tbd in Frameworks */,
@@ -207,8 +205,8 @@
 		C07C084F1E5C1CC600D290A7 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				C0FEB2451F694AF30022FA82 /* libRobotBoard_Micro.a */,
-				C0FEB2461F694AF30022FA82 /* RobotBoard_Micro */,
+				C09E6AED1F6FE747003A399E /* libRobotBoard_Micro.a */,
+				C09E6AEE1F6FE747003A399E /* RobotBoard_Micro */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -234,28 +232,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C0FEB2461F694AF30022FA82 /* RobotBoard_Micro */ = {
+		C09E6AEE1F6FE747003A399E /* RobotBoard_Micro */ = {
 			isa = PBXGroup;
 			children = (
-				C0FEB2471F694AF30022FA82 /* RobotNote.h */,
-				C0FEB2481F694AF30022FA82 /* RobotPenDelegate.h */,
-				C0FEB2491F694AF30022FA82 /* RobotPenDevice.h */,
-				C0FEB24A1F694AF30022FA82 /* RobotPenHeader.h */,
-				C0FEB24B1F694AF30022FA82 /* RobotPenManager.h */,
-				C0FEB24C1F694AF30022FA82 /* RobotPenPoint.h */,
-				C0FEB24D1F694AF30022FA82 /* RobotPenUtilPoint.h */,
-				C0FEB24E1F694AF30022FA82 /* RobotPhotoImage.h */,
-				C0FEB24F1F694AF30022FA82 /* RobotPhotoImageView.h */,
-				C0FEB2501F694AF30022FA82 /* RobotSqlManager.h */,
-				C0FEB2511F694AF30022FA82 /* RobotTrailBlock.h */,
-				C0FEB2521F694AF30022FA82 /* RobotTrails.h */,
-				C0FEB2531F694AF30022FA82 /* RobotVideo.h */,
-				C0FEB2541F694AF30022FA82 /* RobotVideoImage.h */,
-				C0FEB2551F694AF30022FA82 /* RobotWhiteBoard_MicroView.h */,
-				C0FEB2561F694AF30022FA82 /* RobotWhiteBoardView.h */,
-				C0FEB2571F694AF30022FA82 /* UIColor+Extension.h */,
-				C0FEB2581F694AF30022FA82 /* UIViewExtension.h */,
-				C0FEB2591F694AF30022FA82 /* WhiteBoardHeader.h */,
+				C09E6AEF1F6FE747003A399E /* RobotNote.h */,
+				C09E6AF01F6FE747003A399E /* RobotPenDelegate.h */,
+				C09E6AF11F6FE747003A399E /* RobotPenDevice.h */,
+				C09E6AF21F6FE747003A399E /* RobotPenHeader.h */,
+				C09E6AF31F6FE747003A399E /* RobotPenManager.h */,
+				C09E6AF41F6FE747003A399E /* RobotPenPoint.h */,
+				C09E6AF51F6FE747003A399E /* RobotPenUtilPoint.h */,
+				C09E6AF61F6FE747003A399E /* RobotPhotoImage.h */,
+				C09E6AF71F6FE747003A399E /* RobotPhotoImageView.h */,
+				C09E6AF81F6FE747003A399E /* RobotSqlManager.h */,
+				C09E6AF91F6FE747003A399E /* RobotTrailBlock.h */,
+				C09E6AFA1F6FE747003A399E /* RobotTrails.h */,
+				C09E6AFB1F6FE747003A399E /* RobotVideo.h */,
+				C09E6AFC1F6FE747003A399E /* RobotVideoImage.h */,
+				C09E6AFD1F6FE747003A399E /* RobotWhiteBoard_MicroView.h */,
+				C09E6AFE1F6FE747003A399E /* RobotWhiteBoardView.h */,
+				C09E6AFF1F6FE747003A399E /* WhiteBoardHeader.h */,
 			);
 			path = RobotBoard_Micro;
 			sourceTree = "<group>";
