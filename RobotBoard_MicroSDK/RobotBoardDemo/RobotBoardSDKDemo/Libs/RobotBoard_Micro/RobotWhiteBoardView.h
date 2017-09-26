@@ -85,6 +85,21 @@
 
 @optional
 
+
+/**
+ 获取手绘点数据
+ 
+ @param point 屏幕点
+ */
+- (void)getTouchPointInfo:(RobotPenUtilPoint *)point;
+
+/**
+ 获取轨迹数据
+ 
+ @param trails 轨迹数据
+ */
+- (void)getTrailsInfo:(RobotTrails *)trails;
+
 /**
  获取白板状态信息
 
