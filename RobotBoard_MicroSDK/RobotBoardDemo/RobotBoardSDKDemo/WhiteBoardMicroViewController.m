@@ -109,7 +109,7 @@ static int interval_Board = 10;
     
     _PenWidth = 1;//用于getPenWeight传值
     
-    [self.WhiteBoardView SetDrawType:1];// 输入的方式 （0:手、1:笔）
+    [self.WhiteBoardView SetDrawType:0];// 输入的方式 （0:手、1:笔）
     
     [self setWB];//设置画板并刷新
     

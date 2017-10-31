@@ -1,4 +1,54 @@
 
+
+/************************************3.1.5**************************************/
+iOS SDK 3.1.5已更新
+地址：https://github.com/PPWrite/SDK_iOS
+版本号在RobotPenHeader可见。
+更新内容详情见“更新概要”
+
+
+更新概要：
+1、增加新固件支持。
+2、新增方法。
+3、优化外部固件升级流程。
+修改项：
+
+RobotPenHeader.h 中
+/**正在连接*/
+   CONNECTING -> DEVICE_CONNECTING,
+    /**连接成功*/
+     CONNECTED-> DEVICE_CONNECTE_SUCCESS,
+    /**连接错误*/
+     CONNECT_FAIL-> DEVICE_CONNECT_FAIL,
+    /**已断开*/
+    DISCONNECTED -> DEVICE_DISCONNECTED,
+
+    /**笔初始化完成*/
+     PEN_INIT_COMPLETE-> DEVICE_INIT_COMPLETE,
+增加项：
+RobotPenHeader.h 中
+//清除电磁板离线数据类型
+typedef enum {
+    
+    CleanDataOnly = 0,     /** 只擦除数据 **/
+    
+    CleanDataAndCleanNote,    /** 擦除数据并清空离线笔记 **/
+    
+    CleanDataAndBuildNote,     /** 擦除数据并新建离线笔记 **/
+   
+    
+}CleanDataType;
+
+RobotPenDevice.h
+
+/**
+ 获取笔记前缀字符串
+ 
+ @return <#return value description#>
+ */
+- (NSString *)getPrefixString;
+
+/************************************3.1.5**************************************/
 /************************************3.1.4**************************************/
 iOS SDK 3.1.4已更新
 地址：https://github.com/PPWrite/SDK_iOS

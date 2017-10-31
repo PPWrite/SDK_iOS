@@ -217,7 +217,7 @@
     
     switch (State) {
             
-        case DISCONNECTED://未连接
+        case DEVICE_DISCONNECTED://未连接
             
             NSLog(@"disconnect");
             
@@ -231,7 +231,7 @@
             
             break;
             
-        case CONNECTED://已连接
+        case DEVICE_CONNECTE_SUCCESS://已连接
             
             NSLog(@"CONNECTED");
             
@@ -239,7 +239,7 @@
 
             break;
             
-        case CONNECTING://正在连接
+        case DEVICE_CONNECTING://正在连接
             
             NSLog(@"connecting");
             

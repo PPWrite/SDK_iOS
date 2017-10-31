@@ -1,7 +1,7 @@
 
 /*********************************************************/
 /*********************************************************/
-/*----------------------SDK 3.1.4------------------------*/
+/*----------------------SDK 3.1.5------------------------*/
 /*********************************************************/
 /*********************************************************/
 #ifdef DEBUG
@@ -30,7 +30,7 @@
 /** 标准A4设备纵向 高度**/
 #define VALUE_A4_HEIGHT 16650.0f
 
-//对应设备：P7/T7/T7E/T7_TS/T7_LW 硬件号 1/2/15/16/17
+//对应设备：P7/T7/T7E/T7_TS/T7_LW/T7_CY/C7 硬件号 1/2/15/16/17/22/24
 /** 标准A5设备纵向 纵向 宽度**/
 #define VALUE_A5_WIDTH  14335.0f
 /** 标准A5设备纵向 高度**/
@@ -110,45 +110,62 @@ typedef enum {
     
     J0_T9 = 21,
  
+    T7_CY =22,
+    
+    D1_CY = 23,
+    
+    C7 = 24,
+    
 } DeviceType;
 
 //连接状态
 typedef enum {
+    /************************************设备基础状态******************************/
     /**设备已连接（已经存在连接设备）*/
     /**连接设备时候用,防止重复连接*/
     DEVICE_CONNECTED = 0 ,
     /**正在连接*/
-    CONNECTING,
+    DEVICE_CONNECTING,
     /**连接成功*/
-    CONNECTED,
+    DEVICE_CONNECTE_SUCCESS,
     /**连接错误*/
-    CONNECT_FAIL,
+    DEVICE_CONNECT_FAIL,
     /**已断开*/
-    DISCONNECTED,
+    DEVICE_DISCONNECTED,
     /**服务准备完成*/
-    SERVICES_READY = 5,
+    DEVICE_SERVICES_READY = 5,
     /**笔初始化完成*/
-    PEN_INIT_COMPLETE,
-    /**设备信息获取*/
+    DEVICE_INIT_COMPLETE,
+    /**设备信息获取完成*/
     DEVICE_INFO_END,
     /**检查设备更新*/
     DEVICE_UPDATE,
     /**检查设备更新失败*/
     DEVICE_UPDATE_FAIL,
+    /************************************设备更新状态******************************/
     /**设备可更新*/
     DEVICE_UPDATE_CAN = 10,
     /**设备不可更新*/
     DEVICE_UPDATE_CANT,
-    /**设备名字修改成功*/
-    DEVICE_NAME_UPDATED,
-    /**设备名字更新*/
-    DEVICE_NAME_UPDATE,
     /**支持频率校准*/
     DEVICE_CALIBRATION_SUPPORT,
     /**不支持频率校准*/
-    DEVICE_CALIBRATION_NONSUPPORT = 15,
+    DEVICE_CALIBRATION_NONSUPPORT,
+    /**支持模组升级*/
+    DEVICE_SENSOR_SUPPORT,
+    /**不支持模组升级*/
+    DEVICE_SENSOR_NONSUPPORT = 15,
+    /**模组必须更新,否则无法使用*/
+    DEVICE_SENSOR_UPDATE_MUST,
+    /**模组不用强制更新*/
+    DEVICE_SENSOR_UPDATE_MUSTNOT,
+    /**模组可更新*/
+    DEVICE_SENSOR_UPDATE_CAN,
+    /**模组不可更新*/
+    DEVICE_SENSOR_UPDATE_CANT,
+    /************************************频率校准状态******************************/
     /**进入频率校准模式*/
-    DEVICE_CALIBRATION_REDAY,
+    DEVICE_CALIBRATION_REDAY = 20,
     /**进入频率校准超时*/
     DEVICE_CALIBRATION_OUTTIME,
     /**频率校准成功*/
@@ -156,22 +173,38 @@ typedef enum {
     /**频率校准失败*/
     DEVICE_CALIBRATION_FAIL,
     /**退出频率校准模式*/
-    DEVICE_CALIBRATION_QUIT = 20,
-    /**支持模组升级*/
-    DEVICE_SENSOR_SUPPORT,
-    /**不支持模组升级*/
-    DEVICE_SENSOR_NONSUPPORT,
-    /**模组必须更新,否则无法使用*/
-    DEVICE_SENSOR_UPDATE_MUST,
-    /**模组不用强制更新*/
-    DEVICE_SENSOR_UPDATE_MUSTNOT,
-    /**模组可更新*/
-    DEVICE_SENSOR_UPDATE_CAN = 25,
-    /**模组不可更新*/
-    DEVICE_SENSOR_UPDATE_CANT,
-    
-    
-    
+    DEVICE_CALIBRATION_QUIT,
+    /************************************修改设备名状态******************************/
+    /**设备名字修改成功*/
+    DEVICE_NAME_UPDATED = 30,
+    /**设备名字更新*/
+    DEVICE_NAME_UPDATE,
+    /************************************设置同步密码状态******************************/
+    /**设置同步密码成功*/
+    DEVICE_SET_PASSWORD_SUCCESS = 40,
+    /**设置原同步密码错误*/
+    DEVICE_SET_OLDPASSWORD_ERROR,
+    /**设置新同步密码错误*/
+    DEVICE_SET_NEWPASSWORD_ERROR,
+    /************************************上报轨迹状态******************************/
+    /**开启上报轨迹数据成功*/
+    DEVICE_SET_REPORTRE_OPEN_SUCCESS = 50,
+    /**开启上报轨迹数据失败*/
+    DEVICE_SET_REPORTRE_OPEN_FAIL,
+    /**关闭上报轨迹数据成功*/
+    DEVICE_SET_REPORTRE_CLOSE_SUCCESS,
+    /**关闭上报轨迹数据失败*/
+    DEVICE_SET_REPORTRE_CLOSE_FAIL,
+    /************************************数据擦除状态******************************/
+    /**只擦除数据*/
+    DEVICE_CLEANDATA_ONLY_SUCCESS = 60,
+    /**擦除数据并清空离线笔记*/
+    DEVICE_CLEANDATA_DELETE_SUCCESS,
+    /**擦除数据并新建离线笔记*/
+    DEVICE_CLEANDATA_BUILD_SUCCESS,
+    /**无擦除权限*/
+    DEVICE_CLEANDATA_NOTAUTHORIZED,
+
 }DeviceState;
 
 
@@ -318,6 +351,19 @@ typedef enum {
     RobotPenPointLeave          /** 离开感应范围 **/
     
 }RobotPenPointTouchStatus;
+
+
+//清除电磁板离线数据类型
+typedef enum {
+    
+    CleanDataOnly = 0,     /** 只擦除数据 **/
+    
+    CleanDataAndCleanNote,    /** 擦除数据并清空离线笔记 **/
+    
+    CleanDataAndBuildNote,     /** 擦除数据并新建离线笔记 **/
+   
+    
+}CleanDataType;
 
 
 

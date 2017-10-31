@@ -71,4 +71,12 @@
  @return <#return value description#>
  */
 - (NSString *)getReverseMAC;
+
+/**
+ 获取笔记前缀字符串
+ 
+ @return <#return value description#>
+ */
+- (NSString *)getPrefixString;
+
 @end
