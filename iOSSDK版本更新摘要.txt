@@ -17,7 +17,13 @@ iOS SDK 3.1.6已更新
 RobotSqlManager.h中
 删除保存笔记方法SaveNote方法，可直接替换为BuildNote。
 删除创建笔记BuildLiveNote方法。
-新增创建笔记头BuildNoteHeader方法
+新增创建笔记头BuildNoteHeader方法。
+
+具体方法如下：
++ (void)SaveNote:(RobotNote *)NoteObj Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure; 
++ (void)BuildNote:(RobotNote *)NoteObj Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
++ (void)BuildLiveNote:(RobotNote *)NoteObj Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
++ (void)BuildNoteHeader:(RobotNote *)NoteObj Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
 
 /************************************3.1.6**************************************/
 /************************************3.1.5**************************************/
