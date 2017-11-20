@@ -13,6 +13,7 @@
 #import "RobotVideo.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AVKit/AVKit.h>
+#import "SDKManager.h"
 
 static int interval_Board = 10;
 
@@ -26,6 +27,14 @@ static int interval_Board = 10;
     
     NSURL *videoPathUrl;//视频地址（本地地址保存路径）
     
+    NSString *saveT9ANoteKey;//T9A专用存笔记
+    
+    int saveT9ANotePage;//T9A专用存页码
+    
+    BOOL isfirstT9A;//是否是第一次进入T9专用
+    
+    int  CurrentPage;//记录当前所在的页T9专用
+    
 }
 @property (nonatomic, strong) RobotWhiteBoard_MicroView *WhiteBoardView;//录制白板
 
@@ -38,6 +47,8 @@ static int interval_Board = 10;
 @property (weak, nonatomic) IBOutlet UILabel *TimeLabel;//录制时间
 
 @property (weak, nonatomic) IBOutlet UIView *WBBView;//白板背景
+
+@property (weak, nonatomic) IBOutlet UILabel *PageLabel;//页码显示
 
 @property (nonatomic, strong) UIColor *PenColor;//笔迹颜色
 
@@ -54,9 +65,19 @@ static int interval_Board = 10;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setUI];
+    
+    DeviceTypes = 1;//已1为例，具体看电磁板设备类型
+    
+    [self BulidWhiteBoard];//初始化白板
+    
+    // Do any additional setup after loading the view from its nib.
+}
+
+- (void)setUI{
     
     isRecord= NO;
-   
+    
     [self.RecordingButton setTitle:@"录制" forState:UIControlStateNormal];
     
     [self.RecordingButton setTitle:@"停止" forState:UIControlStateSelected];
@@ -69,16 +90,9 @@ static int interval_Board = 10;
     
     [self.StopRecordingButton addTarget:self action:@selector(StopRecordingClicked:) forControlEvents:UIControlEventTouchUpInside];
     
-     [_BackButton addTarget:self action:@selector(BackButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_BackButton addTarget:self action:@selector(BackButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
-    DeviceTypes = 1;//已1为例，具体看电磁板设备类型
-    
-    [self BulidWhiteBoard];//初始化白板
-    
-   
-    // Do any additional setup after loading the view from its nib.
 }
-
 - (void)viewWillAppear:(BOOL)animated{      // 获取笔设备  这里可以获取到 详细的笔设备相关信息
     
     //笔服务代理设置，必须实现。
@@ -88,7 +102,6 @@ static int interval_Board = 10;
     RobotPenDevice *device = [[RobotPenManager sharePenManager] getConnectDevice];
     
     DeviceTypes = device.deviceType;//用于setDeviceType传值
-    
     
     //本地数据库，RobotSqlManager包含白板所有产生数据（笔记、截图、各种资源、文件等）详情查看RobotSqlManager.h
     [RobotSqlManager checkRobotSqlManager];
@@ -109,7 +122,7 @@ static int interval_Board = 10;
     
     _PenWidth = 1;//用于getPenWeight传值
     
-    [self.WhiteBoardView SetDrawType:0];// 输入的方式 （0:手、1:笔）
+    [self.WhiteBoardView SetDrawType:PenDraw];// 输入的方式 （0:手、1:笔）
     
     [self setWB];//设置画板并刷新
     
@@ -160,7 +173,7 @@ static int interval_Board = 10;
     notemodel.IsHorizontal = 0;//笔记方向，必填
     
     // 创建一本笔记
-    [RobotSqlManager BulidNote:notemodel Success:^(id responseObject) {
+    [RobotSqlManager BuildNote:notemodel Success:^(id responseObject) {
         
 //        NSLog(@"responseObject = %@",responseObject);
         
@@ -224,17 +237,56 @@ static int interval_Board = 10;
 
 #pragma mark ========== 白板协议（信息获取类） ===========
 
+
+/**
+ 电磁板按键事件
+
+ @param Type <#Type description#>
+ */
 - (void)getDeviceEvent:(DeviceEventType)Type{
+    
     [_WhiteBoardView getDeviceEvent:Type];
 }
 
-//电磁板报点数据
+
+/**
+ 电磁板原始数据上报
+
+ @param point <#point description#>
+ */
 -(void)getPointInfo:(RobotPenPoint *)point{
     
 //        NSLog(@"%hd %hd",point.originalX,point.originalY);
 
+    //if 判断为T9A专用，其他设备可以忽略
+    if ([SDKManager share].device.deviceType == T9A) {
+
+        if ([self.NoteKey isEqualToString:saveT9ANoteKey]) {
+            
+            if (CurrentPage != [self.PageLabel.text intValue]) {
+                
+                [self.WhiteBoardView setManagePageWithPage:CurrentPage];
+                
+            }
+            
+        }
+        else
+        {
+            self.NoteKey = saveT9ANoteKey;
+            
+            self.NoteTitle = [NSString stringWithFormat:@"%@",saveT9ANoteKey];
+            
+            CurrentPage = saveT9ANotePage;
+            
+            [self.WhiteBoardView setManagePageWithPage:saveT9ANotePage];
+
+        }
+        
+    }
+
     //画板画线
     [self.WhiteBoardView drawLine:point];
+  
     
 }
 
@@ -265,10 +317,96 @@ static int interval_Board = 10;
 - (void)GetVideoRecordState:(NSDictionary *)StateInfo{
     
 //    NSLog(@"StateInfo = %@",StateInfo);
-    
+   
 }
 
 
+/**
+ T9A设备专用
+
+ @param page <#page description#>
+ @param NoteId <#NoteKey description#>
+ */
+- (void)getDevicePage:(int)page andNoteId:(int)NoteId
+{
+//     NSLog(@"T9A page = %d NoteId = %d",page,NoteId);
+
+    //显示当前页码
+    self.PageLabel.text = [NSString stringWithFormat:@"%d",page];
+    
+    NSString *NoteKey = [NSString stringWithFormat:@"%@%d",@"T9A",NoteId];
+    
+    //判断电磁板笔记与当前笔记是否相同
+    if ([self.NoteKey isEqualToString:NoteKey]) {
+
+        //相同笔记
+        self.NoteKey = NoteKey;
+        
+        self.NoteTitle = [NSString stringWithFormat:@"%@",NoteKey];
+        
+        CurrentPage = page;
+
+        //管理页码信息
+        [self.WhiteBoardView setManagePageWithPage:page];
+
+    }
+    else
+    {
+        //检查数据库中是否存在电磁板笔记
+        if ([RobotSqlManager checkNoteWithNoteKey:NoteKey]) {
+
+        }
+        else
+        {
+            RobotNote *notemodel =  [[RobotNote alloc]init];
+            
+            notemodel.NoteKey = NoteKey;
+            
+            notemodel.Title = [NSString stringWithFormat:@"%@",NoteKey];
+            
+            notemodel.DeviceType = [[[NSUserDefaults standardUserDefaults] objectForKey:@"DeviceType"] intValue];
+            
+            notemodel.UserID = [[[NSUserDefaults standardUserDefaults] objectForKey:@"UserID"] intValue];
+            
+            notemodel.IsHorizontal =[[[NSUserDefaults standardUserDefaults] objectForKey:@"isHorizontal"] intValue];
+
+            //创建新笔记
+            [RobotSqlManager BuildNote:notemodel Success:^(id responseObject) {
+
+            } Failure:^(NSError *error) {
+
+                return ;
+            }];
+
+        }
+
+        if (isfirstT9A) {
+            
+            self.NoteKey = NoteKey;
+            
+            self.NoteTitle = [NSString stringWithFormat:@"%@",NoteKey];
+            
+            //页码管理
+            [self.WhiteBoardView setManagePageWithPage:page];
+
+        }
+
+    }
+
+    if (!isfirstT9A) {
+        
+        isfirstT9A = YES;
+    }
+
+    saveT9ANoteKey = NoteKey;
+    
+    saveT9ANotePage = page;
+
+}
+- (void)getDevicePageNoteIdNumber:(int)NotePage
+{
+    NSLog(@"T9A的页码与笔记合并页码 = %d",NotePage);
+}
 #pragma mark- ========== 按钮点击事件 （控制类）  ===========
 
 -(void)BackButtonPressed:(UIButton *)sender
@@ -328,6 +466,7 @@ static int interval_Board = 10;
     }];
     
     if (videoPathUrl) {
+        
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"视频地址" message:[NSString stringWithFormat:@"%@",videoPathUrl] preferredStyle:UIAlertControllerStyleAlert ];
         
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
@@ -596,6 +735,12 @@ static int interval_Board = 10;
     });
     
 }
+// 改变输入模式
+- (IBAction)drawType:(id)sender {
+    ((UIButton *)sender).selected = !((UIButton *)sender).selected;
+    [self.WhiteBoardView SetDrawType:((UIButton *)sender).selected];
+}
+
 
 #pragma mark - ========== ImagePickerDelegate ===========
 

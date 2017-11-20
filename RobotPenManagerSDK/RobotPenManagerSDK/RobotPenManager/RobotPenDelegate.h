@@ -15,144 +15,151 @@
 #import "RobotPenPoint.h"
 #import "RobotPenUtilPoint.h"
 
-/**
- RobotPenManager 代理
+/*!
+ @protocol
+ @abstract 代理
+ @discussion RobotPenManager 代理
  */
 @protocol RobotPenDelegate <NSObject>
 
 @optional
 
 #pragma mark 设备监听
-/**
- 发现电磁板设备
- 
- @param device <#device description#>
+/*!
+ @method
+ @abstract 发现电磁板设备
+ @param device 设备
  */
 - (void)getBufferDevice:(RobotPenDevice *)device;
-/**
- 监听电磁板设备状态
- 
- @param State <#State description#>
+
+/*!
+ @method
+ @abstract 监听电磁板设备状态
+ @param State 状态
  */
 - (void)getDeviceState:(DeviceState)State;
 
-/**
- 设备电磁板点击事件
- 
- @param Type <#Type description#>
+/*!
+ @method
+ @abstract 设备电磁板点击事件
+ @param Type 事件类型
  */
 - (void)getDeviceEvent:(DeviceEventType)Type;
 
-/**
- 监听系统蓝牙状态
- 
- @param State <#State description#>
+/*!
+ @method
+ @abstract 监听系统蓝牙状态
+ @param State 状态
  */
 - (void)getOSDeviceState:(OSDeviceStateType)State;
 
 #pragma mark 数据监听
 
-/**
- 获取原始点数据
- 
+/*!
+ @method
+ @abstract 获取原始点数据
  @param point 原始点
  */
 - (void)getPointInfo:(RobotPenPoint *)point;
 
-/**
- 获取优化点数据
- 
+/*!
+ @method
+ @abstract 获取优化点数据
  @param point 优化点
  */
 - (void)getOptimizesPointInfo:(RobotPenUtilPoint *)point;
 
 
 #pragma mark 离线笔记监听
-/**
- 同步离线笔记状态
- 
- @param state <#state description#>
+
+/*!
+ @method
+ @abstract 同步离线笔记状态
+ @param state 状态
  */
 - (void)SyncState:(SYNCState)state;
 
-
-/**
- 获取同步笔记的笔记信息
- 
- @param note <#note description#>
+/*!
+ @method
+ @abstract 获取同步笔记的笔记信息
+ @param note 笔记
  */
 - (void)getSyncNote:(RobotNote *)note;
 
-/**
- 获取离线笔记的笔迹数据
+/*!
+ @method
+ @abstract  获取离线笔记的笔迹数据
+ @param trails 笔迹模型
  */
 - (void)getSyncData:(RobotTrails *)trails;
 
-
-/**
- 离线笔记数据同步进度
- 
+/*!
+ @method
+ @abstract 离线笔记数据同步进度
  @param length 总大小
  @param curlength 已同步大小
  @param progess 进度
  */
 - (void)getSyncDataLength:(int )length andCurDataLength:(int)curlength andProgress:(float)progess;
 
-
-/**
- 监听笔记数量和电量信息
- @param num <#num description#>
+/*!
+ @method
+ @abstract  监听笔记数量和电量信息
+ @param num 数量
+ @param battery 电量
  */
 - (void)getStorageNum:(int)num andBattery:(int)battery;
 
 #pragma mark OTA监听
-/**
- OTA升级state
- 
- @param state <#state description#>
+
+/*!
+ @method
+ @abstract OTA升级state
+ @param state 状态
  */
 - (void)OTAUpdateState:(OTAState)state;
 
-/**
- OTA升级进度
- 
- @param progess <#progess description#>
+/*!
+ @method
+ @abstract OTA升级进度
+ @param progess 进度
  */
 - (void)OTAUpdateProgress:(float)progess;
 
 #pragma mark 模组监听
-/**
- SENSOR升级State
- 
- @param state <#state description#>
+/*!
+ @method
+ @abstract SENSOR升级State
+ @param state 状态
  */
 - (void)SensorUpdateState:(SensorState)state;
 
-/**
- SENSOR升级进度
- 
- @param progess <#progess description#>
+/*!
+ @method
+ @abstract SENSOR升级进度
+ @param progess 状态
  */
 - (void)SensorUpdateProgress:(float)progess;
 
-
 #pragma mark 页码检测监听
 
-/**
- 获取设备当前页（仅限页码检测设备）
- 
- @param page 当前页
+/*!
+ @method
+ @abstract 获取设备笔记和页码编号（仅限页码检测设备）
+ @param page 页码编号
+ @param NoteId 笔记编号
  */
-- (void)getDevicePage:(int)page andNoteKey:(NSString *)NoteKey;
+- (void)getDevicePage:(int)page andNoteId:(int)NoteId;
 
-/**
- 获取笔迹数据（仅限页码检测设备）
+/*!
+ @method
+ @abstract 获取设备笔记页码合并编号（仅限页码检测设备）
+ @param NotePage 笔记页码编号
  */
-- (void)getTASyncData:(RobotTrails *)trails andBlockKey:(NSString *)BlockKey;
-
-/**
- 获取笔记信息和页码信息（仅限页码检测设备）
- 
+- (void)getDevicePageNoteIdNumber:(int)NotePage;
+/*!
+ @method
+ @abstract 获取同步离线笔记信息和页码信息（仅限页码检测设备）
  @param note 笔记信息
  @param page 页码信息
  */

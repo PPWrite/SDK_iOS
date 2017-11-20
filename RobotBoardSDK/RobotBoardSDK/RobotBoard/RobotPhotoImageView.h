@@ -10,26 +10,31 @@
 #import "RobotPhotoImage.h"
 
 @interface RobotPhotoImageView : UIImageView
-
-/** 是否可以编辑*/
+/*!
+ @property
+ @brief 是否可以编辑
+ */
 @property (nonatomic, assign) int enbleEdit;
-/** 图片*/
-@property (nonatomic, strong)RobotPhotoImage *photo;
+/*!
+ @property
+ @brief 图片
+ */
+@property (nonatomic, strong) RobotPhotoImage *photo;
 
-
-/**
- 设置编辑状态
- 
+/*!
+ @method
+ @abstract 设置编辑状态
  @param enbleEdit 是否可以编辑
  */
 - (void)setEditMode:(BOOL)enbleEdit;
 
-/**
- 设置编辑框的颜色，默认为透明
-
+/*!
+ @method
+ @abstract 设置编辑框的颜色，默认为透明
  @param color 颜色
  @param isshow 是否显示编辑框
  */
 -(void)setLayerColor:(UIColor *)color andIsShowLayer:(BOOL)isshow;
 
 @end
+

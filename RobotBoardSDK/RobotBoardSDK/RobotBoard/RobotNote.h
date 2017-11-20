@@ -9,22 +9,47 @@
 #import <Foundation/Foundation.h>
 
 @interface RobotNote : NSObject
-/** NoteID*/
+/*!
+ @property
+ @brief 笔记编号
+ */
 @property (nonatomic, assign) int NoteID;
-/** NoteKey*/
+/*!
+ @property
+ @brief 笔记唯一标识
+ */
 @property (nonatomic, copy) NSString *NoteKey;
-/** 设备类型*/
+/*!
+ @property
+ @brief 设备类型
+ */
 @property (nonatomic, assign) int DeviceType;
-/** 笔记标题*/
+/*!
+ @property
+ @brief 笔记标题
+ */
 @property (nonatomic, copy) NSString *Title;
-/** UserID*/
+/*!
+ @property
+ @brief UserID
+ */
 @property (nonatomic, assign) long UserID;
-/** 创建时间*/
+/*!
+ @property
+ @brief 创建时间
+ */
 @property (nonatomic, assign) NSTimeInterval CreateTime;
-/** 更新时间*/
+/*!
+ @property
+ @brief 更新时间
+ */
 @property (nonatomic, assign) NSTimeInterval UpdateTime;
-/** 横竖屏*/
+/*!
+ @property
+ @brief 横竖屏
+ */
 @property (nonatomic, assign) int  IsHorizontal;
+
 
 
 @end

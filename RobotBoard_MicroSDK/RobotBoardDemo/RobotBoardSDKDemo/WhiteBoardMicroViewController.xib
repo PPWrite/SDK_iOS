@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WhiteBoardMicroViewController">
             <connections>
                 <outlet property="BackButton" destination="gQ8-aV-BBf" id="kMz-pt-TbC"/>
+                <outlet property="PageLabel" destination="kgE-sm-vlc" id="SCN-Hk-vEj"/>
                 <outlet property="RecordingButton" destination="LOm-Ch-4xU" id="ZQe-WS-YQi"/>
                 <outlet property="StopRecordingButton" destination="luN-2k-chx" id="Q6w-CY-O7a"/>
                 <outlet property="TimeLabel" destination="Qlo-E5-mnf" id="KFq-Og-Cav"/>
@@ -59,6 +60,19 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZMI-9G-msM">
                     <rect key="frame" x="0.0" y="147" width="288" height="465"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgE-sm-vlc">
+                            <rect key="frame" x="0.0" y="0.0" width="288" height="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="kgE-sm-vlc" firstAttribute="leading" secondItem="ZMI-9G-msM" secondAttribute="leading" id="4YR-Hf-5zc"/>
+                        <constraint firstAttribute="trailing" secondItem="kgE-sm-vlc" secondAttribute="trailing" id="Za7-WR-cWO"/>
+                        <constraint firstItem="kgE-sm-vlc" firstAttribute="top" secondItem="ZMI-9G-msM" secondAttribute="top" id="ewM-fK-czu"/>
+                    </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3XD-Ca-TlB">
                     <rect key="frame" x="292.5" y="72" width="82.5" height="30"/>
@@ -211,6 +225,20 @@
                         <action selector="DeletePageClicked:" destination="-1" eventType="touchUpInside" id="jNy-NR-3wX"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EgJ-Rc-2am">
+                    <rect key="frame" x="292" y="422" width="82.5" height="30"/>
+                    <color key="backgroundColor" red="0.13524937000000001" green="0.75138332819999998" blue="0.7129908036" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="82" id="Ijy-02-ZKE"/>
+                        <constraint firstAttribute="height" constant="30" id="w4B-mr-cS7"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="手模式"/>
+                    <state key="selected" title="笔模式"/>
+                    <connections>
+                        <action selector="drawType:" destination="-1" eventType="touchUpInside" id="XBZ-9g-K46"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -231,6 +259,7 @@
                 <constraint firstAttribute="trailing" secondItem="U8U-GU-5JD" secondAttribute="trailing" id="9SJ-Md-3Ni"/>
                 <constraint firstItem="Qlo-E5-mnf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="AS5-1Q-m1d"/>
                 <constraint firstAttribute="bottom" secondItem="CMI-mB-jTU" secondAttribute="bottom" constant="10" id="AnZ-SH-bTN"/>
+                <constraint firstAttribute="trailing" secondItem="EgJ-Rc-2am" secondAttribute="trailing" id="DAQ-ad-mLm"/>
                 <constraint firstItem="1XH-bf-yfq" firstAttribute="width" secondItem="2KM-Ac-JQd" secondAttribute="width" id="Dm2-S5-Cz4"/>
                 <constraint firstItem="RIZ-Yz-Qvs" firstAttribute="width" secondItem="TcM-TL-Grb" secondAttribute="width" id="FMy-gr-LUU"/>
                 <constraint firstAttribute="trailing" secondItem="CMI-mB-jTU" secondAttribute="trailing" constant="20" id="FUt-e8-dze"/>
@@ -261,6 +290,7 @@
                 <constraint firstItem="RIZ-Yz-Qvs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="c35-5d-Jcp"/>
                 <constraint firstItem="LOm-Ch-4xU" firstAttribute="height" secondItem="luN-2k-chx" secondAttribute="height" id="d6B-Vt-XM1"/>
                 <constraint firstItem="1XH-bf-yfq" firstAttribute="height" secondItem="2KM-Ac-JQd" secondAttribute="height" id="e0v-RB-pSL"/>
+                <constraint firstItem="EgJ-Rc-2am" firstAttribute="top" secondItem="afR-JZ-AkP" secondAttribute="bottom" constant="5" id="e9y-AQ-f2n"/>
                 <constraint firstItem="9Mi-g3-h9X" firstAttribute="top" secondItem="U8U-GU-5JD" secondAttribute="bottom" constant="8" id="emG-19-3Ms"/>
                 <constraint firstItem="RIZ-Yz-Qvs" firstAttribute="height" secondItem="TcM-TL-Grb" secondAttribute="height" id="f8K-LX-iYA"/>
                 <constraint firstItem="TcM-TL-Grb" firstAttribute="leading" secondItem="RIZ-Yz-Qvs" secondAttribute="trailing" constant="20" id="fIc-bt-o8f"/>

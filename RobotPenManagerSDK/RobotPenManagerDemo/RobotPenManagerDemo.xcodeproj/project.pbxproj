@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D6CBECB1FBA8B4A00F0E63F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CBECA1FBA8B4A00F0E63F /* MBProgressHUD.m */; };
 		C09057581E57DED0000D004D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C09057571E57DED0000D004D /* main.m */; };
 		C090575B1E57DED0000D004D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C090575A1E57DED0000D004D /* AppDelegate.m */; };
 		C090575E1E57DED0000D004D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C090575D1E57DED0000D004D /* ViewController.m */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D6CBEC91FBA8B4A00F0E63F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		7D6CBECA1FBA8B4A00F0E63F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		C09057531E57DED0000D004D /* RobotPenManagerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RobotPenManagerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C09057571E57DED0000D004D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C09057591E57DED0000D004D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,6 +59,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D6CBEC71FBA8B3F00F0E63F /* Controlls */ = {
+			isa = PBXGroup;
+			children = (
+				7D6CBEC81FBA8B4A00F0E63F /* HUD */,
+			);
+			path = Controlls;
+			sourceTree = "<group>";
+		};
+		7D6CBEC81FBA8B4A00F0E63F /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				7D6CBEC91FBA8B4A00F0E63F /* MBProgressHUD.h */,
+				7D6CBECA1FBA8B4A00F0E63F /* MBProgressHUD.m */,
+			);
+			path = HUD;
+			sourceTree = "<group>";
+		};
 		C090574A1E57DED0000D004D = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +101,7 @@
 				C090575A1E57DED0000D004D /* AppDelegate.m */,
 				C090575C1E57DED0000D004D /* ViewController.h */,
 				C090575D1E57DED0000D004D /* ViewController.m */,
+				7D6CBEC71FBA8B3F00F0E63F /* Controlls */,
 				C090575F1E57DED0000D004D /* Main.storyboard */,
 				C09057651E57DED0000D004D /* Assets.xcassets */,
 				C09057671E57DED0000D004D /* LaunchScreen.storyboard */,
@@ -206,6 +227,7 @@
 			files = (
 				C090575E1E57DED0000D004D /* ViewController.m in Sources */,
 				C090575B1E57DED0000D004D /* AppDelegate.m in Sources */,
+				7D6CBECB1FBA8B4A00F0E63F /* MBProgressHUD.m in Sources */,
 				C09057641E57DED0000D004D /* RobotPenManagerDemo.xcdatamodeld in Sources */,
 				C09057581E57DED0000D004D /* main.m in Sources */,
 			);

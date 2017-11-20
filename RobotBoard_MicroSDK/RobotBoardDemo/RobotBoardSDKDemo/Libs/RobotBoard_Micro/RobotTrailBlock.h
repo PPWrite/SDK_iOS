@@ -10,18 +10,40 @@
 #import <Foundation/Foundation.h>
 
 @interface RobotTrailBlock : NSObject
-/** BlockID*/
+/*!
+ @property
+ @brief BlockID
+ */
 @property (nonatomic, assign) int BlockID;
-/** NoteKey*/
+/*!
+ @property
+ @brief NoteKey
+ */
 @property (nonatomic, copy) NSString *NoteKey;
-/** BlockKey*/
+/*!
+ @property
+ @brief BlockKey
+ */
 @property (nonatomic, copy) NSString *BlockKey;
-/** NextBlockKey*/
+/*!
+ @property
+ @brief NextBlockKey
+ */
 @property (nonatomic, copy) NSString *NextBlockKey;
-/** 创建时间*/
-@property (nonatomic, assign)NSTimeInterval CreateTime;
-/** 更新时间*/
-@property (nonatomic, assign)NSTimeInterval UpdateTime;
-/** 页码信息*/
-@property (nonatomic, assign)int PageNumber;
+/*!
+ @property
+ @brief 创建时间
+ */
+@property (nonatomic, assign) NSTimeInterval CreateTime;
+/*!
+ @property
+ @brief 更新时间
+ */
+@property (nonatomic, assign) NSTimeInterval UpdateTime;
+/*!
+ @property
+ @brief 页码信息
+ */
+@property (nonatomic, assign) int PageNumber;
 @end
+

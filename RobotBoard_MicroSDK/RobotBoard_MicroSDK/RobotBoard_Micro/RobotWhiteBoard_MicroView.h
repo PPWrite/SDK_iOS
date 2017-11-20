@@ -9,21 +9,38 @@
 #import "RobotWhiteBoardView.h"
 
 @interface RobotWhiteBoard_MicroView : RobotWhiteBoardView
-/** 检查是否可以录制*/
+/*!
+ @method
+ @abstract 检查是否可以录制
+ @result 返回结果
+ */
 - (BOOL)GetIsVoiceEnable;
-/** 开始录制*/
+/*!
+ @method
+ @abstract 开始录制
+ */
 - (void)StartVideoRecord;
-/** 结束录制*/
+/*!
+ @method
+ @abstract 结束录制
+ */
 - (void)EndVideoRecord;
-/** 暂停录制*/
+/*!
+ @method
+ @abstract 暂停录制
+ */
 - (void)PauseVideoRecord;
-/** 继续录制 */
+/*!
+ @method
+ @abstract 继续录制
+ */
 - (void)ContinueVideoRecord;
-/** 取消录制*/
+/*!
+ @method
+ @abstract 取消录制
+ */
 - (void)CancelVideoRecord;
-/** 发送录制状态及信息*/
-- (void)SendStateInfo:(NSDictionary *)StateInfo;
-
 
 
 @end
+

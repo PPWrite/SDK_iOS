@@ -7,7 +7,7 @@
 //
 
 #import "WhiteBoardLiveViewController.h"
-
+#import "SDKManager.h"
 @interface WhiteBoardLiveViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *BackButton;
 @end
@@ -24,6 +24,8 @@
     [super viewDidLoad];
     [_BackButton addTarget:self action:@selector(BackButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     // Do any additional setup after loading the view from its nib.
+    
+    NSLog(@"%@",[SDKManager share].device.deviceName);
 }
 
 - (void)didReceiveMemoryWarning {

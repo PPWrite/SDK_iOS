@@ -10,14 +10,16 @@
 #import "RobotPenManager.h"
 #import "RobotPenDevice.h"
 #import "RobotPenPoint.h"
+#import "MBProgressHUD.h"
+#import "SDKManager.h"
+#import "RobotSqlManager.h"
 
 #define SCREEN_WIDTH self.view.bounds.size.width
 #define SCREEN_HEIGHT self.view.bounds.size.height
 
 @interface SearchDeviceViewController ()<UITableViewDelegate,UITableViewDataSource,RobotPenDelegate>
 {
-    BOOL isConnect;
-    
+    BOOL isSysnNote;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *xValue;//x坐标
@@ -50,11 +52,10 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *BackButton;
 
-@property(nonatomic,strong)RobotPenDevice *device;//连接中的设备
 
 @property(nonatomic,strong)NSMutableArray *deviceArray;//设备列表数组
 
-
+@property (nonatomic, strong) MBProgressHUD *hud; //圆形
 @end
 
 @implementation SearchDeviceViewController
@@ -74,8 +75,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    isConnect = NO;         // 是否连接
+    [self setUI];
     
+    [self refreshAll];
+
+    //遵守RobotPenManager协议，必须实现
+    [[RobotPenManager sharePenManager] setPenDelegate:self];
+    
+    // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self resetUI];
+}
+
+/**
+ 设置UI相关
+ */
+- (void)setUI
+{
     self.tableView.delegate = self;
     
     self.tableView.dataSource = self;
@@ -99,14 +118,13 @@
     [_UpdateButton addTarget:self action:@selector(UpdateButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
     [_BackButton addTarget:self action:@selector(BackButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    
-    //遵守RobotPenManager协议，必须实现
-    [[RobotPenManager sharePenManager] setPenDelegate:self];
-    
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
--(void)refreshAll {  //初始化全部数据状态
+/**
+ 初始化相关数据
+ */
+-(void)refreshAll {
+    
     _xValue.text = @"0.0";
     
     _yValue.text = @"0.0";
@@ -131,10 +149,39 @@
     
     _UpdateButton.hidden = YES;
     
-    self.device = nil;
+    [SDKManager share].device = nil;
     
 }
 
+- (void)resetUI {
+    
+    if ([SDKManager share].device) {
+        
+        self.deviceName.text = [NSString stringWithFormat:@"%@",[[SDKManager share].device getName]];
+        
+        self.deviceUUID.text = [NSString stringWithFormat:@"%@",[SDKManager share].device.uuID];
+        
+        self.VersionLabel.text =[NSString stringWithFormat:@"%@",[SDKManager share].device.SWStr];
+        
+        self.BatteryLabel.text =[NSString stringWithFormat:@"%d",[SDKManager share].device.Battery];
+        
+        self.RSSILabel.text =[NSString stringWithFormat:@"%d",[SDKManager share].device.RSSI];
+        
+        self.SyncNumberLabel.text = [NSString stringWithFormat:@"%d",[SDKManager share].device.NoteNumber];
+        
+        _UpdateButton.hidden = ![SDKManager share].device.SWStrIsUpdate;
+        
+        _blueToothButton.selected = YES;
+        
+        _SyncButton.hidden = ![SDKManager share].device.NoteNumber;
+
+        [self.deviceArray removeAllObjects];
+        
+        [self.deviceArray addObject:[SDKManager share].device];
+        
+        [self.tableView reloadData];
+    }
+}
 
 
 #pragma mark- ========== 按钮事件 ===========
@@ -142,22 +189,14 @@
 -(void)blueToothButtonPressed:(UIButton *)sender{   // 搜索设备事件
     NSLog(@"%s",__func__);
     
-    if (isConnect == NO) {
-        
-        [self.deviceArray removeAllObjects];
-        
+    if (![SDKManager share].device) {
         //搜索设备
+        [self.deviceArray removeAllObjects];
         [[RobotPenManager sharePenManager] scanDevice];
-        
     } else{
         
-        sender.selected = NO;
-        
-        [self.deviceArray removeAllObjects];
-        
-        [_tableView reloadData];
-        
         //断开连接
+        _blueToothButton.selected = NO;
         [[RobotPenManager sharePenManager] disconnectDevice];
     }
 }
@@ -167,6 +206,8 @@
     
     if (sender.selected) {
         //开始同步笔记
+        isSysnNote = YES;
+        self.hud.labelText = @"开始同步笔记...";
         [[RobotPenManager sharePenManager] startSyncNote];
     }
     else
@@ -204,12 +245,11 @@
     
     self.routeLabel.text = [NSString stringWithFormat:@"%d",point.touchState];
     
-    
 }
 
 /**
  发现设备
- @param device <#device description#>
+ @param device device
  */
 - (void)getBufferDevice:(RobotPenDevice *)device{
     
@@ -221,7 +261,7 @@
 
 /**
  获取设备状态 （设备连接状态 ）
- @param State <#State description#>
+ @param State state
  */
 - (void)getDeviceState:(DeviceState)State{
     
@@ -230,13 +270,14 @@
         case DEVICE_DISCONNECTED://未连接
             
             NSLog(@"disconnect");
-            
-            isConnect = NO;
-            
+        
             _blueToothButton.selected = NO;
             
-            [self refreshAll];
+            [self.deviceArray removeAllObjects];
             
+            [_tableView reloadData];
+            
+            //搜索设备
             [[RobotPenManager sharePenManager] scanDevice];
             
             break;
@@ -244,7 +285,7 @@
         case DEVICE_CONNECTE_SUCCESS://已连接
             
             NSLog(@"CONNECTED");
-            
+            //停止搜索
             [[RobotPenManager sharePenManager] stopScanDevice];
             
             break;
@@ -253,6 +294,25 @@
             
             NSLog(@"connecting");
             
+            break;
+            
+        case DEVICE_INFO_END://获取设备信息完成，大部分设备信息会在这里获取完毕。建议设备信息在这里获取、赋值。
+        {
+            
+            _blueToothButton.selected = YES;
+            
+            //获取当前连接设备信息
+            [SDKManager share].device = [[RobotPenManager sharePenManager] getConnectDevice];
+            
+            [self.deviceArray removeAllObjects];
+            
+            [SDKManager share].device.allNoteNumers =  [SDKManager share].device.NoteNumber;
+            
+            [self.deviceArray addObject:[SDKManager share].device];
+            
+            [self resetUI];
+            
+        }
             break;
             
         case DEVICE_UPDATE://可以进行检查更新操作，检查更新操作尽量在这里进行。
@@ -265,37 +325,21 @@
             
         case DEVICE_UPDATE_CAN://设备可以更新
         {
+            NSLog(@"设备可更新");
             
             _UpdateButton.hidden = NO;
             
+            [SDKManager share].device.SWStrIsUpdate = YES;
+            
         }
             break;
-            
-        case DEVICE_INFO_END://获取设备信息完成，大部分设备信息会在这里获取完毕。建议设备信息在这里获取、赋值。
+        case DEVICE_UPDATE_CANT:
         {
-            isConnect = YES;
+            [SDKManager share].device.SWStrIsUpdate = NO;
             
-            _blueToothButton.selected = YES;
+            _UpdateButton.hidden = YES;
             
-            //获取当前连接设备信息
-            self.device = [[RobotPenManager sharePenManager] getConnectDevice];
-            
-            [self.deviceArray removeAllObjects];
-            
-            [self.deviceArray addObject:self.device];
-            
-            self.deviceName.text = [NSString stringWithFormat:@"%@",[self.device getName]];
-            
-            self.deviceUUID.text = [NSString stringWithFormat:@"%@",self.device.uuID];
-            
-            self.VersionLabel.text =[NSString stringWithFormat:@"%@",self.device.SWStr];
-            
-            self.BatteryLabel.text =[NSString stringWithFormat:@"%d",self.device.Battery];
-            
-            self.RSSILabel.text =[NSString stringWithFormat:@"%d",self.device.RSSI];
-            
-            [self.tableView reloadData];
-            
+            NSLog(@"设备不可更新");
         }
             break;
             
@@ -307,7 +351,22 @@
 }
 
 
-
+/**
+ T9A设备专用
+ 
+ @param page <#page description#>
+ @param NoteId <#NoteKey description#>
+ */
+- (void)getDevicePage:(int)page andNoteId:(int)NoteId
+{
+    //    NSLog(@"T9A page = %d NoteId = %d",page,NoteId);
+    
+  
+}
+- (void)getDevicePageNoteIdNumber:(int)NotePage
+{
+    NSLog(@"T9A的页码与笔记合并页码 = %d",NotePage);
+}
 #pragma mark 同步笔记
 - (void)getSyncData:(RobotTrails *)trails{ // 获取同步笔迹
     
@@ -326,14 +385,26 @@
             
         case SYNC_ERROR:
         {
+            [SDKManager share].device.allNoteNumers =  [SDKManager share].device.NoteNumber;
+            
             NSLog(@"同步笔记错误");
+            
+            isSysnNote = NO;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self.hud hide:YES];
+                
+                self.hud = nil;
+                
+            });
         }
             break;
             
         case SYNC_NOTE:
         {
+
             NSLog(@"有未同步笔记");
-            
         }
             break;
             
@@ -360,12 +431,29 @@
         {
             NSLog(@"停止同步");
             
+            [SDKManager share].device.allNoteNumers =  [SDKManager share].device.NoteNumber;
+            
             _SyncButton.selected = NO;
+            
+            isSysnNote = NO;
+            
         }
             break;
         case SYNC_COMPLETE:
         {
+            isSysnNote = NO;
+            
             NSLog(@"同步完成");
+            
+            [SDKManager share].device.allNoteNumers =  [SDKManager share].device.NoteNumber;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self.hud hide:YES];
+                
+                self.hud = nil;
+                
+            });
             
             _SyncButton.selected = NO;
             
@@ -382,14 +470,31 @@
 - (void)getStorageNum:(int)num andBattery:(int)battery{//获取未同步笔记条数
     
     _SyncNumberLabel.text = [NSString stringWithFormat:@"%d",num];
-    
-    if (num > 0) {
+
+    if (isSysnNote) {
         
-        _SyncButton.hidden = NO;
+        float vlaue = (float)([SDKManager share].device.allNoteNumers - num)/[SDKManager share].device.allNoteNumers;
+        
+        self.hud.progress = vlaue;
         
     }
 }
 
+/** 页码检测专用**/
+
+- (void)getTASyncNote:(RobotNote *)note andPage:(int)page
+{
+//    NSLog(@"T9A同步笔记的笔记：%@",note);
+    
+    //页码检测专用
+//    [RobotSqlManager SaveTANote:note andPage:page Success:^(id responseObject) {
+//
+//        [[RobotPenManager sharePenManager] SetBlockWithBlock:(NSString *)responseObject];
+//
+//    } Failure:^(NSError *error) {
+//        NSLog(@"%@",error);
+//    }];
+}
 
 
 #pragma mark OTA
@@ -401,12 +506,16 @@
         {
             NSLog(@"正在下载固件");
             
+            self.hud.labelText = @"正在下载固件...";
+            
         }
             break;
             
         case OTA_UPDATE:
         {
             NSLog(@"ota升级");
+            
+            self.hud.labelText = @"正在载入固件...";
         }
             break;
             
@@ -418,7 +527,15 @@
             if (!_UpdateButton.hidden) {
                 
                 _UpdateButton.hidden = YES;
+                
             }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self.hud hide:YES];
+                
+                self.hud = nil;
+                
+            });
             
         }
             break;
@@ -432,6 +549,14 @@
             
         case OTA_ERROR:
         {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self.hud hide:YES];
+                
+                self.hud = nil;
+                
+            });
+            
             NSLog(@"OTA升级错误");
         }
             break;
@@ -444,9 +569,13 @@
 /**
  OTA升级进度
  */
-- (void)OTAUpdateProgress:(float)progress{
+- (void)OTAUpdateProgress:(float)progress {
     
     NSLog(@"OTA升级进度：%d%%",(int)(progress * 100));
+    
+    self.hud.labelText = [NSString stringWithFormat:@"OTA升级进度:%d%%",(int)(progress * 100)];
+    
+    self.hud.progress = progress;
     
 }
 
@@ -489,7 +618,7 @@
     
     NSLog(@"%s",__func__);
     
-    if (!self.device) {
+    if (![SDKManager share].device) {
         
         RobotPenDevice *selectItem = [self.deviceArray objectAtIndex:[indexPath row]]; // 设备Model
         
@@ -508,6 +637,20 @@
 - (IBAction)backaction:(id)sender {
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (MBProgressHUD *)hud {
+    
+    if (!_hud) {
+        
+        _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        
+        _hud.mode = MBProgressHUDModeDeterminate;
+        
+        _hud.dimBackground = YES;
+        
+    }
+    return _hud;
 }
 
 

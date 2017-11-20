@@ -15,14 +15,15 @@ iOS SDK 3.1.5已更新
 
 RobotPenHeader.h 中
 /**正在连接*/
-   CONNECTING -> DEVICE_CONNECTING,
+    CONNECTING -> DEVICE_CONNECTING,
     /**连接成功*/
      CONNECTED-> DEVICE_CONNECTE_SUCCESS,
     /**连接错误*/
      CONNECT_FAIL-> DEVICE_CONNECT_FAIL,
     /**已断开*/
     DISCONNECTED -> DEVICE_DISCONNECTED,
-
+    /**服务准备完成*/
+   SERVICES_READY->DEVICE_SERVICES_READY
     /**笔初始化完成*/
      PEN_INIT_COMPLETE-> DEVICE_INIT_COMPLETE,
 增加项：

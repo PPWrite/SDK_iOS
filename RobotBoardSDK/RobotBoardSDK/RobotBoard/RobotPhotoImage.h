@@ -10,28 +10,37 @@
 #import <UIKit/UIKit.h>
 
 @interface RobotPhotoImage : NSObject
-/** 附加信息*/
-@property (nonatomic, copy)NSString *Ext;
-/** blockKey*/
-@property (nonatomic, copy)NSString * blockKey;
-/** Image*/
+/*!
+ @property
+ @brief 附加信息
+ */
+@property (nonatomic, copy) NSString *Ext;
+/*!
+ @property
+ @brief blockKey
+ */
+@property (nonatomic, copy) NSString * blockKey;
+/*!
+ @property
+ @brief Image
+ */
 @property (nonatomic, strong) UIImage *Image;
 
-
-/**
- 根据Data获取图片
-
- @param data data
- @return 图片
+/*!
+ @method
+ @abstract 根据Data获取图片
+ @param data 数据
+ @result 图片
  */
 + (RobotPhotoImage *)ImageWithData:(NSData *)data;
 
-/**
- 根据路径获取图片
-
+/*!
+ @method
+ @abstract 根据路径获取图片
  @param path 路径
- @return 图片
+ @result 图片
  */
 + (RobotPhotoImage *)ImageWithContentsOfFile:(NSString *)path;
 
 @end
+

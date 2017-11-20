@@ -84,7 +84,7 @@ static int interval_Board = 10;
     
     _PenWidth = 1;//用于getPenWeight传值
     
-    [self.WhiteBoardView SetDrawType:1];// 输入的方式 （0:手、1:笔）
+    [self.WhiteBoardView SetDrawType:Gesture];// 输入的方式 （0:手、1:笔）
     
     [self setWB];   //设置画板并刷新
     
@@ -136,7 +136,7 @@ static int interval_Board = 10;
     notemodel.IsHorizontal = 0;//笔记方向，必填
     
      // 创建一本笔记
-    [RobotSqlManager BulidNote:notemodel Success:^(id responseObject) {
+    [RobotSqlManager BuildNote:notemodel Success:^(id responseObject) {
         
 //        NSLog(@"responseObject = %@",responseObject);
         

@@ -1,7 +1,7 @@
 
 /*********************************************************/
 /*********************************************************/
-/*----------------------SDK 3.1.5------------------------*/
+/*----------------------SDK 3.1.6------------------------*/
 /*********************************************************/
 /*********************************************************/
 #ifdef DEBUG
@@ -30,7 +30,7 @@
 /** 标准A4设备纵向 高度**/
 #define VALUE_A4_HEIGHT 16650.0f
 
-//对应设备：P7/T7/T7E/T7_TS/T7_LW/T7_CY/C7 硬件号 1/2/15/16/17/22/24
+//对应设备：P7/T7/T7E/T7_TS/T7_LW/T7_CY/C7/S7_JD 硬件号 1/2/15/16/17/22/24/26
 /** 标准A5设备纵向 纵向 宽度**/
 #define VALUE_A5_WIDTH  14335.0f
 /** 标准A5设备纵向 高度**/
@@ -61,9 +61,16 @@
 /**BLE X8 纵向 高度**/
 #define VALUE_X8_A5_HEIGHT  14650.0f
 
+/**BLE DM6 纵向 宽度**/ //27
+#define VALUE_DM6_WIDTH  109.0f
+/**BLE DM6 纵向 高度**/
+#define VALUE_DM6_HEIGHT  175.0f
 
 
-//设备类型
+/*!
+ @enum
+ @abstract 设备类型
+ */
 typedef enum {
     
     UnKnown = 0,
@@ -85,7 +92,7 @@ typedef enum {
     J0_A5 = 8,
     
     Gateway = 9,
-
+    
     Dongle = 10,
     
     J0_A4 = 11,
@@ -97,7 +104,7 @@ typedef enum {
     T7PL = 14,
     
     T7E = 15,
-
+    
     T7_TS = 16,
     
     T7_LW = 17,
@@ -109,16 +116,25 @@ typedef enum {
     T9E = 20,
     
     J0_T9 = 21,
- 
+    
     T7_CY =22,
     
     D1_CY = 23,
     
     C7 = 24,
     
+    W7 = 25,
+    
+    S7_JD = 26,
+    
+    DM6 = 27,
+    
 } DeviceType;
 
-//连接状态
+/*!
+ @enum
+ @abstract 连接状态
+ */
 typedef enum {
     /************************************设备基础状态******************************/
     /**设备已连接（已经存在连接设备）*/
@@ -207,7 +223,10 @@ typedef enum {
 
 }DeviceState;
 
-
+/*!
+ @enum
+ @abstract 蓝牙状态
+ */
 typedef enum{
     /** 未知设备*/
     OSDeviceState_BLE_Unknown = 0,
@@ -224,7 +243,10 @@ typedef enum{
 
 }OSDeviceStateType;
 
-
+/*!
+ @enum
+ @abstract 点击事件状态
+ */
 typedef enum{
     /** 单击*/
     DeviceEvent_CLick = 0,
@@ -256,7 +278,10 @@ typedef enum{
 
 
 
-//OTA状态
+/*!
+ @enum
+ @abstract OTA状态
+ */
 typedef enum {
     /** OTA升级错误*/
     OTA_ERROR,
@@ -275,7 +300,10 @@ typedef enum {
     
 }OTAState;
 
-//SENSOR状态
+/*!
+ @enum
+ @abstract SENSOR状态
+ */
 typedef enum {
     /** 模组升级错误*/
     SENSOR_ERROR,
@@ -293,7 +321,10 @@ typedef enum {
 }SensorState;
 
 
-//同步笔记状态
+/*!
+ @enum
+ @abstract 同步笔记状态
+ */
 typedef enum {
     /** 同步错误*/
     SYNC_ERROR,
@@ -301,20 +332,23 @@ typedef enum {
     SYNC_NOTE,
     /** 没有未同步笔记*/
     SYNC_NO_NOTE,
-    /** 同步成功（一个）*/
+    /** 单个笔记同步成功*/
     SYNC_SUCCESS,
     /** 开始同步*/
     SYNC_START,
     /** 停止同步*/
     SYNC_STOP,
-    /** 同步完成（全部）*/
+    /** 全部笔记同步完成*/
     SYNC_COMPLETE,
     
 }SYNCState;
 
 
 
-//电磁板电量状态
+/*!
+ @enum
+ @abstract 电磁板电量状态
+ */
 typedef enum {
     /** 0  */
     Battery_0,
@@ -337,7 +371,10 @@ typedef enum {
     
 }PercentageBattery;
 
-//坐标点的状态
+/*!
+ @enum
+ @abstract 坐标点的状态
+ */
 typedef enum {
     
     RobotPenPointFloat = 0,     /** 离开(悬浮)状态 **/
@@ -353,7 +390,10 @@ typedef enum {
 }RobotPenPointTouchStatus;
 
 
-//清除电磁板离线数据类型
+/*!
+ @enum
+ @abstract 清除电磁板离线数据类型
+ */
 typedef enum {
     
     CleanDataOnly = 0,     /** 只擦除数据 **/
