@@ -96,12 +96,6 @@
 - (int)getDevicePercentageBattery;
 /*!
  @method
- @abstract 获取倒序的MAC地址
- @result 返回结果
- */
-- (NSString *)getReverseMAC;
-/*!
- @method
  @abstract 获取笔记前缀字符串
  @result 返回结果
  */

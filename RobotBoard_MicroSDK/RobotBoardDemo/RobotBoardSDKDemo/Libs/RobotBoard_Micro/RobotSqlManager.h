@@ -178,9 +178,9 @@ typedef enum {
 /*!
  @method 设置临时笔记的画板方向
  @abstract 设置临时笔记的画板方向
- @param mark YES:横屏 NO:竖屏
+ @param isHorizontal YES:横屏 NO:竖屏
  */
-+ (void)ChangeTempNoteIsHorizontal:(BOOL)mark;
++ (void)ChangeTempNoteIsHorizontal:(BOOL)isHorizontal;
 
 
 #pragma mark  -----------------------------------------------------页码相关操作-----------------------------------------------------
@@ -212,6 +212,15 @@ typedef enum {
  @result 返回结果
  */
 + (NSString *)GetNewNextWithNoteKey:(NSString *)NoteKey BlockKey:(NSString *)ActivityBlockKey;
+
+/*!
+ @method 新建笔记页码
+ @abstract 按传入的页码标识顺序新建页码
+ @param blockKey 目标页页码标识
+ @param NextBlockKey 下一页标识
+ @param NoteKey 笔记标识
+ */
++ (void)BuildBlockWithBlockKey:(NSString *)blockKey NextBlockKey:(NSString *)NextBlockKey NoteKey:(NSString *)NoteKey;
 
 #pragma mark 页码删除
 

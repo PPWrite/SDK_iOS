@@ -208,12 +208,11 @@ static int interval_Board = 10;
 }
 
 //白板相关回调，用于返回白板状态信息，具体状态请查看RobotWhiteBoardView.h文件。
-- (void)GetWhiteBoardState:(NSDictionary *)StateInfo{
+- (void)GetWhiteBoardState:(WBMessageType)State content:(NSString *)Info{
     
-//    NSLog(@"StateInfo = %@",StateInfo);
+    //    NSLog(@"WB StateInfo = %d",State);
     
 }
-
 #pragma mark- ========== Other===========
 
 -(void)BackButtonPressed:(UIButton *)sender

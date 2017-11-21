@@ -313,14 +313,17 @@ static int interval_Board = 10;
     
 }
 
-//录课白板相关回调，用于返回录课白板状态信息，具体状态请查看RobotWhiteBoardView.h文件。
-- (void)GetVideoRecordState:(NSDictionary *)StateInfo{
+
+- (void)GetWhiteBoardState:(WBMessageType)State content:(NSString *)Info{
     
-//    NSLog(@"StateInfo = %@",StateInfo);
+//    NSLog(@"WB StateInfo = %d",State);
    
 }
 
-
+- (void)GetVideoRecordState:(WBVideoMessageType)StateInfo content:(NSString *)Info
+{
+//    NSLog(@"Video StateInfo = %d",State);
+}
 /**
  T9A设备专用
 

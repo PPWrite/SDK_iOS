@@ -24,7 +24,7 @@
  */
 typedef enum {
     /** 笔迹加载成功*/
-    WBMessage_Note_Load_SUCCESS,
+    WBMessage_Note_Load_SUCCESS = 0,
     /** 笔迹加载失败*/
     WBMessage_Note_Load_FAIL,
     /** 图片加载成功*/
@@ -34,7 +34,7 @@ typedef enum {
     /** 图片截取成功*/
     WBMessage_Image_Cut_SUCCESS,
     /** 图片截取失败*/
-    WBMessage_Image_Cut_FAIL,
+    WBMessage_Image_Cut_FAIL = 5,
     /** 图片插入成功*/
     WBMessage_Image_Insert_SUCCESS,
     /** 图片插入失败*/
@@ -44,7 +44,7 @@ typedef enum {
     /** 页码信息*/
     WBMessage_Page_Info,
     /** 页码识别信息*/
-    WBMessage_Page_TA_Info,
+    WBMessage_Page_TA_Info = 10,
     
     
 }WBMessageType;
@@ -55,13 +55,13 @@ typedef enum {
  @abstract 录制白板信息状态
  */
 typedef enum {
-    /** 笔迹加载成功*/
+    /** 录课取消成功*/
     WBVideoMessage_Video_Cancel_SUCCESS,
-    /** 笔迹加载失败*/
+    /** 录课取消失败*/
     WBVideoMessage_Video_Cancel_FAIL,
-    /** 图片加载成功*/
+    /** 录课保存成功*/
     WBVideoMessage_Video_Save_SUCCESS,
-    /** 图片加载失败*/
+    /** 录课保存失败*/
     WBVideoMessage_Video_Save_FAIL,
     
 }WBVideoMessageType;

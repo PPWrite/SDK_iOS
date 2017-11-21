@@ -374,11 +374,18 @@
 #pragma mark ---------------------------Other---------------------------
 
 /*!
- @method
- @abstract 设置连接设备型号
+ @method 设置默认连接设备型号
+ @abstract 用于连接之前防止出现未知类型设置设备类型，适用于单一设备（只用一种设备）。
  @param deviceType 设备类型
  */
 - (void)setDeviceType:(DeviceType)deviceType;
+
+/*!
+ @method 设置已连接设备型号
+ @abstract 用于已经连接设备后设置设备类型
+ @param deviceType 设备类型
+ */
+- (void)setConnectedDeviceType:(DeviceType)deviceType;
 
 /*!
  @method

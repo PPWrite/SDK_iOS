@@ -1,6 +1,34 @@
+/************************************3.1.7**************************************/
+iOS SDK 3.1.7已更新
+地址：https://github.com/PPWrite/SDK_iOS
+版本号在RobotPenHeader可见。
+更新内容详情见“更新概要”
 
 
+更新概要：
+1、增加新固件支持。
+2、新增方法。
+3、方法变更。
+4、优化部分设备的硬件号判断。
 
+增加项：
+RobotPenManager.h中
+1、增加设置默认连接设备型号方法，用于连接之前防止出现未知类型设置设备类型，适用于单一设备（只用一种设备）。
+- (void)setDeviceType:(DeviceType)deviceType;
+2、增加设置已连接设备型号方法，用于已经连接设备后设置设备类型。
+- (void)setConnectedDeviceType:(DeviceType)deviceType;
+
+修改项：
+
+RobotWhiteBoardView.h中
+1、- (void)GetWhiteBoardState:(NSDictionary *)StateInfo替换为
+- (void)GetWhiteBoardState:(WBMessageType)State content:(NSString *)Info;
+2、- (void)GetVideoRecordState:(NSDictionary *)StateInfo替换为
+- (void)GetVideoRecordState:(WBVideoMessageType)StateInfo content:(NSString *)Info;
+
+白板服务只需实现1方法即可，录课服务需实现1、2两个方法。
+
+/************************************3.1.7**************************************/
 /************************************3.1.6**************************************/
 iOS SDK 3.1.6已更新
 地址：https://github.com/PPWrite/SDK_iOS
@@ -11,13 +39,15 @@ iOS SDK 3.1.6已更新
 更新概要：
 1、增加新固件支持。
 2、新增方法。
-3、完善使用说明。
+3、方法变更。
+
 
 修改项：
+
 RobotSqlManager.h中
-删除保存笔记方法SaveNote方法，可直接替换为BuildNote。
-删除创建笔记BuildLiveNote方法。
-新增创建笔记头BuildNoteHeader方法。
+1、删除保存笔记方法SaveNote方法，可直接替换为BuildNote。
+2、删除创建笔记BuildLiveNote方法。
+3、新增创建笔记头BuildNoteHeader方法。
 
 具体方法如下：
 + (void)SaveNote:(RobotNote *)NoteObj Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure; 
