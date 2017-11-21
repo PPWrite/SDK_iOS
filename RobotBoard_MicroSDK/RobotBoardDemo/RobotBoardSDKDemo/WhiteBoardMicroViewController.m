@@ -322,7 +322,7 @@ static int interval_Board = 10;
 
 - (void)GetVideoRecordState:(WBVideoMessageType)StateInfo content:(NSString *)Info
 {
-//    NSLog(@"Video StateInfo = %d",State);
+//    NSLog(@"Video StateInfo = %d",StateInfo);
 }
 /**
  T9A设备专用
