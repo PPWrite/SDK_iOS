@@ -142,7 +142,6 @@
 - (void)SensorUpdateProgress:(float)progess;
 
 #pragma mark 页码检测监听
-
 /*!
  @method
  @abstract 获取设备笔记和页码编号（仅限页码检测设备）

@@ -405,7 +405,7 @@
  @method
  @abstract 开启数据上报
  */
-- (void)OpneReportedData;
+- (void)OpenReportedData;
 
 /*!
  @method
@@ -418,6 +418,13 @@
  @abstract 擦除数据
  */
 - (void)CleanDeviceDataWithType:(CleanDataType)type;
+
+/*!
+ @method 获取SDK版本号
+ @abstract 获取SDK版本号
+ */
+- (NSString *)getSDKVersion;
+
 #pragma mark ---------------------------内部专用---------------------------
 
 /*!

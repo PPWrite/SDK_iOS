@@ -624,7 +624,7 @@
 
 /*!
  @method
- @abstract 设置播放笔记的图片数据
+ @abstract 设置直播笔记的图片数据
  @param model 笔迹
  */
 -(void)SetLiveImageWith:(RobotTrails *)model;
