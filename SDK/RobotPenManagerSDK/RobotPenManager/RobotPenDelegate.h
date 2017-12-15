@@ -47,6 +47,13 @@
 - (void)getDeviceEvent:(DeviceEventType)Type;
 
 /*!
+ @method 监听已连接设备RSSI
+ @abstract 监听已连接设备RSSI,需打开RSSI开关。
+ @param RSSI RSSI
+ */
+- (void)getDeviceRSSI:(NSNumber *)RSSI;
+
+/*!
  @method
  @abstract 监听系统蓝牙状态
  @param State 状态

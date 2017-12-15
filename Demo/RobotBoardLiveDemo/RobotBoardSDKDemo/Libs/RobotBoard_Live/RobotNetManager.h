@@ -16,6 +16,10 @@
  */
 + (RobotNetManager *)shareNetManager;
 
+/** 重置session*/
+- (void)sessionManagerSet;
+
+
 /*!
  @method 设置请求超时时间
  @abstract  设置请求超时时间
@@ -51,7 +55,7 @@
  @param userSession 用户UserSession
  @param about 直播间简介
  @param tags 直播间标签数组
- 
+
  */
 - (void)BuildLiveStudioWithName:(NSString *)name Password:(NSString *)password UserID:(NSString *)userID UserSession:(NSString *)userSession About:(NSString *)about Tags:(NSArray *)tags Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
 
@@ -93,8 +97,6 @@
  @abstract文件头信息获取
  */
 - (void)GetFileWithFilePath:(NSString *)FilePath Token:(NSString *)Token Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
-
-
 
 
 @end

@@ -138,6 +138,28 @@
  */
 - (RobotPenDevice *)getConnectDevice;
 
+
+/*!
+ @method 是否打开搜索设备实时更新
+ @abstract  默认关闭
+ @param open <#open description#>
+ */
+- (void)setOpenInspectDeviceList:(BOOL)open;
+
+/*!
+ @method 设置搜索设备更新时间周期
+ @abstract  默认为5s
+ @param timePeriod 时间周期，单位为秒
+ */
+- (void)setInspectDeviceListTimePeriod:(float)timePeriod;
+
+/*!
+ @method
+ @abstract 获取设备列表
+ @result 返回结果
+ */
+- (NSArray *)getDeviceSearchList;
+
 #pragma mark 设备配对
 /*!
  @method
@@ -179,6 +201,27 @@
  */
 - (void)changeName:(NSString *)name;
 
+#pragma mark 连接的设备RSSI
+
+/*!
+ @method 是否打开当前连接设备的RSSI
+ @abstract 默认关闭
+ @param open <#open description#>
+ */
+- (void)setOpenReadDeviceRSSI:(BOOL)open;
+
+/*!
+ @method 设置读取当前连接设备的RSSI时间周期
+ @abstract 默认为5S
+ @param timePeriod 时间周期，单位为秒
+ */
+- (void)setReadDeviceRSSITimePeriod:(float)timePeriod;
+
+/*!
+ @method 读取当前连接设备RSSI
+ @abstract 读取当前连接设备RSSI
+ */
+- (void)readDeviceRSSI;
 
 #pragma mark ---------------------------离线笔记相关---------------------------
 /*!

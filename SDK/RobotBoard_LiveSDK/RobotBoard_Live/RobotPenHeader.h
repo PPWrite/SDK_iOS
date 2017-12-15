@@ -282,6 +282,10 @@ typedef enum{
     DeviceEvent_TRUE ,
     /** 错误*/
     DeviceEvent_WRONG ,
+    /** 取消*/
+    DeviceEvent_CANCEL,
+    /** 确定*/
+    DeviceEvent_ENSURE,
 }DeviceEventType;
 
 
