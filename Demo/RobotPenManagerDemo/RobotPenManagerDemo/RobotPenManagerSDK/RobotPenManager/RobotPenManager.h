@@ -138,6 +138,28 @@
  */
 - (RobotPenDevice *)getConnectDevice;
 
+
+/*!
+ @method 是否打开搜索设备实时更新
+ @abstract  默认关闭
+ @param open <#open description#>
+ */
+- (void)setOpenInspectDeviceList:(BOOL)open;
+
+/*!
+ @method 设置搜索设备更新时间周期
+ @abstract  默认为5s
+ @param timePeriod 时间周期，单位为秒
+ */
+- (void)setInspectDeviceListTimePeriod:(float)timePeriod;
+
+/*!
+ @method
+ @abstract 获取设备列表
+ @result 返回结果
+ */
+- (NSArray *)getDeviceSearchList;
+
 #pragma mark 设备配对
 /*!
  @method
@@ -179,6 +201,27 @@
  */
 - (void)changeName:(NSString *)name;
 
+#pragma mark 连接的设备RSSI
+
+/*!
+ @method 是否打开当前连接设备的RSSI
+ @abstract 默认关闭
+ @param open <#open description#>
+ */
+- (void)setOpenReadDeviceRSSI:(BOOL)open;
+
+/*!
+ @method 设置读取当前连接设备的RSSI时间周期
+ @abstract 默认为5S
+ @param timePeriod 时间周期，单位为秒
+ */
+- (void)setReadDeviceRSSITimePeriod:(float)timePeriod;
+
+/*!
+ @method 读取当前连接设备RSSI
+ @abstract 读取当前连接设备RSSI
+ */
+- (void)readDeviceRSSI;
 
 #pragma mark ---------------------------离线笔记相关---------------------------
 /*!
@@ -368,9 +411,41 @@
  @param isHorizontal 电磁板方向
  @result 返回结果
  */
-- (CGSize)getOriginalImageSizeWith:(CGSize)sceneImageSize WithSceneWidth:(float)sceneWidth DeviceType:(int)deviceType IsHorizontal:(BOOL)isHorizontal
-;
+- (CGSize)getOriginalImageSizeWith:(CGSize)sceneImageSize WithSceneWidth:(float)sceneWidth DeviceType:(int)deviceType IsHorizontal:(BOOL)isHorizontal;
 
+#pragma mark ---------------------------C7--------------------------
+/**
+ 设置新的同步密码
+ 
+ @param oldPassWord 旧密码
+ @param newPassword 新密码
+ */
+- (void)setSyncPassWordWithOldPassWord:(NSString *)oldPassWord NewPassWord:(NSString *)newPassword;
+
+/**
+ 开启数据上报
+ */
+- (void)OpenReportedData;
+
+/**
+ 关闭数据上报
+ */
+- (void)CloseReportedData;
+
+/**
+ 擦除数据
+ 
+ @param type 操作类型
+ */
+- (void)CleanDeviceDataWithType:(CleanDataType)type;
+
+#pragma mark ---------------------------T7B_HF--------------------------
+
+/*!
+ @method 复位休眠时间
+ @abstract  复位休眠时间 T7B_HFs使用
+ */
+- (void)resetDeviceSleepTime;
 #pragma mark ---------------------------Other---------------------------
 
 /*!
@@ -395,31 +470,6 @@
 - (OSDeviceStateType)getOSDeviceState;
 
 /*!
- @method
- @abstract 设置新的同步密码
- @param oldPassWord 旧密码
- @param newPassword 新密码
- */
-- (void)setSyncPassWordWithOldPassWord:(NSString *)oldPassWord NewPassWord:(NSString *)newPassword;
-/*!
- @method
- @abstract 开启数据上报
- */
-- (void)OpenReportedData;
-
-/*!
- @method
- @abstract 关闭数据上报
- */
-- (void)CloseReportedData;
-
-/*!
- @method
- @abstract 擦除数据
- */
-- (void)CleanDeviceDataWithType:(CleanDataType)type;
-
-/*!
  @method 获取SDK版本号
  @abstract 获取SDK版本号
  */
@@ -431,9 +481,9 @@
  @method
  @abstract 发送页码信息
  @param Current 当前页
- @param Totla 所有页码
+ @param total 所有页码
  */
-- (void)SendPage:(int)Current :(int)Totla;
+- (void)SendPage:(int)Current :(int)total;
 
 /*!
  @method

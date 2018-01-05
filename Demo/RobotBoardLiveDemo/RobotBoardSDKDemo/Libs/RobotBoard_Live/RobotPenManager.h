@@ -411,9 +411,41 @@
  @param isHorizontal 电磁板方向
  @result 返回结果
  */
-- (CGSize)getOriginalImageSizeWith:(CGSize)sceneImageSize WithSceneWidth:(float)sceneWidth DeviceType:(int)deviceType IsHorizontal:(BOOL)isHorizontal
-;
+- (CGSize)getOriginalImageSizeWith:(CGSize)sceneImageSize WithSceneWidth:(float)sceneWidth DeviceType:(int)deviceType IsHorizontal:(BOOL)isHorizontal;
 
+#pragma mark ---------------------------C7--------------------------
+/**
+ 设置新的同步密码
+ 
+ @param oldPassWord 旧密码
+ @param newPassword 新密码
+ */
+- (void)setSyncPassWordWithOldPassWord:(NSString *)oldPassWord NewPassWord:(NSString *)newPassword;
+
+/**
+ 开启数据上报
+ */
+- (void)OpenReportedData;
+
+/**
+ 关闭数据上报
+ */
+- (void)CloseReportedData;
+
+/**
+ 擦除数据
+ 
+ @param type 操作类型
+ */
+- (void)CleanDeviceDataWithType:(CleanDataType)type;
+
+#pragma mark ---------------------------T7B_HF--------------------------
+
+/*!
+ @method 复位休眠时间
+ @abstract  复位休眠时间 T7B_HFs使用
+ */
+- (void)resetDeviceSleepTime;
 #pragma mark ---------------------------Other---------------------------
 
 /*!
@@ -438,31 +470,6 @@
 - (OSDeviceStateType)getOSDeviceState;
 
 /*!
- @method
- @abstract 设置新的同步密码
- @param oldPassWord 旧密码
- @param newPassword 新密码
- */
-- (void)setSyncPassWordWithOldPassWord:(NSString *)oldPassWord NewPassWord:(NSString *)newPassword;
-/*!
- @method
- @abstract 开启数据上报
- */
-- (void)OpenReportedData;
-
-/*!
- @method
- @abstract 关闭数据上报
- */
-- (void)CloseReportedData;
-
-/*!
- @method
- @abstract 擦除数据
- */
-- (void)CleanDeviceDataWithType:(CleanDataType)type;
-
-/*!
  @method 获取SDK版本号
  @abstract 获取SDK版本号
  */
@@ -474,9 +481,9 @@
  @method
  @abstract 发送页码信息
  @param Current 当前页
- @param Totla 所有页码
+ @param total 所有页码
  */
-- (void)SendPage:(int)Current :(int)Totla;
+- (void)SendPage:(int)Current :(int)total;
 
 /*!
  @method

@@ -1,4 +1,49 @@
 
+/************************************3.1.9**************************************/
+iOS SDK 3.1.9已更新
+地址：https://github.com/PPWrite/SDK_iOS
+版本号在RobotPenHeader可见。
+更新内容详情见“更新概要”
+
+更新概要：
+1、增加新固件支持。
+2、新增协议方法。
+3、新增设备属性
+4、修复bug。
+
+替换项：
+RobotPenDelegate.h中
+添加了- (void)getStorageNum:(int)num andBattery:(int)battery andNotePercent:(int)percent;
+取代- (void)getStorageNum:(int)num andBattery:(int)battery;
+请尽快更新 后续- (void)getStorageNum:(int)num andBattery:(int)battery;方法将会弃用。
+
+增加项：
+1、RobotPenDevice.h 中添加 NoteSroredPercent属性。
+/*!
+ @property
+ @brief 设备存储百分比（暂时只支持C7设备）
+ */
+@property (nonatomic, assign) int NoteSroredPercent;
+2、同步状态枚举SYNCState
+   添加了3个状态，暂时只支持C7设备
+    /** 笔记同步密码校验成功*/
+    SYNC_PASSWORD_SUCCESS,
+    /** 笔记同步密码校验失败*/
+    SYNC_PASSWORD_FAIL,
+    /** 笔记同步密码尚未启用*/
+    SYNC_PASSWORD_NULL,
+
+修复项：
+修复getOSDeviceState协议线程崩溃问题
+/*!
+ @method
+ @abstract 监听系统蓝牙状态
+ @param State 状态
+ */
+- (void)getOSDeviceState:(OSDeviceStateType)State;
+
+
+/************************************3.1.9**************************************/
 /************************************3.1.8**************************************/
 iOS SDK 3.1.8已更新
 地址：https://github.com/PPWrite/SDK_iOS

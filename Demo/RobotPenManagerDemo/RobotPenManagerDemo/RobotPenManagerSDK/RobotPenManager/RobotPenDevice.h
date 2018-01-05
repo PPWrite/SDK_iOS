@@ -78,9 +78,20 @@
 @property (nonatomic, assign) int NoteNumber;
 /*!
  @property
+ @brief 设备存储百分比（暂时只支持C7设备）
+ */
+@property (nonatomic, assign) int NoteSroredPercent;
+/*!
+ @property
  @brief BLE:固件mac标识
  */
 @property (nonatomic, assign) int MacSign;
+
+/*!
+ @property
+ @brief 附加信息，暂时用于更新搜索设备列表：0：未搜索到 1：已搜索到
+ */
+@property (nonatomic, assign) int Tags;
 /*!
  @method
  @abstract 获取设备名

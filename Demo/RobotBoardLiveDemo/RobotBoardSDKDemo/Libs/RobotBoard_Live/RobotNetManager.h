@@ -19,7 +19,6 @@
 /** 重置session*/
 - (void)sessionManagerSet;
 
-
 /*!
  @method 设置请求超时时间
  @abstract  设置请求超时时间

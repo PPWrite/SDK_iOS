@@ -1,7 +1,7 @@
 
 /*********************************************************/
 /*********************************************************/
-/*----------------------SDK 3.1.8------------------------*/
+/*----------------------SDK 3.1.9------------------------*/
 /*********************************************************/
 /*********************************************************/
 #ifdef DEBUG
@@ -24,7 +24,7 @@
 //HEIGHT 表示板子短边的像素值
 
 
-//对应设备：T8A/J0_A4/T9A/T9_J0/J0_A4_P/T9E/J0-T9/T8B/T9B-YD 硬件号 6/11/12/18/19/20/21/30/31
+//对应设备：T8A/J0_A4/T9A/T9_J0/J0_A4_P/T9E/J0-T9/T8B/T9B-YD/T9W/T8C 硬件号 6/11/12/18/19/20/21/30/31/34/35
 /** 标准A4设备纵向 纵向 宽度**/
 #define VALUE_A4_WIDTH  22600.0f
 /** 标准A4设备纵向 高度**/
@@ -136,6 +136,14 @@ typedef enum {
     T8B = 30,
     
     T9B_YD = 31,
+    
+    T7B_HF = 32,
+    
+    X8E_A5 = 33,
+    
+    T9W = 34,
+    
+    T8C = 35,
     
 } DeviceType;
 
@@ -349,9 +357,15 @@ typedef enum {
     /** 开始同步*/
     SYNC_START,
     /** 停止同步*/
-    SYNC_STOP,
+    SYNC_STOP = 5,
     /** 全部笔记同步完成*/
     SYNC_COMPLETE,
+    /** 笔记同步密码校验成功*/
+    SYNC_PASSWORD_SUCCESS,
+    /** 笔记同步密码校验失败*/
+    SYNC_PASSWORD_FAIL,
+    /** 笔记同步密码尚未启用*/
+    SYNC_PASSWORD_NULL,
     
 }SYNCState;
 
@@ -389,7 +403,7 @@ typedef enum {
  */
 typedef enum {
     
-    RobotPenPointFloat = 0,     /** 离开(悬浮)状态 **/
+    RobotPenPointFloat = 0,     /** 悬浮状态 **/
     
     RobotPenPointTouchBegin,    /** touchBegin状态 **/
     
@@ -397,7 +411,11 @@ typedef enum {
     
     RobotPenPointTouchEnd,      /** touchEnd状态 **/
     
-    RobotPenPointLeave          /** 离开感应范围 **/
+    RobotPenPointLeave,         /** 离开感应范围 **/
+    
+    RobotPenPointAssistTouch = 5,   /** 侧键按下touch状态**/
+    
+    RobotPenPointAssistFloat    /** 侧键按下悬浮状态 **/
     
 }RobotPenPointTouchStatus;
 

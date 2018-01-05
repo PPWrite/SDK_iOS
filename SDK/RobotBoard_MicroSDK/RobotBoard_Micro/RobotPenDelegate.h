@@ -110,12 +110,21 @@
 - (void)getSyncDataLength:(int )length andCurDataLength:(int)curlength andProgress:(float)progess;
 
 /*!
- @method
+ @method 监听笔记数量和电量信息(以后会弃用，请及时更新)
  @abstract  监听笔记数量和电量信息
  @param num 数量
  @param battery 电量
  */
 - (void)getStorageNum:(int)num andBattery:(int)battery;
+
+/*!
+ @method 监听笔记数量和电量信息
+ @abstract  监听笔记数量和电量信息
+ @param num 数量
+ @param battery 电量
+ @param percent 存储条数百分比
+ */
+- (void)getStorageNum:(int)num andBattery:(int)battery andNotePercent:(int)percent;
 
 #pragma mark OTA监听
 
