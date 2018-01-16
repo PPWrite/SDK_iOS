@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 #import "RobotPenHeader.h"
 #import "RobotNote.h"
 #import "RobotTrails.h"
@@ -47,18 +46,18 @@
 - (void)getDeviceEvent:(DeviceEventType)Type;
 
 /*!
+ @method
+ @abstract 监听系统状态
+ @param State 状态
+ */
+- (void)getOSDeviceState:(OSDeviceStateType)State;
+
+/*!
  @method 监听已连接设备RSSI
  @abstract 监听已连接设备RSSI,需打开RSSI开关。
  @param RSSI RSSI
  */
 - (void)getDeviceRSSI:(NSNumber *)RSSI;
-
-/*!
- @method
- @abstract 监听系统蓝牙状态
- @param State 状态
- */
-- (void)getOSDeviceState:(OSDeviceStateType)State;
 
 #pragma mark 数据监听
 
@@ -157,10 +156,11 @@
  */
 - (void)SensorUpdateProgress:(float)progess;
 
-#pragma mark 页码检测监听
+#pragma mark OEM系列
 /*!
  @method
- @abstract 获取设备笔记和页码编号（仅限页码检测设备）
+ @abstract 获取设备笔记和页码编号
+ @discussion T9系列专用
  @param page 页码编号
  @param NoteId 笔记编号
  */
@@ -168,19 +168,38 @@
 
 /*!
  @method
- @abstract 获取设备笔记页码合并编号（仅限页码检测设备）
+ @abstract 获取设备笔记页码合并编号
+ @discussion T9系列专用
  @param NotePage 笔记页码编号
  */
 - (void)getDevicePageNoteIdNumber:(int)NotePage;
 /*!
  @method
- @abstract 获取同步离线笔记信息和页码信息（仅限页码检测设备）
+ @abstract 获取同步离线笔记信息和页码信息
+ @discussion T9系列专用
  @param note 笔记信息
  @param page 页码信息
  */
 - (void)getTASyncNote:(RobotNote *)note andPage:(int)page;
 
+/*!
+ @method
+ @abstract 获取设备休眠时间
+ @discussion T9B/T8C系列专用
+ @param time 设备休眠时间 0-65535min
+ */
+- (void)getDeviceDormantTime:(int)time;
+
+/*!
+ @method
+ @abstract 获取设备尺寸
+ @discussion T8C系列专用
+ @param size 设备尺寸
+ */
+- (void)getDeviceSize:(CGSize)size;
+
 #pragma mark 其他
+
 
 @end
 

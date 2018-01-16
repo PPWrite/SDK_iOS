@@ -1,7 +1,7 @@
 
 /*********************************************************/
 /*********************************************************/
-/*----------------------SDK 3.1.9------------------------*/
+/*----------------------SDK 3.1.10------------------------*/
 /*********************************************************/
 /*********************************************************/
 #ifdef DEBUG
@@ -14,6 +14,9 @@
 
 #endif
 
+
+#import <UIKit/UIKit.h>
+
 /** 蓝牙系统提示框*/
 #define ShowBLEAlert NO
 
@@ -24,19 +27,19 @@
 //HEIGHT 表示板子短边的像素值
 
 
-//对应设备：T8A/J0_A4/T9A/T9_J0/J0_A4_P/T9E/J0-T9/T8B/T9B-YD/T9W/T8C 硬件号 6/11/12/18/19/20/21/30/31/34/35
+//对应设备：T8A/J0_A4/T9A/T7_PL/T9_J0/J0_A4_P/T9E/J0-T9/T8B/T9B-YD/T7B_HF/T9W/T8C 硬件号 6/11/12/14/18/19/20/21/30/31/32/34/35
 /** 标准A4设备纵向 纵向 宽度**/
 #define VALUE_A4_WIDTH  22600.0f
 /** 标准A4设备纵向 高度**/
 #define VALUE_A4_HEIGHT 16650.0f
 
-//对应设备：P7/T7/T7E/T7_TS/T7_LW/T7_CY/C7/S7_JD/T7A/T7_HI 硬件号 1/2/15/16/17/22/24/26/28/29
+//对应设备：P7/T7/T7E/T7_TS/T7_LW/T7_CY/C7/S7_JD/T7A/T7_HI/S7_SD 硬件号 1/2/15/16/17/22/24/26/28/29/36
 /** 标准A5设备纵向 纵向 宽度**/
 #define VALUE_A5_WIDTH  14335.0f
 /** 标准A5设备纵向 高度**/
 #define VALUE_A5_HEIGHT 8191.0f
 
-/**USB P1纵向 宽度**/ //4
+/**USB P1纵向 宽度**/ //4 25
 #define VALUE_P1_WIDTH  17407.0f
 /**USB P1纵向 高度**/
 #define VALUE_P1_HEIGHT 10751.0f
@@ -56,7 +59,7 @@
 /**BLE T7 PLUS J0 纵向 高度**/
 #define VALUE_J0_A5_HEIGHT  8191.0f
 
-/**BLE X8 纵向 宽度**/ //13
+/**BLE X8 纵向 宽度**/ //13 33
 #define VALUE_X8_A5_WIDTH  22100.0f
 /**BLE X8 纵向 高度**/
 #define VALUE_X8_A5_HEIGHT  14650.0f
@@ -65,7 +68,6 @@
 #define VALUE_DM6_WIDTH  109.0f
 /**BLE DM6 纵向 高度**/
 #define VALUE_DM6_HEIGHT  175.0f
-
 
 /*!
  @enum
@@ -145,6 +147,8 @@ typedef enum {
     
     T8C = 35,
     
+    S7_SD = 36,
+    
 } DeviceType;
 
 /*!
@@ -211,6 +215,12 @@ typedef enum {
     DEVICE_NAME_UPDATED = 30,
     /**设备名字更新*/
     DEVICE_NAME_UPDATE,
+    /************************************获取休眠状态******************************/
+    /**获取、设置设备休眠时间成功（T9B、T8C系列）*/
+    DEVICE_DORMANTTIME_SUCCESS = 35,
+    /************************************获取设备尺寸状态******************************/
+    /**获取、设置设备尺寸成功（T8C系列）*/
+    DEVICE_SIZE_SUCCESS = 37,
     /************************************设置同步密码状态******************************/
     /**设置同步密码成功*/
     DEVICE_SET_PASSWORD_SUCCESS = 40,
@@ -236,12 +246,12 @@ typedef enum {
     DEVICE_CLEANDATA_BUILD_SUCCESS,
     /**无擦除权限*/
     DEVICE_CLEANDATA_NOTAUTHORIZED,
-
+    
 }DeviceState;
 
 /*!
  @enum
- @abstract 蓝牙状态
+ @abstract 系统状态
  */
 typedef enum{
     /** 未知设备*/
@@ -256,6 +266,11 @@ typedef enum{
     OSDeviceState_BLE_PoweredOff,
     /** 蓝牙已打开*/
     OSDeviceState_BLE_PoweredOn,
+    //MAC方法
+    /** USB打开成功*/
+    OSDeviceState_USB_SUCCESS  = 6,
+    /** USB打开失败*/
+    OSDeviceState_USB_Error,
 
 }OSDeviceStateType;
 
@@ -419,7 +434,6 @@ typedef enum {
     
 }RobotPenPointTouchStatus;
 
-
 /*!
  @enum
  @abstract 清除电磁板离线数据类型
@@ -431,12 +445,36 @@ typedef enum {
     CleanDataAndCleanNote,    /** 擦除数据并清空离线笔记 **/
     
     CleanDataAndBuildNote,     /** 擦除数据并新建离线笔记 **/
-   
+    
     
 }CleanDataType;
 
+/*!
+ @enum
+ @abstract SDK类型
+ @discussion MAC方法
+ */
+typedef enum {
+    
+    BLEModel = 0,     /** 蓝牙模式 **/
+    
+    USBModel,         /** USB模式 **/
 
+    
+}RobotPenMACSDKModel;
 
+/*!
+ @enum
+ @abstract 电磁板模式
+ @discussion MAC方法
+ */
+typedef enum {
+    
+    Device_BLEModel = 0,     /** 蓝牙模式 **/
+    Device_24GModel,         /** 2.4G模式 **/
+    Device_USBModel,         /** USB模式 **/
+    
+}RobotPenDeviceModel;
 
 
 

@@ -6,7 +6,6 @@
 //  Copyright © 2017年 JMS. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "RobotPenHeader.h"
 #import "RobotPenDelegate.h"
 
@@ -28,7 +27,6 @@
  @param delegate 代理
  */
 - (void)setPenDelegate:(id<RobotPenDelegate>)delegate;
-
 
 #pragma mark 实时报点类型相关
 
@@ -114,6 +112,7 @@
 /*!
  @method
  @abstract 设置是否自动链接（自动连接配对列表中的最后一个）
+ @discussion 蓝牙（BLE）专用
  @param autoConnect 布尔值
  */
 - (void)setAutoCheckDeviceConnect:(BOOL)autoConnect;
@@ -121,12 +120,14 @@
 /*!
  @method
  @abstract 自动连接配对列表中的最后一个设备
+ @discussion 蓝牙（BLE）专用
  */
 - (void)AutoCheckDeviceConnect;
 
 /*!
  @method
  @abstract 设置电磁板链接超时时间（默认为5s）
+ @discussion 蓝牙（BLE）专用
  @param overtime 时间
  */
 - (void)setCheckDeviceOverTime:(float)overtime;
@@ -164,13 +165,24 @@
 /*!
  @method
  @abstract 检查是否有配对过的设备
+ @discussion 蓝牙（BLE）专用
  @result 返回结果
  */
 - (BOOL)checkIsHaveMatch;
 
 /*!
  @method
+ @abstract 检查是否是已配对过的设备
+ @discussion 蓝牙（BLE）专用
+ @param device 设备
+ @result 返回结果
+ */
+- (BOOL)getIsPairedWithDevice:(RobotPenDevice *)device;
+
+/*!
+ @method
  @abstract 获取配对设备列表
+ @discussion 蓝牙（BLE）专用
  @result 返回结果
  */
 - (NSArray *)getPairingDevice;
@@ -178,6 +190,7 @@
 /*!
  @method
  @abstract 删除指定的配对设备
+ @discussion 蓝牙（BLE）专用
  @param device 设备
  */
 - (void)deletePairingMacDevice:(RobotPenDevice *)device;
@@ -185,12 +198,14 @@
 /*!
  @method
  @abstract  取消当前配对
+ @discussion 蓝牙（BLE）专用
  */
 - (void)deleteConnect;
 
 /*!
  @method
  @abstract  清空所有配对设备
+ @discussion 蓝牙（BLE）专用
  */
 - (void)cleanAllPairingDevice;
 
@@ -302,13 +317,35 @@
  @abstract 获取模组版本信息、是否支持笔校准模式
  */
 - (void)getSensorVersion;
-
-/** 页码检测专用----------------------------专用**/
+#pragma mark ---------------------------硬件版本检测相关-OEM系列---------------------------
 /*!
  @method
- @abstract 获取页码信息（页码检测设备专用）
+ @abstract 获取页码信息
+ @discussion T9系列专用
  */
 -(void)getTAPageInfo;
+
+/*!
+ @method
+ @abstract 获取设备休眠时间
+ @discussion T9B/T8C系列专用
+*/
+-(void)getOEMDeviceDormantTime;
+
+/*!
+ @method
+ @abstract 设置设备休眠时间
+ @discussion T9B/T8C系列专用
+ @param time 0-65535min
+ */
+-(void)setOEMDeviceDormantTimeWith:(int)time;
+
+/*!
+ @method
+ @abstract 获取设备尺寸及笔记标识位
+ @discussion T8C专用
+ */
+-(void)getOEMDeviceSize;
 
 /*!
  @method
@@ -414,36 +451,46 @@
 - (CGSize)getOriginalImageSizeWith:(CGSize)sceneImageSize WithSceneWidth:(float)sceneWidth DeviceType:(int)deviceType IsHorizontal:(BOOL)isHorizontal;
 
 #pragma mark ---------------------------C7--------------------------
-/**
- 设置新的同步密码
- 
+
+/*!
+ @method
+ @abstract 设置新的同步密码
  @param oldPassWord 旧密码
  @param newPassword 新密码
  */
 - (void)setSyncPassWordWithOldPassWord:(NSString *)oldPassWord NewPassWord:(NSString *)newPassword;
 
-/**
- 开启数据上报
+/*!
+ @method
+ @abstract 开启数据上报
  */
 - (void)OpenReportedData;
 
-/**
- 关闭数据上报
+/*!
+ @method
+ @abstract 关闭数据上报
  */
 - (void)CloseReportedData;
 
-/**
- 擦除数据
- 
+/*!
+ @method
+ @abstract 擦除数据
  @param type 操作类型
  */
 - (void)CleanDeviceDataWithType:(CleanDataType)type;
 
 #pragma mark ---------------------------T7B_HF--------------------------
+/*!
+ @method
+ @abstract 开启搜索T7B_HF 默认关闭
+ @discussion T7B_HF 使用
+ */
+- (void)openT7B:(BOOL)open;
 
 /*!
- @method 复位休眠时间
- @abstract  复位休眠时间 T7B_HFs使用
+ @method
+ @abstract 复位休眠时间
+ @discussion T7B_HF 使用
  */
 - (void)resetDeviceSleepTime;
 #pragma mark ---------------------------Other---------------------------
@@ -498,4 +545,5 @@
 
 
 @end
+
 

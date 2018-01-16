@@ -18,11 +18,6 @@
 @property (nonatomic, assign) int TrailID;
 /*!
  @property
- @brief 图片模型key 和 翻页
- */
-@property (nonatomic, copy) NSString *EXT;
-/*!
- @property
  @brief Block
  */
 @property (nonatomic, copy) NSString *Block;
@@ -31,6 +26,21 @@
  @brief 笔迹颜色
  */
 @property (nonatomic, assign) long Color;
+/*!
+ @property
+ @brief 笔迹数据
+ */
+@property (nonatomic, strong) NSArray *Data;
+/*!
+ @property
+ @brief 设备类型 0:轨迹 1:图片
+ */
+@property (nonatomic, assign) int Type;
+/*!
+ @property
+ @brief 图片模型key 和 翻页
+ */
+@property (nonatomic, copy) NSString *EXT;
 /*!
  @property
  @brief UserID
@@ -46,16 +56,6 @@
  @brief 更新时间
  */
 @property (nonatomic, assign) long  ET;
-/*!
- @property
- @brief 笔迹数据
- */
-@property (nonatomic, strong) NSArray *Data;
-/*!
- @property
- @brief 设备类型 0:轨迹 1:图片
- */
-@property (nonatomic, assign) int Type;
 
 
 #else
@@ -66,11 +66,6 @@
 @property (nonatomic, assign) int TrailID;
 /*!
  @property
- @brief  图片模型key 和 翻页
- */
-@property (nonatomic, copy) NSString *EXT;
-/*!
- @property
  @brief Block
  */
 @property (nonatomic, copy) NSString *Block;
@@ -79,6 +74,21 @@
  @brief 笔迹颜色*
  */
 @property (nonatomic, assign) long long Color;
+/*!
+ @property
+ @brief 笔迹数据
+ */
+@property (nonatomic, strong) NSArray *Data;
+/*!
+ @property
+ @brief 设备类型 0:轨迹 1:图片
+ */
+@property (nonatomic, assign) int Type;
+/*!
+ @property
+ @brief  图片模型key 和 翻页
+ */
+@property (nonatomic, copy) NSString *EXT;
 /*!
  @property
  @brief UserID
@@ -94,22 +104,10 @@
  @brief 更新时间
  */
 @property (nonatomic, assign) long long ET;
-/*!
- @property
- @brief 笔迹数据
- */
-@property (nonatomic, strong) NSArray *Data;
-/*!
- @property
- @brief 设备类型 0:轨迹 1:图片
- */
-@property (nonatomic, assign) int Type;
 
 #endif
-
 
 
 - (NSData*)getJSONOptions:(NSJSONWritingOptions)options error:(NSError**)error;
 
 @end
-

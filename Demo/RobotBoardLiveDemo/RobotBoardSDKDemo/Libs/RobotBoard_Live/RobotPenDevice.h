@@ -19,11 +19,6 @@
 @property (nonatomic, assign) DeviceType deviceType;
 /*!
  @property
- @brief 蓝牙
- */
-@property (retain, nonatomic) CBPeripheral *peripheral;
-/*!
- @property
  @brief UUID
  */
 @property (copy, nonatomic) NSString *uuID;
@@ -63,11 +58,6 @@
 @property (nonatomic, assign) int Battery;
 /*!
  @property
- @brief 信号强度
- */
-@property (nonatomic, assign) int RSSI;
-/*!
- @property
  @brief 设备名称
  */
 @property (nonatomic, copy) NSString *deviceName;
@@ -92,6 +82,17 @@
  @brief 附加信息，暂时用于更新搜索设备列表：0：未搜索到 1：已搜索到
  */
 @property (nonatomic, assign) int Tags;
+/*!
+ @property
+ @brief 蓝牙
+ */
+@property (retain, nonatomic) CBPeripheral *peripheral;
+/*!
+ @property
+ @brief 信号强度
+ */
+@property (nonatomic, assign) int RSSI;
+
 /*!
  @method
  @abstract 获取设备名
@@ -118,4 +119,14 @@
  @result 返回结果
  */
 - (NSString *)getHardPrefixString;
+
+
+/*!
+ @method
+ @abstract 根据方向获取屏幕方向获取设备原始宽高
+ @param isHorizontal 设备方向
+ @result 返回结果
+ */
+- (CGSize)getDeviceSizeWithIsHorizontal:(BOOL)isHorizontal;
+
 @end

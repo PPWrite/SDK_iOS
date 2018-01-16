@@ -7,15 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 #import "RobotPenHeader.h"
+
 @interface RobotPenPoint : NSObject
 /*!
  @property
  @brief 坐标点 Y
  */
 @property (assign , nonatomic) short originalX;
-
 /*!
  @property
  @brief 坐标点 Y
@@ -31,7 +30,6 @@
  @brief 笔迹设备类型
  */
 @property (assign , nonatomic) DeviceType deviceType;
-
 /*!
  @property
  @brief 笔迹点的状态
@@ -57,6 +55,12 @@
  */
 - (CGPoint)getChangePointWithIsHorizontal:(BOOL)isHorizontal;
 
-
+/*!
+ @method
+ @abstract 转换MAC坐标系的Y坐标
+ @discussion MAC方法
+ @param isHorizontal NO:电磁板左上角为(0,0)点,YES:电磁板左下角为(0,0)点
+ @result 返回结果
+ */
+- (CGPoint)changeMacPointWithIsHorizontal:(BOOL)isHorizontal;
 @end
-

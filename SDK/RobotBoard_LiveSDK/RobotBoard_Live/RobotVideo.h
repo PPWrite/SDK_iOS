@@ -40,4 +40,3 @@
  */
 @property (nonatomic, copy) NSString *Md5Str;
 @end
-

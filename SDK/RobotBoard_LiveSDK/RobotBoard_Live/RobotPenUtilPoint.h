@@ -6,8 +6,8 @@
 //  Copyright © 2017年 JMS. All rights reserved.
 //
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 #import "RobotPenHeader.h"
+#import "RobotPenPoint.h"
 
 @interface RobotPenUtilPoint : NSObject
 /*!
@@ -75,4 +75,5 @@
  */
 - (CGPoint)changeMacPointWithIsHorizontal:(BOOL)isHorizontal;
 @end
+
 

@@ -243,7 +243,7 @@
  @param State <#State description#>
  */
 - (void)getDeviceState:(DeviceState)State{
-    
+    NSLog(@"State = %d",State);
     switch (State) {
             
         case DEVICE_DISCONNECTED://未连接
