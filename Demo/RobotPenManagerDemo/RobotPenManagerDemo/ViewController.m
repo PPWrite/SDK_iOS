@@ -168,7 +168,7 @@
         [self.deviceArray removeAllObjects];
         
         //搜索设备
-        [[RobotPenManager sharePenManager] scanDevice];
+        [[RobotPenManager sharePenManager] scanDeviceWithALL:NO];
         
     } else{
         
@@ -255,7 +255,7 @@
             _blueToothButton.selected = NO;
             
             //搜索设备
-            [[RobotPenManager sharePenManager] scanDevice];
+            [[RobotPenManager sharePenManager] scanDeviceWithALL:NO];
             
             break;
             

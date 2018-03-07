@@ -192,7 +192,7 @@
     if (![SDKManager share].device) {
         //搜索设备
         [self.deviceArray removeAllObjects];
-        [[RobotPenManager sharePenManager] scanDevice];
+        [[RobotPenManager sharePenManager] scanDeviceWithALL:NO];
     } else{
         
         //断开连接
@@ -278,7 +278,7 @@
             [_tableView reloadData];
             
             //搜索设备
-            [[RobotPenManager sharePenManager] scanDevice];
+            [[RobotPenManager sharePenManager] scanDeviceWithALL:NO];;
             
             break;
             

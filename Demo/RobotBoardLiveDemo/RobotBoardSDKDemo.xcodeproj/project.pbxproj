@@ -10,6 +10,7 @@
 		7D58BF311FBACEDD00007FBC /* RobotPenDevice+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D58BF301FBACEDD00007FBC /* RobotPenDevice+Category.m */; };
 		7D6CBED41FBA993300F0E63F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CBED31FBA993300F0E63F /* MBProgressHUD.m */; };
 		7D6CBED81FBA99B600F0E63F /* SDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CBED71FBA99B600F0E63F /* SDKManager.m */; };
+		C0281ECE205012AF007A0152 /* RobotLiveSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0281ECD205012AE007A0152 /* RobotLiveSDK.a */; };
 		C06345561FCFF59C0092E391 /* WhiteBoardLiveStudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C06345541FCFF59C0092E391 /* WhiteBoardLiveStudioViewController.m */; };
 		C06345571FCFF59C0092E391 /* WhiteBoardLiveStudioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C06345551FCFF59C0092E391 /* WhiteBoardLiveStudioViewController.xib */; };
 		C07C08141E5BCB3800D290A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C07C08131E5BCB3800D290A7 /* main.m */; };
@@ -105,7 +106,6 @@
 		C0EA18B71FDBCDB000F7A2FD /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = C0EA184E1FDBCDB000F7A2FD /* AFSecurityPolicy.m */; };
 		C0EA18D31FDBD8CA00F7A2FD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C07C0ABF1E5C1F2D00D290A7 /* UIKit.framework */; };
 		C0EA18D41FDBD8E700F7A2FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C07C0ABD1E5C1F2000D290A7 /* Foundation.framework */; };
-		C0EA18F11FDC08DC00F7A2FD /* libRobotBoard_Live.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0EA18D51FDC08DC00F7A2FD /* libRobotBoard_Live.a */; };
 		C0F1FD7A1FD143FE00053830 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C07C0AC61E5C215B00D290A7 /* libz.tbd */; };
 		C0F1FD7B1FD1440500053830 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C07C0AC81E5C216700D290A7 /* libsqlite3.tbd */; };
 		C0F1FD7C1FD1440C00053830 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C0D9C8A01E5C3125008D0093 /* libsqlite3.0.tbd */; };
@@ -119,6 +119,30 @@
 		7D6CBED31FBA993300F0E63F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		7D6CBED61FBA99B600F0E63F /* SDKManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDKManager.h; sourceTree = "<group>"; };
 		7D6CBED71FBA99B600F0E63F /* SDKManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDKManager.m; sourceTree = "<group>"; };
+		C0281EB6205012AE007A0152 /* RobotPenLiveHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenLiveHeader.h; sourceTree = "<group>"; };
+		C0281EB7205012AE007A0152 /* RobotPenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenManager.h; sourceTree = "<group>"; };
+		C0281EB8205012AE007A0152 /* RobotTrails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotTrails.h; sourceTree = "<group>"; };
+		C0281EB9205012AE007A0152 /* RobotSqlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotSqlManager.h; sourceTree = "<group>"; };
+		C0281EBA205012AE007A0152 /* RobotPenLiveDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenLiveDelegate.h; sourceTree = "<group>"; };
+		C0281EBB205012AE007A0152 /* RobotPenUtilPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenUtilPoint.h; sourceTree = "<group>"; };
+		C0281EBC205012AE007A0152 /* RobotNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotNote.h; sourceTree = "<group>"; };
+		C0281EBD205012AE007A0152 /* RobotLiveStudioBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotLiveStudioBaseModel.h; sourceTree = "<group>"; };
+		C0281EBE205012AE007A0152 /* RobotWhiteBoard_MicroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotWhiteBoard_MicroView.h; sourceTree = "<group>"; };
+		C0281EBF205012AE007A0152 /* RobotPenDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenDelegate.h; sourceTree = "<group>"; };
+		C0281EC0205012AE007A0152 /* RobotVideoImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotVideoImage.h; sourceTree = "<group>"; };
+		C0281EC1205012AE007A0152 /* RobotPhotoImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPhotoImageView.h; sourceTree = "<group>"; };
+		C0281EC2205012AE007A0152 /* RobotNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotNetManager.h; sourceTree = "<group>"; };
+		C0281EC3205012AE007A0152 /* RobotPenPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenPoint.h; sourceTree = "<group>"; };
+		C0281EC4205012AE007A0152 /* RobotWhiteBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotWhiteBoardView.h; sourceTree = "<group>"; };
+		C0281EC5205012AE007A0152 /* RobotPenHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenHeader.h; sourceTree = "<group>"; };
+		C0281EC6205012AE007A0152 /* RobotPenDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenDevice.h; sourceTree = "<group>"; };
+		C0281EC7205012AE007A0152 /* RobotPhotoImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPhotoImage.h; sourceTree = "<group>"; };
+		C0281EC8205012AE007A0152 /* RobotWhiteBoard_LiveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotWhiteBoard_LiveView.h; sourceTree = "<group>"; };
+		C0281EC9205012AE007A0152 /* RobotLiveStudioModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotLiveStudioModel.h; sourceTree = "<group>"; };
+		C0281ECA205012AE007A0152 /* RobotVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotVideo.h; sourceTree = "<group>"; };
+		C0281ECB205012AE007A0152 /* WhiteBoardHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhiteBoardHeader.h; sourceTree = "<group>"; };
+		C0281ECC205012AE007A0152 /* RobotPenLiveManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenLiveManager.h; sourceTree = "<group>"; };
+		C0281ECD205012AE007A0152 /* RobotLiveSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = RobotLiveSDK.a; sourceTree = "<group>"; };
 		C05E711A1E5EBE79004836D0 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		C05E711C1E5EBEA1004836D0 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		C06345531FCFF59C0092E391 /* WhiteBoardLiveStudioViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WhiteBoardLiveStudioViewController.h; sourceTree = "<group>"; };
@@ -309,32 +333,7 @@
 		C0EA184D1FDBCDB000F7A2FD /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
 		C0EA184E1FDBCDB000F7A2FD /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
 		C0EA184F1FDBCDB000F7A2FD /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
-		C0EA18D51FDC08DC00F7A2FD /* libRobotBoard_Live.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libRobotBoard_Live.a; sourceTree = "<group>"; };
-		C0EA18D81FDC08DC00F7A2FD /* RobotPenLiveHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenLiveHeader.h; sourceTree = "<group>"; };
-		C0EA18D91FDC08DC00F7A2FD /* RobotPenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenManager.h; sourceTree = "<group>"; };
-		C0EA18DB1FDC08DC00F7A2FD /* RobotTrails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotTrails.h; sourceTree = "<group>"; };
-		C0EA18DD1FDC08DC00F7A2FD /* RobotPenLiveDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenLiveDelegate.h; sourceTree = "<group>"; };
-		C0EA18DF1FDC08DC00F7A2FD /* RobotNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotNote.h; sourceTree = "<group>"; };
-		C0EA18E01FDC08DC00F7A2FD /* RobotLiveStudioBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotLiveStudioBaseModel.h; sourceTree = "<group>"; };
-		C0EA18E11FDC08DC00F7A2FD /* RobotWhiteBoard_MicroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotWhiteBoard_MicroView.h; sourceTree = "<group>"; };
-		C0EA18E21FDC08DC00F7A2FD /* RobotPenDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenDelegate.h; sourceTree = "<group>"; };
-		C0EA18E31FDC08DC00F7A2FD /* RobotVideoImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotVideoImage.h; sourceTree = "<group>"; };
-		C0EA18E41FDC08DC00F7A2FD /* RobotPhotoImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPhotoImageView.h; sourceTree = "<group>"; };
-		C0EA18E51FDC08DC00F7A2FD /* RobotNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotNetManager.h; sourceTree = "<group>"; };
-		C0EA18E61FDC08DC00F7A2FD /* RobotPenPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenPoint.h; sourceTree = "<group>"; };
-		C0EA18E71FDC08DC00F7A2FD /* RobotWhiteBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotWhiteBoardView.h; sourceTree = "<group>"; };
-		C0EA18E81FDC08DC00F7A2FD /* RobotPenHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenHeader.h; sourceTree = "<group>"; };
-		C0EA18E91FDC08DC00F7A2FD /* RobotPenDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenDevice.h; sourceTree = "<group>"; };
-		C0EA18EA1FDC08DC00F7A2FD /* RobotPhotoImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPhotoImage.h; sourceTree = "<group>"; };
-		C0EA18EB1FDC08DC00F7A2FD /* RobotWhiteBoard_LiveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotWhiteBoard_LiveView.h; sourceTree = "<group>"; };
-		C0EA18EC1FDC08DC00F7A2FD /* RobotLiveStudioModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotLiveStudioModel.h; sourceTree = "<group>"; };
-		C0EA18ED1FDC08DC00F7A2FD /* RobotVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotVideo.h; sourceTree = "<group>"; };
-		C0EA18EE1FDC08DC00F7A2FD /* WhiteBoardHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhiteBoardHeader.h; sourceTree = "<group>"; };
-		C0EA18EF1FDC08DC00F7A2FD /* RobotTrailBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotTrailBlock.h; sourceTree = "<group>"; };
-		C0EA18F01FDC08DC00F7A2FD /* RobotPenLiveManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenLiveManager.h; sourceTree = "<group>"; };
 		C0F1FD621FD13E2A00053830 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
-		C0FFE81A1FF0DB1B007D4613 /* RobotPenUtilPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenUtilPoint.h; sourceTree = "<group>"; };
-		C0FFE81B1FF0DB1B007D4613 /* RobotSqlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotSqlManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,7 +344,6 @@
 				C0EA18D41FDBD8E700F7A2FD /* Foundation.framework in Frameworks */,
 				C0A96BC11FD7D56800DA3706 /* AudioToolbox.framework in Frameworks */,
 				C0EA18D31FDBD8CA00F7A2FD /* UIKit.framework in Frameworks */,
-				C0EA18F11FDC08DC00F7A2FD /* libRobotBoard_Live.a in Frameworks */,
 				C0A96BBB1FD7D53800DA3706 /* AVFoundation.framework in Frameworks */,
 				C0A96BC01FD7D56100DA3706 /* VideoToolbox.framework in Frameworks */,
 				C0A96BBF1FD7D55700DA3706 /* CoreMotion.framework in Frameworks */,
@@ -353,6 +351,7 @@
 				C0A96BBC1FD7D54200DA3706 /* CoreTelephony.framework in Frameworks */,
 				C0F1FD7D1FD1448D00053830 /* libresolv.tbd in Frameworks */,
 				C0A96BBA1FD7D50C00DA3706 /* libc++.tbd in Frameworks */,
+				C0281ECE205012AF007A0152 /* RobotLiveSDK.a in Frameworks */,
 				C0F1FD7C1FD1440C00053830 /* libsqlite3.0.tbd in Frameworks */,
 				C0F1FD7B1FD1440500053830 /* libsqlite3.tbd in Frameworks */,
 				C0F1FD7A1FD143FE00053830 /* libz.tbd in Frameworks */,
@@ -381,6 +380,36 @@
 				7D58BF301FBACEDD00007FBC /* RobotPenDevice+Category.m */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		C0281EB5205012AE007A0152 /* RobotLiveSDK */ = {
+			isa = PBXGroup;
+			children = (
+				C0281EB6205012AE007A0152 /* RobotPenLiveHeader.h */,
+				C0281EB7205012AE007A0152 /* RobotPenManager.h */,
+				C0281EB8205012AE007A0152 /* RobotTrails.h */,
+				C0281EB9205012AE007A0152 /* RobotSqlManager.h */,
+				C0281EBA205012AE007A0152 /* RobotPenLiveDelegate.h */,
+				C0281EBB205012AE007A0152 /* RobotPenUtilPoint.h */,
+				C0281EBC205012AE007A0152 /* RobotNote.h */,
+				C0281EBD205012AE007A0152 /* RobotLiveStudioBaseModel.h */,
+				C0281EBE205012AE007A0152 /* RobotWhiteBoard_MicroView.h */,
+				C0281EBF205012AE007A0152 /* RobotPenDelegate.h */,
+				C0281EC0205012AE007A0152 /* RobotVideoImage.h */,
+				C0281EC1205012AE007A0152 /* RobotPhotoImageView.h */,
+				C0281EC2205012AE007A0152 /* RobotNetManager.h */,
+				C0281EC3205012AE007A0152 /* RobotPenPoint.h */,
+				C0281EC4205012AE007A0152 /* RobotWhiteBoardView.h */,
+				C0281EC5205012AE007A0152 /* RobotPenHeader.h */,
+				C0281EC6205012AE007A0152 /* RobotPenDevice.h */,
+				C0281EC7205012AE007A0152 /* RobotPhotoImage.h */,
+				C0281EC8205012AE007A0152 /* RobotWhiteBoard_LiveView.h */,
+				C0281EC9205012AE007A0152 /* RobotLiveStudioModel.h */,
+				C0281ECA205012AE007A0152 /* RobotVideo.h */,
+				C0281ECB205012AE007A0152 /* WhiteBoardHeader.h */,
+				C0281ECC205012AE007A0152 /* RobotPenLiveManager.h */,
+			);
+			path = RobotLiveSDK;
 			sourceTree = "<group>";
 		};
 		C07C08061E5BCB3800D290A7 = {
@@ -463,8 +492,8 @@
 		C07C084F1E5C1CC600D290A7 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				C0EA18D51FDC08DC00F7A2FD /* libRobotBoard_Live.a */,
-				C0EA18D61FDC08DC00F7A2FD /* RobotBoard_Live */,
+				C0281EB5205012AE007A0152 /* RobotLiveSDK */,
+				C0281ECD205012AE007A0152 /* RobotLiveSDK.a */,
 				C0EA17AD1FDBCDB000F7A2FD /* Other */,
 			);
 			path = Libs;
@@ -758,37 +787,6 @@
 				C0EA184F1FDBCDB000F7A2FD /* AFHTTPSessionManager.h */,
 			);
 			path = AFNetworking;
-			sourceTree = "<group>";
-		};
-		C0EA18D61FDC08DC00F7A2FD /* RobotBoard_Live */ = {
-			isa = PBXGroup;
-			children = (
-				C0FFE81A1FF0DB1B007D4613 /* RobotPenUtilPoint.h */,
-				C0FFE81B1FF0DB1B007D4613 /* RobotSqlManager.h */,
-				C0EA18D81FDC08DC00F7A2FD /* RobotPenLiveHeader.h */,
-				C0EA18D91FDC08DC00F7A2FD /* RobotPenManager.h */,
-				C0EA18DB1FDC08DC00F7A2FD /* RobotTrails.h */,
-				C0EA18DD1FDC08DC00F7A2FD /* RobotPenLiveDelegate.h */,
-				C0EA18DF1FDC08DC00F7A2FD /* RobotNote.h */,
-				C0EA18E01FDC08DC00F7A2FD /* RobotLiveStudioBaseModel.h */,
-				C0EA18E11FDC08DC00F7A2FD /* RobotWhiteBoard_MicroView.h */,
-				C0EA18E21FDC08DC00F7A2FD /* RobotPenDelegate.h */,
-				C0EA18E31FDC08DC00F7A2FD /* RobotVideoImage.h */,
-				C0EA18E41FDC08DC00F7A2FD /* RobotPhotoImageView.h */,
-				C0EA18E51FDC08DC00F7A2FD /* RobotNetManager.h */,
-				C0EA18E61FDC08DC00F7A2FD /* RobotPenPoint.h */,
-				C0EA18E71FDC08DC00F7A2FD /* RobotWhiteBoardView.h */,
-				C0EA18E81FDC08DC00F7A2FD /* RobotPenHeader.h */,
-				C0EA18E91FDC08DC00F7A2FD /* RobotPenDevice.h */,
-				C0EA18EA1FDC08DC00F7A2FD /* RobotPhotoImage.h */,
-				C0EA18EB1FDC08DC00F7A2FD /* RobotWhiteBoard_LiveView.h */,
-				C0EA18EC1FDC08DC00F7A2FD /* RobotLiveStudioModel.h */,
-				C0EA18ED1FDC08DC00F7A2FD /* RobotVideo.h */,
-				C0EA18EE1FDC08DC00F7A2FD /* WhiteBoardHeader.h */,
-				C0EA18EF1FDC08DC00F7A2FD /* RobotTrailBlock.h */,
-				C0EA18F01FDC08DC00F7A2FD /* RobotPenLiveManager.h */,
-			);
-			path = RobotBoard_Live;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

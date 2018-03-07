@@ -256,7 +256,7 @@ static int interval_Board = 10;
  */
 -(void)getPointInfo:(RobotPenPoint *)point{
     
-//        NSLog(@"%hd %hd",point.originalX,point.originalY);
+        NSLog(@"%hd %hd %d",point.originalX,point.originalY,point.touchState);
 
     //if 判断为T9A专用，其他设备可以忽略
     if ([SDKManager share].device.deviceType == T9A) {
