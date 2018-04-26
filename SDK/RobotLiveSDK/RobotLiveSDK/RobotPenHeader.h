@@ -1,7 +1,7 @@
 
 /*********************************************************/
 /*********************************************************/
-/*----------------------SDK 3.2.1------------------------*/
+/*----------------------SDK 3.2.2------------------------*/
 /*********************************************************/
 /*********************************************************/
 #ifdef DEBUG
@@ -21,7 +21,7 @@
 #define ShowBLEAlert NO
 
 /** 最大设备号*/
-#define DeviceNumber_MAX 38
+#define DeviceNumber_MAX 45
 
 //注意：必看！！！
 //此处的宽高为板子横向的宽高。
@@ -36,7 +36,7 @@
 /** 标准A4设备纵向 高度**/
 #define VALUE_A4_HEIGHT 16650.0f
 
-//对应设备：P7/T7/T7E_TS/T7_TS/T7_LW/T7_CY/C7/S7_JD/T7A/T7_HI/S7_SD/T7E/T7E_HFHH 硬件号 1/2/15/16/17/22/24/26/28/29/36/37/38
+//对应设备：P7/T7/T7E_TS/T7_TS/T7_LW/T7_CY/C7/S7_JD/T7A/T7_HI/S7_SD/T7E/T7E_HFHH/S7_JD_M3/S1_DE/J7E 硬件号 1/2/15/16/17/22/24/26/28/29/36/37/38/39/44/45
 /** 标准A5设备纵向 纵向 宽度**/
 #define VALUE_A5_WIDTH  14335.0f
 /** 标准A5设备纵向 高度**/
@@ -156,6 +156,20 @@ typedef enum {
     
     T7E_HFHH = 38,
     
+    S7_JD_M3 = 39,
+    
+    P1_CX_M3 = 40,
+    
+    T9A_EN = 41,
+    
+    T9W_TY = 42,
+    
+    T9B_YD2 = 43,
+    
+    S1_DE = 44,
+    
+    J7E = 45,
+    
 } DeviceType;
 
 /*!
@@ -164,9 +178,8 @@ typedef enum {
  */
 typedef enum {
     /************************************设备基础状态******************************/
-    /**设备已连接（已经存在连接设备）*/
-    /**连接设备时候用,防止重复连接*/
-    DEVICE_CONNECTED = 0 ,
+    /**未知错误*/
+    DEVICE_UNKNOW = 0 ,
     /**正在连接*/
     DEVICE_CONNECTING,
     /**连接成功*/
@@ -206,9 +219,19 @@ typedef enum {
     DEVICE_SENSOR_UPDATE_CAN,
     /**模组不可更新*/
     DEVICE_SENSOR_UPDATE_CANT,
+    /************************************异常状态******************************/
+    /**设备已连接（已经存在连接设备）*/
+    /**连接设备时候用,防止重复连接*/
+    DEVICE_ERROR_CONNECTED = 20,
+    /**未找到设备*/
+    DEVICE_ERROR_OFFS,
+    /**系统状态异常*/
+    DEVICE_ERRORE_SYSTEM,
+    /**未遵守协议*/
+    DEVICE_ERROR_DELEGATE,
     /************************************频率校准状态******************************/
     /**进入频率校准模式*/
-    DEVICE_CALIBRATION_REDAY = 20,
+    DEVICE_CALIBRATION_REDAY = 30,
     /**进入频率校准超时*/
     DEVICE_CALIBRATION_OUTTIME,
     /**频率校准成功*/
@@ -219,15 +242,15 @@ typedef enum {
     DEVICE_CALIBRATION_QUIT,
     /************************************修改设备名状态******************************/
     /**设备名字修改成功*/
-    DEVICE_NAME_UPDATED = 30,
+    DEVICE_NAME_UPDATED = 35,
     /**设备名字更新*/
     DEVICE_NAME_UPDATE,
     /************************************获取休眠状态******************************/
     /**获取、设置设备休眠时间成功（T9B、T8C系列）*/
-    DEVICE_DORMANTTIME_SUCCESS = 35,
+    DEVICE_DORMANTTIME_SUCCESS = 37,
     /************************************获取设备尺寸状态******************************/
     /**获取、设置设备尺寸成功（T8C系列）*/
-    DEVICE_SIZE_SUCCESS = 37,
+    DEVICE_SIZE_SUCCESS = 38,
     /************************************设置同步密码状态******************************/
     /**设置同步密码成功*/
     DEVICE_SET_PASSWORD_SUCCESS = 40,
@@ -253,6 +276,7 @@ typedef enum {
     DEVICE_CLEANDATA_BUILD_SUCCESS,
     /**无擦除权限*/
     DEVICE_CLEANDATA_NOTAUTHORIZED,
+    
     
 }DeviceState;
 

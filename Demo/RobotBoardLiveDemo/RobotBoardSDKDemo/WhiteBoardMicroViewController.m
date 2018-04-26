@@ -205,7 +205,7 @@ static int interval_Board = 10;
 //大于0表示是有压感，需要用到压感功能则需要实现
 - (int)getIsPressure
 {
-    return 0;
+    return 1;
 }
 
 //获取当前笔记本Key，需要用到画板功能则需要实现

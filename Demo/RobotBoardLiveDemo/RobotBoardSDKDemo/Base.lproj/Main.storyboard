@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -39,7 +39,7 @@
                                 <rect key="frame" x="85" y="212" width="205" height="40"/>
                                 <color key="backgroundColor" red="0.13524937000000001" green="0.75138332819999998" blue="0.7129908036" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="白板"/>
+                                <state key="normal" title="白板(手写)"/>
                                 <connections>
                                     <action selector="WhiteBoard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TTc-1L-mUI"/>
                                 </connections>
@@ -48,7 +48,7 @@
                                 <rect key="frame" x="85" y="277" width="205" height="40"/>
                                 <color key="backgroundColor" red="0.13524937000000001" green="0.75138332819999998" blue="0.7129908036" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="录制白板"/>
+                                <state key="normal" title="录制白板(笔写)"/>
                                 <connections>
                                     <action selector="WhiteBoardMicro:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BHj-nR-kaS"/>
                                 </connections>

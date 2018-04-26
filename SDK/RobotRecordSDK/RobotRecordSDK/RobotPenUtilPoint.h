@@ -77,8 +77,9 @@
 
 /*!
  @method
- @abstract 转换mac Y坐标
- @param isHorizontal 是否是横屏
+ @abstract 转换MAC坐标系的Y坐标
+ @discussion MAC方法
+ @param isHorizontal NO:电磁板左上角为(0,0)点,YES:电磁板左下角为(0,0)点
  @result 返回结果
  */
 - (CGPoint)changeMacPointWithIsHorizontal:(BOOL)isHorizontal;

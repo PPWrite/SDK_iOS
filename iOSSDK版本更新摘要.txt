@@ -1,3 +1,47 @@
+
+/************************************3.2.2**************************************/
+iOS SDK 3.2.2已更新
+地址：https://github.com/PPWrite/SDK_iOS
+版本号在RobotPenHeader可见 或 调用getSDKVersion方法可在控制台打印。
+更新内容详情见“更新概要”
+
+更新概要：
+1、增加新固件支持。
+2、新增协议方法。
+3、修改设备连接状态。
+4、优化录制逻辑。
+
+修改项：
+	DeviceState中
+	原已存在连接设备
+	DEVICE_CONNECTED -> DEVICE_ERROR_CONNECTED
+增加项：
+RobotPenHeader.h中
+1、DeviceType
+   新增设备：S7_JD_M3,P1_CX_M3,T9A_EN,T9W_TY ,T9B_YD2 , S1_DE ,J7
+2、RobotPenDelegate.h中新增监听设备状态及设备UUID方法，与getDeviceState相比增加具体设备的UUID。
+   /*!
+ @method
+ @abstract 监听电磁板设备状态
+ @param State 状态
+ @param uuid uuid
+ */
+- (void)getDeviceState:(DeviceState)State DeviceUUID:(NSString *)uuid;
+3、DeviceState
+    修改：
+	原DEVICE_CONNECTED-> DEVICE_ERROR_CONNECTED
+    增加：
+    /**设备已连接（已经存在连接设备）*/
+    /**连接设备时候用,防止重复连接*/
+    DEVICE_ERROR_CONNECTED = 20,
+    /**未找到设备*/
+    DEVICE_ERROR_OFFS,
+    /**蓝牙状态异常*/
+    DEVICE_ERRORE_BLE,
+    /**未遵守协议*/
+    DEVICE_ERROR_DELEGATE,
+
+/************************************3.2.2**************************************/
 /************************************3.2.1**************************************/
 iOS SDK 3.2.1已更新
 地址：https://github.com/PPWrite/SDK_iOS

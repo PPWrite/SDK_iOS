@@ -40,6 +40,14 @@
 
 /*!
  @method
+ @abstract 监听电磁板设备状态
+ @param State 状态
+ @param uuid uuid
+ */
+- (void)getDeviceState:(DeviceState)State DeviceUUID:(NSString *)uuid;
+
+/*!
+ @method
  @abstract 设备电磁板点击事件
  @param Type 事件类型
  */
