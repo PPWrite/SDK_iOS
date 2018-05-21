@@ -1,4 +1,22 @@
+/************************************3.2.3**************************************/
+iOS SDK 3.2.3已更新
+地址：https://github.com/PPWrite/SDK_iOS
+版本号在RobotPenHeader可见 或 调用getSDKVersion方法可在控制台打印。
+更新内容详情见“更新概要”
 
+更新概要：
+1、增加新固件支持。
+2、修改页码识别设备的离线笔记头上报方法。
+
+修改项：
+	RobotPenDelegate.h中
+	- (void)getTASyncNote:(RobotNote *)note andPage:(int)page;
+	此方法中note模型中的NoteKey拼接方式修改，外部使用无影响。影响设备为T9B_YD2;
+增加项：
+RobotPenHeader.h中
+1、DeviceType
+   新增设备：J7B_ZY
+/************************************3.2.3**************************************/
 /************************************3.2.2**************************************/
 iOS SDK 3.2.2已更新
 地址：https://github.com/PPWrite/SDK_iOS

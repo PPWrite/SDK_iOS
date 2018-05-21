@@ -1,7 +1,7 @@
 
 /*********************************************************/
 /*********************************************************/
-/*----------------------SDK 3.2.2------------------------*/
+/*----------------------SDK 3.2.3------------------------*/
 /*********************************************************/
 /*********************************************************/
 #ifdef DEBUG
@@ -21,7 +21,7 @@
 #define ShowBLEAlert NO
 
 /** 最大设备号*/
-#define DeviceNumber_MAX 45
+#define DeviceNumber_MAX 47
 
 //注意：必看！！！
 //此处的宽高为板子横向的宽高。
@@ -30,13 +30,13 @@
 //HEIGHT 表示板子短边的像素值
 
 
-//对应设备：T8A/J0_A4/T9A/T7_PL/T9_J0/J0_A4_P/T9E/J0-T9/T8B/T9B-YD/T7B_HF/T9W/T8C 硬件号 6/11/12/14/18/19/20/21/30/31/32/34/35
+//对应设备：T8A/J0_A4/T9A/T7_PL/T9_J0/J0_A4_P/T9E/J0-T9/T8B/T9B-YD/T9W/T8C/P1_CX_M3/T9A_EN/T9W_TY 硬件号 6/11/12/14/18/19/20/21/30/31/34/35/40/41/42
 /** 标准A4设备纵向 纵向 宽度**/
 #define VALUE_A4_WIDTH  22600.0f
 /** 标准A4设备纵向 高度**/
 #define VALUE_A4_HEIGHT 16650.0f
 
-//对应设备：P7/T7/T7E_TS/T7_TS/T7_LW/T7_CY/C7/S7_JD/T7A/T7_HI/S7_SD/T7E/T7E_HFHH/S7_JD_M3/S1_DE/J7E 硬件号 1/2/15/16/17/22/24/26/28/29/36/37/38/39/44/45
+//对应设备：P7/T7/T7E_TS/T7_TS/T7_LW/T7_CY/C7/S7_JD/T7A/T7_HI/T7B_HF/S7_SD/T7E/T7E_HFHH/S7_JD_M3/S1_DE/J7E/J7B_HF/J7B_ZY 硬件号 1/2/15/16/17/22/24/26/28/29/32/36/37/38/39/44/45/46/47
 /** 标准A5设备纵向 纵向 宽度**/
 #define VALUE_A5_WIDTH  14335.0f
 /** 标准A5设备纵向 高度**/
@@ -169,6 +169,10 @@ typedef enum {
     S1_DE = 44,
     
     J7E = 45,
+    
+    J7B_HF = 46,
+    
+    J7B_ZY = 47,
     
 } DeviceType;
 
@@ -360,6 +364,20 @@ typedef enum{
     DeviceEvent_CANCEL,
     /** 确定*/
     DeviceEvent_ENSURE,
+    
+    /**J7B-HF事件*/
+    /**上翻页单击*/
+    DeviceEvent_FRONT_Single,
+    /**上翻页双击*/
+    DeviceEvent_FRONT_Double,
+    /**上翻页长按*/
+    DeviceEvent_FRONT_Long,
+    /**下翻页单击*/
+    DeviceEvent_NEXT_Single,
+    /**下翻页双击*/
+    DeviceEvent_NEXT_Double,
+    /**下翻页长按*/
+    DeviceEvent_NEXT_Long,
 }DeviceEventType;
 
 
@@ -371,8 +389,6 @@ typedef enum{
 typedef enum {
     /** OTA升级错误*/
     OTA_ERROR,
-    /** OTA数据传输*/
-    OTA_DATA,
     /** OTA升级*/
     OTA_UPDATE,
     /** OTA成功*/
@@ -395,8 +411,6 @@ typedef enum {
     SENSOR_ERROR,
     /** 进入模组升级模式*/
     SENSOR_REDAY,
-    /** 进入模组升级数据*/
-    SENSOR_DATA,
     /** 模组正在升级*/
     SENSOR_UPDATE,
     /** 模组升级成功*/
