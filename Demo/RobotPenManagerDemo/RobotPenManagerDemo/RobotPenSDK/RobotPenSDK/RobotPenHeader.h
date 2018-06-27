@@ -1,7 +1,7 @@
 
 /*********************************************************/
 /*********************************************************/
-/*----------------------SDK 3.2.3------------------------*/
+/*----------------------SDK 3.2.4------------------------*/
 /*********************************************************/
 /*********************************************************/
 #ifdef DEBUG
@@ -21,7 +21,7 @@
 #define ShowBLEAlert NO
 
 /** 最大设备号*/
-#define DeviceNumber_MAX 47
+#define DeviceNumber_MAX 49
 
 //注意：必看！！！
 //此处的宽高为板子横向的宽高。
@@ -30,13 +30,13 @@
 //HEIGHT 表示板子短边的像素值
 
 
-//对应设备：T8A/J0_A4/T9A/T7_PL/T9_J0/J0_A4_P/T9E/J0-T9/T8B/T9B-YD/T9W/T8C/P1_CX_M3/T9A_EN/T9W_TY 硬件号 6/11/12/14/18/19/20/21/30/31/34/35/40/41/42
+//对应设备：T8A/J0_A4/T9A/T7_PL/T9_J0/J0_A4_P/T9E/J0-T9/T8B/T9B-YD/T9W/T8C/P1_CX_M3/T9A_EN/T9W_A/T8S/T9W_QX 硬件号 6/11/12/14/18/19/20/21/30/31/34/35/40/41/42/48/50
 /** 标准A4设备纵向 纵向 宽度**/
 #define VALUE_A4_WIDTH  22600.0f
 /** 标准A4设备纵向 高度**/
 #define VALUE_A4_HEIGHT 16650.0f
 
-//对应设备：P7/T7/T7E_TS/T7_TS/T7_LW/T7_CY/C7/S7_JD/T7A/T7_HI/T7B_HF/S7_SD/T7E/T7E_HFHH/S7_JD_M3/S1_DE/J7E/J7B_HF/J7B_ZY 硬件号 1/2/15/16/17/22/24/26/28/29/32/36/37/38/39/44/45/46/47
+//对应设备：P7/T7/T7E_TS/T7_TS/T7_LW/T7_CY/C7/S7_JD/T7A/T7_HI/T7B_HF/S7_SD/T7E/T7E_HFHH/S7_JD_M3/S1_DE/J7E/J7B_HF/J7B_ZY/J7B 硬件号 1/2/15/16/17/22/24/26/28/29/32/36/37/38/39/44/45/46/47/49
 /** 标准A5设备纵向 纵向 宽度**/
 #define VALUE_A5_WIDTH  14335.0f
 /** 标准A5设备纵向 高度**/
@@ -162,7 +162,7 @@ typedef enum {
     
     T9A_EN = 41,
     
-    T9W_TY = 42,
+    T9W_A = 42,
     
     T9B_YD2 = 43,
     
@@ -173,6 +173,12 @@ typedef enum {
     J7B_HF = 46,
     
     J7B_ZY = 47,
+    
+    T8S = 48,
+    
+    J7B = 49,
+    
+    T9W_QX = 50,
     
 } DeviceType;
 
@@ -280,7 +286,13 @@ typedef enum {
     DEVICE_CLEANDATA_BUILD_SUCCESS,
     /**无擦除权限*/
     DEVICE_CLEANDATA_NOTAUTHORIZED,
-    
+    /************************************删除全部离线笔记状态******************************/
+    /**删除成功*/
+    DEVICE_NOTE_DELETE_SUCCESS = 65,
+    /**设备模式错误*/
+    DEVICE_NOTE_DELETE_ERROR_STATE,
+    /**设备类型错误*/
+    DEVICE_NOTE_DELETE_ERROR_DEVICE,
     
 }DeviceState;
 
@@ -342,7 +354,7 @@ typedef enum{
     DeviceEvent_Front ,
     /** 向后*/
     DeviceEvent_Next ,
-    /** 新建页*/
+    /** 电源键双击*/
     DeviceEvent_NewPage,
     /** A*/
     DeviceEvent_A ,
@@ -352,9 +364,9 @@ typedef enum{
     DeviceEvent_C ,
     /** D*/
     DeviceEvent_D ,
-    /** E*/
+    /** E/UP*/
     DeviceEvent_E ,
-    /** F*/
+    /** F/DOWN*/
     DeviceEvent_F ,
     /** 正确*/
     DeviceEvent_TRUE ,

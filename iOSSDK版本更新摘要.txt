@@ -1,3 +1,60 @@
+/************************************3.2.4**************************************/
+iOS SDK 3.2.3已更新
+地址：https://github.com/PPWrite/SDK_iOS
+版本号在RobotPenHeader可见 或 调用getSDKVersion方法可在控制台打印。
+更新内容详情见“更新概要”
+
+更新概要：
+1、增加新固件支持。
+2、增加新的方法。
+3、修改已存方法。
+主要涉及到的设备：
+1、新增设备：T8S、J7B、T9W_QX。
+2、新增方法：T9-EN。
+3、修改方法：T7B_HF、J7B_HF。
+
+修改项：
+	1、T9W_TY和T9W合并为T9W_A。
+	2、RobotPenManager.h中
+	//- (void)openT7B:(BOOL)open;修改为
+	/*!
+ 	@method
+ 	@abstract 开启搜索限制设备 默认关闭
+ 	@discussion 默认屏蔽的设备使用
+ 	*/
+	- (void)openLimitedDevice:(NSString *)deviceKey;
+增加项：
+一、RobotPenHeader.h中
+1、DeviceType
+   新增设备：T8S、J7B、T9W_QX。
+2、DeviceState
+    /**删除成功*/
+    DEVICE_NOTE_DELETE_SUCCESS = 65,
+    /**模式错误*/
+    DEVICE_NOTE_DELETE_ERROR_STATE,
+    /**设备类型错误*/
+    DEVICE_NOTE_DELETE_ERROR_DEVICE,
+二、RobotPenManager.h中
+    /**
+    @method
+    @abstract获取是否是支持主动删除离线数据的设备
+   */
+   -(BOOL)getIsDeleteNoteDevice;
+
+   /*!
+    @method
+    @abstract 删除所有离线笔记
+    @discussion 在非同步模式下使用（T9A_EN）
+   */
+   -(void)deleteAllSyncNote;
+   /*!
+    @method
+    @abstract 设置抛出优化点时是否抛出原始点
+    @param isoriginal 默认为NO
+   */
+   - (void)setSendOriginalPointWhenIsOptimize:(BOOL)isoriginal;
+
+/************************************3.2.4**************************************/
 /************************************3.2.3**************************************/
 iOS SDK 3.2.3已更新
 地址：https://github.com/PPWrite/SDK_iOS

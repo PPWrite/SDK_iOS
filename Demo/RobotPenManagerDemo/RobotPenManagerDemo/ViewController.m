@@ -469,13 +469,6 @@
 - (void)OTAUpdateState:(OTAState)state{ //OTA 升级状态
     
     switch (state) {
-        case OTA_DATA:
-        {
-            NSLog(@"正在下载固件");
-            
-            self.hud.labelText = @"正在下载固件...";
-        }
-            break;
             
         case OTA_UPDATE:
         {

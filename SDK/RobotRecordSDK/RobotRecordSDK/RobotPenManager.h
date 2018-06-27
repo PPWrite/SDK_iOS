@@ -194,6 +194,13 @@
  */
 - (NSArray *)getDeviceSearchList;
 
+/*!
+ @method
+ @abstract 开启搜索限制设备 默认关闭
+ @discussion 默认屏蔽的设备使用
+ */
+- (void)openLimitedDevice:(NSString *)deviceKey;
+
 #pragma mark 设备配对
 /*!
  @method
@@ -246,6 +253,7 @@
 /*!
  @method
  @abstract 修改设备名字
+ @param name 只支持字母、数字和下划线
  */
 - (void)changeName:(NSString *)name;
 
@@ -293,6 +301,13 @@
  @abstract 停止同步笔记
  */
 -(void)stopSyncNote;
+
+/*!
+ @method
+ @abstract 删除所有离线笔记
+ @discussion 在非同步模式下使用（T9A_EN）
+ */
+-(void)deleteAllSyncNote;
 
 #pragma mark ---------------------------OTA(固件升级)相关---------------------------
 /*!
@@ -345,6 +360,12 @@
  @abstract 是否支持获取模组版本
  */
 - (BOOL)getIsSensorDevice;
+/**
+ @method
+ @abstract获取是否是支持主动删除离线数据的设备
+ */
+-(BOOL)getIsDeleteNoteDevice;
+
 /*!
  @method
  @abstract 获取模组版本信息、是否支持笔校准模式
@@ -425,7 +446,7 @@
 /*!
  @method
  @abstract 设置模组升级版本
- @param sensorType 模组类型 Ps:目前只支持128
+ @param sensorType 模组类型 Ps:目前只支持128/129
  @param sensorVersion 模组版本
  */
 - (void)setSensorUpdateVerSionWithSensorType:(int)sensorType andSensorVersion:(int)sensorVersion;
@@ -513,12 +534,6 @@
 - (void)CleanDeviceDataWithType:(CleanDataType)type;
 
 #pragma mark ---------------------------T7B_HF--------------------------
-/*!
- @method
- @abstract 开启搜索T7B_HF 默认关闭
- @discussion T7B_HF 使用
- */
-- (void)openT7B:(BOOL)open;
 
 /*!
  @method
