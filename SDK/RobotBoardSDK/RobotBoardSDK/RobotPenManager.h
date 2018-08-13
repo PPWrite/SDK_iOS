@@ -403,6 +403,12 @@
 
 /*!
  @method
+ @abstract 获取设备存储扇区大小
+ @discussion T9A_EN专用
+ */
+-(void)getDeviceSectionSize;
+/*!
+ @method
  @abstract 设置是否获取mac 和 Sensor
  @param getMAC 布尔值
  @param getSensor 布尔值
@@ -541,6 +547,18 @@
  @discussion T7B_HF 使用
  */
 - (void)resetDeviceSleepTime;
+
+#pragma mark ---------------------------DM6--------------------------
+
+/*!
+ @method
+ @abstract 设置原点坐标
+ @discussion DM6 使用
+ @param x x坐标
+ @param y y坐标
+ */
+- (void)setDM6OriginPointWithX:(int)x Y:(int)y;
+
 #pragma mark ---------------------------Other---------------------------
 
 /*!

@@ -420,7 +420,7 @@ typedef enum {
  @param NoteKey NoteKey
  @param BlockKey BlockKey
  @param Success 成功结果返回
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        @param Failure 失败结果返回
+ @param Failure 失败结果返回
  */
 + (void)GetAllImageOfTrailsWithNoteKey:(NSString *)NoteKey WithBlockKey:(NSString *)BlockKey Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
 
@@ -456,8 +456,7 @@ typedef enum {
  @method 获取新的截图保存完整路径
  @abstract 获取新的截图保存完整路径，后可将图片写入该路径
  */
-+ (void)SaveImageKeySuccess:(void (^)(id responseObject))Success
-                    Failure:(void (^)(NSError *error))Failure;
++ (void)SaveImageKeySuccess:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
 /*!
  @method 获取指定页保存截图列表的相对路径
  @abstract 根据指定页码信息，获取Page页的截图列表数据。
@@ -500,8 +499,7 @@ typedef enum {
  @param Success 成功结果返回
  @param Failure 失败结果返回
  */
-+ (void)BuildVideoWithNameKey:(NSString *)NameKey Success:(void (^)(id responseObject))Success
-                      Failure:(void (^)(NSError *error))Failure;
++ (void)BuildVideoWithNameKey:(NSString *)NameKey Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
 
 #pragma mark 录课删除
 /*!
@@ -616,7 +614,7 @@ typedef enum {
 #pragma mark 录课列表获取
 /*!
  @method 获取指定页视频列表中的所有视频
- @abstract 根据传入的页码值获取Page页的所有视频列表，返回当前视频列表age页的所有数据
+ @abstract 根据传入的页码值获取Page页的所有视频列表，返回当前视频列表Page页的所有数据
  @param Page page >= 0
  @param Success 成功结果返回
  @param Failure 失败结果返回
@@ -701,7 +699,7 @@ typedef enum {
 
 /*!
  @method 设置列表默认拉取拉取条数
- @abstract 设置列表默认拉取拉取条数
+ @abstract 设置列表默认拉取拉取条数,默认20条
  @param page 页码
  */
 + (void)SetNumberOfPageWith:(int)page;

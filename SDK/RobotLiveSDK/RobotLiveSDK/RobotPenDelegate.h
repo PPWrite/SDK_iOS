@@ -206,6 +206,15 @@
  */
 - (void)getDeviceSize:(CGSize)size;
 
+/*!
+ @method
+ @abstract 获取设备存储扇区
+ @discussion T9A_EN系列专用
+ @param total 总扇区 单位：byte
+ @param free 剩余扇区 单位：byte
+ */
+- (void)getDeviceSectionTotal:(int)total Free:(int)free;
+
 #pragma mark 其他
 
 

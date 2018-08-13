@@ -1,7 +1,7 @@
 
 /*********************************************************/
 /*********************************************************/
-/*----------------------SDK 3.2.4------------------------*/
+/*----------------------SDK 3.2.5------------------------*/
 /*********************************************************/
 /*********************************************************/
 #ifdef DEBUG
@@ -21,7 +21,7 @@
 #define ShowBLEAlert NO
 
 /** 最大设备号*/
-#define DeviceNumber_MAX 50
+#define DeviceNumber_MAX 52
 
 //注意：必看！！！
 //此处的宽高为板子横向的宽高。
@@ -66,6 +66,16 @@
 #define VALUE_X8_A5_WIDTH  22100.0f
 /**BLE X8 纵向 高度**/
 #define VALUE_X8_A5_HEIGHT  14650.0f
+
+/**BLE K7_HW 纵向 宽度**/ //51
+#define VALUE_K7_HW_WIDTH  22016.0f
+/**BLE K7_HW 纵向 高度**/
+#define VALUE_K7_HW_HEIGHT  14787.0f
+
+/**BLE K8_ZM 纵向 宽度**/ //52
+#define VALUE_K8_ZM_WIDTH  22750.0f
+/**BLE K8_ZM 纵向 高度**/
+#define VALUE_K8_ZM_HEIGHT  14949.0f
 
 /**BLE DM6 纵向 宽度**/ //27
 #define VALUE_DM6_WIDTH  109.0f
@@ -179,6 +189,10 @@ typedef enum {
     J7B = 49,
     
     T9W_QX = 50,
+
+    K7_HW = 51,
+    
+    K8_ZM = 52,
     
 } DeviceType;
 

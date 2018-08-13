@@ -477,13 +477,6 @@
 
 /*!
  @method
- @abstract 插入多张图片翻页（每一页只有一张图片）
- @param block block
- */
-- (void)ImageNextPageWithBlock:(NSString *)block;
-
-/*!
- @method
  @abstract 根据页码跳转到指定页面
  @param page 页码（显示的页码）
  */

@@ -1,5 +1,37 @@
+/************************************3.2.5**************************************/
+iOS SDK 3.2.5已更新
+地址：https://github.com/PPWrite/SDK_iOS
+版本号在RobotPenHeader可见 或 调用getSDKVersion方法可在控制台打印。
+更新内容详情见“更新概要”
+
+更新概要：
+1、增加新固件支持。
+2、增加新的方法。
+3、修复Bug。
+主要涉及到的设备：
+1、新增设备：新版DM6、K7_HW、K8_ZM。
+2、新增方法：DM6。
+3、修复Bug：T9W系列蓝牙模式。
+
+修复项：
+	1、T9W系列蓝牙模式下，报点状态的抬起点（3）和离开点（4）存在异常
+增加项：
+一、RobotPenHeader.h中
+1、DeviceType
+   新增设备：K7_HW、K8_ZM。
+二、RobotPenManager.h中
+    /*!
+ @method
+ @abstract 设置原点坐标
+ @discussion DM6 使用
+ @param x x坐标
+ @param y y坐标
+ */
+- (void)setDM6OriginPointWithX:(int)x Y:(int)y;
+
+/************************************3.2.5**************************************/
 /************************************3.2.4**************************************/
-iOS SDK 3.2.3已更新
+iOS SDK 3.2.4已更新
 地址：https://github.com/PPWrite/SDK_iOS
 版本号在RobotPenHeader可见 或 调用getSDKVersion方法可在控制台打印。
 更新内容详情见“更新概要”
