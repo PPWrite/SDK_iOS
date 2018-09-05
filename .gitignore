@@ -51,6 +51,7 @@ Carthage/Build
 
 fastlane/report.xml
 fastlane/screenshots
+#*.podspec
 
 #Code Injection
 #
