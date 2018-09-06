@@ -4,9 +4,9 @@ SDK服务分为四种服务：笔服务（RobotPenSDK）、白板服务（RobotB
 举例：使用录课服务需要导入RobotPenSDK、RobotBoardSDK和RobotRecordSDK。
 
 笔服务、白板服务、录课服务支持Cocoapods导入，直播服务暂不支持。
-笔服务：pod 'RobotPenSDK/RobotPenSDK '
-白板服务：pod 'RobotPenSDK/RobotBoardSDK '
-录课服务：pod 'RobotPenSDK/RobotRecordSDK ' 或 pod 'RobotPenSDK '
+笔服务：pod 'RobotPenSDK/RobotPenSDK'
+白板服务：pod 'RobotPenSDK/RobotBoardSDK'
+录课服务：pod 'RobotPenSDK/RobotRecordSDK' 或 pod 'RobotPenSDK'
 Tips:使用Cocoapods导入，只需要拉取相应的服务即可自动配置所包含的其他服务。
 
 SDK文档分为四个文档：笔文档（RobotPenSDK参考手册）、白板文档（RobotBoardSDK参考手册）、录课文档（RobotRecordSDK参考手册）和数据库文档（RobotSqlManager参考手册）。

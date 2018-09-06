@@ -1,3 +1,40 @@
+
+/************************************4.0.1**************************************/
+iOS SDK 4.0.1已更新
+地址：https://github.com/PPWrite/SDK_iOS
+版本号在RobotPenHeader可见 或 调用getSDKVersion方法可在控制台打印。
+更新内容详情见“更新概要”
+
+更新概要：
+1、修改SDK结构、名称以及Cocoapods支持。
+2、增加新固件支持。
+
+主要涉及到的设备：
+1、新增设备：新版K7W、T7C-BN、T9W-YJ。
+
+注意项:
+SDK结构改变：
+ 笔服务（RobotPenSDK）、白板服务（RobotBoardSDK）、录课服务（RobotRecordSDK）和直播服务（RobotLiveSDK）由服务封包变为服务组件。
+ 笔服务为基础服务，白板服务、录课服务、直播服务为插件形式存在。其中前者包含数据库服务，后三者服务存在向前依赖关  系。
+ 举例：使用录课服务需要导入RobotPenSDK、RobotBoardSDK和RobotRecordSDK。
+
+SDK名称改变：
+ 笔服务（libRobotPenSDK.a）、白板服务（libRobotBoardSDK.a）、录课服务（libRobotRecordSDK.a）直播服务（libRobotLiveSDK.a）。
+
+Cocoapods支持：
+
+ 笔服务、白板服务、录课服务支持Cocoapods导入，直播服务暂不支持。
+ 笔服务：pod 'RobotPenSDK/RobotPenSDK'
+ 白板服务：pod 'RobotPenSDK/RobotBoardSDK'
+ 录课服务：pod 'RobotPenSDK/RobotRecordSDK' 或 pod 'RobotPenSDK'
+ Tips:使用Cocoapods导入，只需要拉取相应的服务即可自动配置所包含的其他服务。
+
+增加项：
+一、RobotPenHeader.h中
+1、DeviceType
+   新增设备：K7W、T7C-BN、T9W-YJ。
+
+/************************************4.0.1**************************************/
 /************************************3.2.5**************************************/
 iOS SDK 3.2.5已更新
 地址：https://github.com/PPWrite/SDK_iOS
