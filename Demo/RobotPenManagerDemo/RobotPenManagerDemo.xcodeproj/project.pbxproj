@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7D6CBECB1FBA8B4A00F0E63F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CBECA1FBA8B4A00F0E63F /* MBProgressHUD.m */; };
-		C0281EB4205011C3007A0152 /* RobotPenSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0281EAA205011C3007A0152 /* RobotPenSDK.a */; };
+		C058C4AA2141406A001CD1DE /* libRobotPenSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C058C49D2141406A001CD1DE /* libRobotPenSDK.a */; };
 		C09057581E57DED0000D004D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C09057571E57DED0000D004D /* main.m */; };
 		C090575B1E57DED0000D004D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C090575A1E57DED0000D004D /* AppDelegate.m */; };
 		C090575E1E57DED0000D004D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C090575D1E57DED0000D004D /* ViewController.m */; };
@@ -22,15 +22,18 @@
 /* Begin PBXFileReference section */
 		7D6CBEC91FBA8B4A00F0E63F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		7D6CBECA1FBA8B4A00F0E63F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		C0281EAA205011C3007A0152 /* RobotPenSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = RobotPenSDK.a; sourceTree = "<group>"; };
-		C0281EAC205011C3007A0152 /* RobotPenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenManager.h; sourceTree = "<group>"; };
-		C0281EAD205011C3007A0152 /* RobotTrails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotTrails.h; sourceTree = "<group>"; };
-		C0281EAE205011C3007A0152 /* RobotPenUtilPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenUtilPoint.h; sourceTree = "<group>"; };
-		C0281EAF205011C3007A0152 /* RobotNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotNote.h; sourceTree = "<group>"; };
-		C0281EB0205011C3007A0152 /* RobotPenDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenDelegate.h; sourceTree = "<group>"; };
-		C0281EB1205011C3007A0152 /* RobotPenPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenPoint.h; sourceTree = "<group>"; };
-		C0281EB2205011C3007A0152 /* RobotPenHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenHeader.h; sourceTree = "<group>"; };
-		C0281EB3205011C3007A0152 /* RobotPenDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenDevice.h; sourceTree = "<group>"; };
+		C058C49D2141406A001CD1DE /* libRobotPenSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libRobotPenSDK.a; sourceTree = "<group>"; };
+		C058C49F2141406A001CD1DE /* RobotPenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenManager.h; sourceTree = "<group>"; };
+		C058C4A02141406A001CD1DE /* RobotTrails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotTrails.h; sourceTree = "<group>"; };
+		C058C4A12141406A001CD1DE /* RobotSqlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotSqlManager.h; sourceTree = "<group>"; };
+		C058C4A22141406A001CD1DE /* RobotPenUtilPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenUtilPoint.h; sourceTree = "<group>"; };
+		C058C4A32141406A001CD1DE /* RobotNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotNote.h; sourceTree = "<group>"; };
+		C058C4A42141406A001CD1DE /* RobotPenDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenDelegate.h; sourceTree = "<group>"; };
+		C058C4A52141406A001CD1DE /* RobotPenPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenPoint.h; sourceTree = "<group>"; };
+		C058C4A62141406A001CD1DE /* RobotPenHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenHeader.h; sourceTree = "<group>"; };
+		C058C4A72141406A001CD1DE /* RobotPenDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenDevice.h; sourceTree = "<group>"; };
+		C058C4A82141406A001CD1DE /* RobotVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotVideo.h; sourceTree = "<group>"; };
+		C058C4A92141406A001CD1DE /* RobotTrailBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotTrailBlock.h; sourceTree = "<group>"; };
 		C09057531E57DED0000D004D /* RobotPenManagerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RobotPenManagerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C09057571E57DED0000D004D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C09057591E57DED0000D004D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,7 +54,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C09057AB1E57F1CA000D004D /* libsqlite3.tbd in Frameworks */,
-				C0281EB4205011C3007A0152 /* RobotPenSDK.a in Frameworks */,
+				C058C4AA2141406A001CD1DE /* libRobotPenSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,25 +81,36 @@
 		C0281EA9205011C3007A0152 /* RobotPenSDK */ = {
 			isa = PBXGroup;
 			children = (
-				C0281EAA205011C3007A0152 /* RobotPenSDK.a */,
-				C0281EAB205011C3007A0152 /* RobotPenSDK */,
+				C058C49C2141406A001CD1DE /* Libraries */,
+				C058C49E2141406A001CD1DE /* RobotPenSDKHeader */,
 			);
 			path = RobotPenSDK;
 			sourceTree = "<group>";
 		};
-		C0281EAB205011C3007A0152 /* RobotPenSDK */ = {
+		C058C49C2141406A001CD1DE /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				C0281EAC205011C3007A0152 /* RobotPenManager.h */,
-				C0281EAD205011C3007A0152 /* RobotTrails.h */,
-				C0281EAE205011C3007A0152 /* RobotPenUtilPoint.h */,
-				C0281EAF205011C3007A0152 /* RobotNote.h */,
-				C0281EB0205011C3007A0152 /* RobotPenDelegate.h */,
-				C0281EB1205011C3007A0152 /* RobotPenPoint.h */,
-				C0281EB2205011C3007A0152 /* RobotPenHeader.h */,
-				C0281EB3205011C3007A0152 /* RobotPenDevice.h */,
+				C058C49D2141406A001CD1DE /* libRobotPenSDK.a */,
 			);
-			path = RobotPenSDK;
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		C058C49E2141406A001CD1DE /* RobotPenSDKHeader */ = {
+			isa = PBXGroup;
+			children = (
+				C058C49F2141406A001CD1DE /* RobotPenManager.h */,
+				C058C4A02141406A001CD1DE /* RobotTrails.h */,
+				C058C4A12141406A001CD1DE /* RobotSqlManager.h */,
+				C058C4A22141406A001CD1DE /* RobotPenUtilPoint.h */,
+				C058C4A32141406A001CD1DE /* RobotNote.h */,
+				C058C4A42141406A001CD1DE /* RobotPenDelegate.h */,
+				C058C4A52141406A001CD1DE /* RobotPenPoint.h */,
+				C058C4A62141406A001CD1DE /* RobotPenHeader.h */,
+				C058C4A72141406A001CD1DE /* RobotPenDevice.h */,
+				C058C4A82141406A001CD1DE /* RobotVideo.h */,
+				C058C4A92141406A001CD1DE /* RobotTrailBlock.h */,
+			);
+			path = RobotPenSDKHeader;
 			sourceTree = "<group>";
 		};
 		C090574A1E57DED0000D004D = {
@@ -354,6 +368,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/RobotPenManagerDemo/RobotPenManagerSDK",
 					"$(PROJECT_DIR)/RobotPenManagerDemo/RobotPenSDK",
+					"$(PROJECT_DIR)/RobotPenManagerDemo/RobotPenSDK/Libraries",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.robotpen.everwrite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -376,6 +391,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/RobotPenManagerDemo/RobotPenManagerSDK",
 					"$(PROJECT_DIR)/RobotPenManagerDemo/RobotPenSDK",
+					"$(PROJECT_DIR)/RobotPenManagerDemo/RobotPenSDK/Libraries",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.robotpen.everwrite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
