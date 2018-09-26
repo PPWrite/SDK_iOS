@@ -1,7 +1,7 @@
 
 /*********************************************************/
 /*********************************************************/
-/*----------------------SDK 4.0.1------------------------*/
+/*----------------------SDK 4.0.2------------------------*/
 /*********************************************************/
 /*********************************************************/
 #ifdef DEBUG
@@ -21,7 +21,7 @@
 #define ShowBLEAlert NO
 
 /** 最大设备号*/
-#define DeviceNumber_MAX 55
+#define DeviceNumber_MAX 58
 
 //注意：必看！！！
 //此处的宽高为板子横向的宽高。
@@ -30,7 +30,7 @@
 //HEIGHT 表示板子短边的像素值
 
 
-//对应设备：T8A/J0_A4/T9A/T7_PL/T9_J0/J0_A4_P/T9E/J0-T9/T8B/T9B-YD/T9W/T8C/P1_CX_M3/T9A_EN/T9W_A/T8S/T9W_QX/T9W_YJ 硬件号 6/11/12/14/18/19/20/21/30/31/34/35/40/41/42/48/50/55
+//对应设备：T8A/J0_A4/T9A/T7_PL/T9_J0/J0_A4_P/T9E/J0-T9/T8B/T9B-YD/T9W/T8C/P1_CX_M3/T9A_EN/T9W_A/T8S/T9W_QX/T9W_YJ/T9W_WX/T8B_DH2 硬件号 6/11/12/14/18/19/20/21/30/31/34/35/40/41/42/48/50/55/57/58
 /** 标准A4设备纵向 纵向 宽度**/
 #define VALUE_A4_WIDTH  22600.0f
 /** 标准A4设备纵向 高度**/
@@ -204,6 +204,12 @@ typedef enum {
     T7A_BN = 54,
     
     T9W_YJ = 55,
+    
+    T7PL_CL = 56,
+    
+    T9W_WX = 57,
+    
+    T8B_DH2 = 58,
     
 } DeviceType;
 
@@ -531,34 +537,34 @@ typedef enum {
  @abstract 坐标点的状态
  */
 typedef enum {
-    
-    RobotPenPointFloat = 0,     /** 悬浮状态 **/
-    
-    RobotPenPointTouchBegin,    /** touchBegin状态 **/
-    
-    RobotPenPointTouchMove,     /** touchMove状态 **/
-    
-    RobotPenPointTouchEnd,      /** touchEnd状态 **/
-    
-    RobotPenPointLeave,         /** 离开感应范围 **/
-    
-    RobotPenPointAssistTouch = 5,   /** 侧键按下touch状态**/
-    
-    RobotPenPointAssistFloat    /** 侧键按下悬浮状态 **/
+    /** 悬浮状态 **/
+    RobotPenPointFloat = 0,
+    /** touchBegin状态 **/
+    RobotPenPointTouchBegin,
+    /** touchMove状态 **/
+    RobotPenPointTouchMove,
+    /** touchEnd状态 **/
+    RobotPenPointTouchEnd,
+    /** 离开感应范围 **/
+    RobotPenPointLeave,
+    /** 侧键按下touch状态**/
+    RobotPenPointAssistTouch = 5,
+    /** 侧键按下悬浮状态 **/
+    RobotPenPointAssistFloat
     
 }RobotPenPointTouchStatus;
 
 typedef enum {
-    
-    RobotPenCoordinateDefault = 0,     /** 设备默认坐标系点**/
-    
-    RobotPenCoordinateUpperLeft,    /** 左上角为坐标原点 **/
-    
-    RobotPenCoordinateLowerLeft,     /** 左下角为坐标原点 **/
-    
-    RobotPenCoordinateUpperRight,      /** 右上角为坐标原点 **/
-    
-    RobotPenCoordinateLowerRight,         /** 右下角为坐标原点 **/
+    /** 设备默认坐标系点**/
+    RobotPenCoordinateDefault = 0,
+    /** 左上角为坐标原点 **/
+    RobotPenCoordinateUpperLeft,
+    /** 左下角为坐标原点 **/
+    RobotPenCoordinateLowerLeft,
+    /** 右上角为坐标原点 **/
+    RobotPenCoordinateUpperRight,
+     /** 右下角为坐标原点 **/
+    RobotPenCoordinateLowerRight,
     
 }RobotPenCoordinateSystem;
 
@@ -567,13 +573,12 @@ typedef enum {
  @abstract 清除电磁板离线数据类型
  */
 typedef enum {
-    
-    CleanDataOnly = 0,     /** 只擦除数据 **/
-    
-    CleanDataAndCleanNote,    /** 擦除数据并清空离线笔记 **/
-    
-    CleanDataAndBuildNote,     /** 擦除数据并新建离线笔记 **/
-    
+    /** 只擦除数据 **/
+    CleanDataOnly = 0,
+    /** 擦除数据并清空离线笔记 **/
+    CleanDataAndCleanNote,
+    /** 擦除数据并新建离线笔记 **/
+    CleanDataAndBuildNote,
     
 }CleanDataType;
 
@@ -583,11 +588,10 @@ typedef enum {
  @discussion MAC方法
  */
 typedef enum {
-    
-    BLEModel = 0,     /** 蓝牙模式 **/
-    
-    USBModel,         /** USB模式 **/
-
+    /** 蓝牙模式 **/
+    BLEModel = 0,
+    /** USB模式 **/
+    USBModel,
     
 }RobotPenMACSDKModel;
 
@@ -597,10 +601,12 @@ typedef enum {
  @discussion MAC方法
  */
 typedef enum {
-    
-    Device_BLEModel = 0,     /** 蓝牙模式 **/
-    Device_24GModel,         /** 2.4G模式 **/
-    Device_USBModel,         /** USB模式 **/
+    /** 蓝牙模式 **/
+    Device_BLEModel = 0,
+    /** 2.4G模式 **/
+    Device_24GModel,
+    /** USB模式 **/
+    Device_USBModel,
     
 }RobotPenDeviceModel;
 
