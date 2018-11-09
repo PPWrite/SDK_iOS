@@ -1,7 +1,60 @@
+/************************************4.1.1**************************************/
+Mac SDK 4.1.1已更新
+地址：https://github.com/PPWrite/SDK_iOS
+Cocoapods支持：
+	笔服务：pod 'RobotPenSDK/RobotPenSDK'
+ 	白板服务：pod 'RobotPenSDK/RobotBoardSDK'
+ 	录课服务：pod 'RobotPenSDK/RobotRecordSDK' 或 pod 'RobotPenSDK'
+ 	Tips:使用Cocoapods导入，只需要拉取相应的服务即可自动配置所包含的其他服务。
+版本号在RobotPenHeader头可见 或 调用getSDKVersion方法可在控制台打印。
+更新内容详情见“更新概要”
 
+更新概要：
+1、增加新固件支持。
+2、增加新的点数据结构支持。
+
+主要涉及到的设备：
+1、新增设备：T9B_ZXB、T8B_D2。
+新增特性及方法：
+1、新增点数据结构支持，无感兼容。
+2、为支持新点数据结构的设备增加方法、状态、枚举等。
+
+RobotPenHeader.h中
+1.DeviceState增加
+/************************************点数据结构状态******************************/
+    /**点数据改变为2点结构*/
+    DEVICE_POINT_STRUCT_UPDATE_TYPE2 = 25,
+    /**点数据改变为3点结构*/
+    DEVICE_POINT_STRUCT_UPDATE_TYPE3,
+2.增加PointStructType枚举。
+
+RobotPenManager.h中
+#pragma mark ----------------------------------------------------PointStruct------------------------------------------------------
+/*!
+ @method
+ @abstract 自动升级为高级点模式
+ @discussion T7C_BN/T8S/J7B_ZY/T9B_ZXB使用
+ @discussion 默认为YES
+ */
+- (void)setDevicePointUpdate:(BOOL)update;
+/*!
+ @method
+ @abstract  设置点结构的类型
+ @discussion T7C-BN/T8S/J7B_ZY/T9B_ZXB使用
+ @param type 点数据结构类型
+ */
+- (void)setDevicePointStruct:(PointStructType)type;
+
+
+/************************************4.1.1**************************************/
 /************************************4.0.2**************************************/
 Mac SDK 4.0.2已更新
 地址：https://github.com/PPWrite/SDK_iOS
+Cocoapods支持：
+	笔服务：pod 'RobotPenSDK/RobotPenSDK'
+ 	白板服务：pod 'RobotPenSDK/RobotBoardSDK'
+ 	录课服务：pod 'RobotPenSDK/RobotRecordSDK' 或 pod 'RobotPenSDK'
+ 	Tips:使用Cocoapods导入，只需要拉取相应的服务即可自动配置所包含的其他服务。
 版本号在RobotPenHeader头可见 或 调用getSDKVersion方法可在控制台打印。
 更新内容详情见“更新概要”
 
@@ -25,6 +78,11 @@ Mac SDK 4.0.2已更新
 /************************************4.0.1**************************************/
 iOS SDK 4.0.1已更新
 地址：https://github.com/PPWrite/SDK_iOS
+Cocoapods支持：
+	笔服务：pod 'RobotPenSDK/RobotPenSDK'
+ 	白板服务：pod 'RobotPenSDK/RobotBoardSDK'
+ 	录课服务：pod 'RobotPenSDK/RobotRecordSDK' 或 pod 'RobotPenSDK'
+ 	Tips:使用Cocoapods导入，只需要拉取相应的服务即可自动配置所包含的其他服务。
 版本号在RobotPenHeader可见 或 调用getSDKVersion方法可在控制台打印。
 更新内容详情见“更新概要”
 

@@ -390,7 +390,7 @@
 
 /*!
  @method
- @abstract 获取画布截图
+ @abstract 获取并保存画布截图
  @result 返回结果
  */
 - (UIImage *)saveSnapshot;

@@ -305,7 +305,7 @@
 /*!
  @method
  @abstract 删除所有离线笔记
- @discussion 在非同步模式下使用（T9A_EN）
+ @discussion 在非同步模式下使用（T9A_EN/T9W_WX）
  */
 -(void)deleteAllSyncNote;
 
@@ -548,6 +548,26 @@
  */
 - (void)resetDeviceSleepTime;
 
+#pragma mark ---------------------------MouseMode--------------------------
+/*!
+ @method
+ @abstract 是否是支持鼠标模式的设备
+ @discussion MouseMode设备USB使用
+ */
+-(BOOL)getIsMouseDevice;
+/*!
+ @method
+ @abstract 获取设备当前模式
+ @discussion MouseMode设备USB使用
+ */
+- (RobotPenMouseDeviceModel)getMouseDeviceMode;
+/*!
+ @method
+ @abstract 改变设备模式
+ @discussion MouseMode设备USB使用
+ */
+- (void)changeMouseDeviceMode;
+
 #pragma mark ---------------------------DM6--------------------------
 
 /*!
@@ -567,6 +587,22 @@
  @param point 坐标
  */
 - (void)getDM6OriginImageWithSK:(NSString *)sk Point:(CGPoint)point Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
+
+#pragma mark ----------------------------------------------------PointStruct------------------------------------------------------
+/*!
+ @method
+ @abstract 自动升级为高级点模式
+ @discussion T7C-BN/T8S/J7B_ZY/T9B_ZXB使用
+ @discussion 默认为YES
+ */
+- (void)setDevicePointUpdate:(BOOL)update;
+/*!
+ @method
+ @abstract  设置点结构的类型
+ @discussion T7C-BN/T8S/J7B_ZY/T9B_ZXB使用
+ @param type 点数据结构类型
+ */
+- (void)setDevicePointStruct:(PointStructType)type;
 
 #pragma mark ---------------------------Other---------------------------
 
@@ -621,12 +657,6 @@
  @abstract 设置离线笔记轨迹的Block
  */
 - (void)SetBlockWithBlock:(NSString *)blocks;
-
-
-
-
-
-
 
 @end
 

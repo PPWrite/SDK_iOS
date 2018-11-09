@@ -14,7 +14,7 @@
 #define SCREEN_WIDTH self.view.bounds.size.width
 #define SCREEN_HEIGHT self.view.bounds.size.height
 
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource,RobotPenDelegate>
+@interface ViewController ()< RobotPenDelegate>
 {
     BOOL isConnect;     //是否已经连接设备
     
@@ -155,8 +155,6 @@
     self.device = nil;
     
 }
-
-
 
 #pragma mark- ========== 按钮事件 ===========
 

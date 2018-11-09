@@ -1,9 +1,13 @@
 
 /*********************************************************/
 /*********************************************************/
-/*----------------------SDK 4.0.2------------------------*/
+/*----------------------SDK 4.1.1------------------------*/
 /*********************************************************/
 /*********************************************************/
+
+#ifndef RobotPenHeader_h
+#define RobotPenHeader_h
+
 #ifdef DEBUG
 
 #define RobotBLELog(fmt, ...) NSLog((@"RobotBLE Log :   %s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
@@ -21,7 +25,7 @@
 #define ShowBLEAlert NO
 
 /** 最大设备号*/
-#define DeviceNumber_MAX 58
+#define DeviceNumber_MAX 63
 
 //注意：必看！！！
 //此处的宽高为板子横向的宽高。
@@ -30,13 +34,15 @@
 //HEIGHT 表示板子短边的像素值
 
 
-//对应设备：T8A/J0_A4/T9A/T7_PL/T9_J0/J0_A4_P/T9E/J0-T9/T8B/T9B-YD/T9W/T8C/P1_CX_M3/T9A_EN/T9W_A/T8S/T9W_QX/T9W_YJ/T9W_WX/T8B_DH2 硬件号 6/11/12/14/18/19/20/21/30/31/34/35/40/41/42/48/50/55/57/58
+//对应设备：T8A/J0_A4/T9A/T7PL/T9_J0/J0_A4_P/T9E/J0-T9/T8B/T9B-YD/T9W/T8C/P1_CX_M3/T9A_EN/T9W_A/T8S/T9W_QX/T9W_YJ/T7PL_CL/T9W_WX/T8B_DH2/T9W_B_KZ/C5/T9B/T9B_ZXB/T8B_D2
+//硬件号 6/11/12/14/18/19/20/21/30/31/34/35/40/41/42/48/50/55/56/57/58/59/60/61/62/63
 /** 标准A4设备纵向 纵向 宽度**/
 #define VALUE_A4_WIDTH  22600.0f
 /** 标准A4设备纵向 高度**/
 #define VALUE_A4_HEIGHT 16650.0f
 
-//对应设备：P7/T7/T7E_TS/T7_TS/T7_LW/T7_CY/C7/S7_JD/T7A/T7_HI/T7B_HF/S7_SD/T7E/T7E_HFHH/S7_JD_M3/S1_DE/J7E/J7B_HF/J7B_ZY/J7B/T7A_BN 硬件号 1/2/15/16/17/22/24/26/28/29/32/36/37/38/39/44/45/46/47/49/54
+//对应设备：P7/T7/T7E_TS/T7_TS/T7_LW/T7_CY/C7/S7_JD/T7A/T7_HI/T7B_HF/S7_SD/T7E/T7E_HFHH/S7_JD_M3/S1_DE/J7E/J7B_HF/J7B_ZY/J7B/K7W/T7C_BN
+//硬件号 1/2/15/16/17/22/24/26/28/29/32/36/37/38/39/44/45/46/47/49/53/54
 /** 标准A5设备纵向 纵向 宽度**/
 #define VALUE_A5_WIDTH  14335.0f
 /** 标准A5设备纵向 高度**/
@@ -77,10 +83,10 @@
 /**BLE K8_ZM 纵向 高度**/
 #define VALUE_K8_ZM_HEIGHT  14949.0f
 
-/**BLE K7W 纵向 宽度**/ //53
-#define VALUE_K7W_WIDTH  21260.0f
-/**BLE K7W 纵向 高度**/
-#define VALUE_K7W_HEIGHT  13842.0f
+/**BLE W7 纵向 宽度**/ //53
+#define VALUE_W7_WIDTH  21260.0f
+/**BLE W7 纵向 高度**/
+#define VALUE_W7_HEIGHT  13842.0f
 
 /**BLE DM6 纵向 宽度**/ //27
 #define VALUE_DM6_WIDTH  109.0f
@@ -194,14 +200,14 @@ typedef enum {
     J7B = 49,
     
     T9W_QX = 50,
-
+    
     K7_HW = 51,
     
     K8_ZM = 52,
     
     K7W = 53,
     
-    T7A_BN = 54,
+    T7C_BN = 54,
     
     T9W_YJ = 55,
     
@@ -210,6 +216,16 @@ typedef enum {
     T9W_WX = 57,
     
     T8B_DH2 = 58,
+    
+    T9W_B_KZ = 59,
+    
+    C5 = 60,
+    
+    T9B = 61,
+    
+    T9B_ZXB = 62,
+    
+    T8B_D2 = 63,
     
 } DeviceType;
 
@@ -270,6 +286,11 @@ typedef enum {
     DEVICE_ERRORE_SYSTEM,
     /**未遵守协议*/
     DEVICE_ERROR_DELEGATE,
+    /************************************点数据结构状态******************************/
+    /**点数据改变为2点结构*/
+    DEVICE_POINT_STRUCT_UPDATE_TYPE2 = 25,
+    /**点数据改变为3点结构*/
+    DEVICE_POINT_STRUCT_UPDATE_TYPE3,
     /************************************频率校准状态******************************/
     /**进入频率校准模式*/
     DEVICE_CALIBRATION_REDAY = 30,
@@ -324,6 +345,11 @@ typedef enum {
     DEVICE_NOTE_DELETE_ERROR_STATE,
     /**设备类型错误*/
     DEVICE_NOTE_DELETE_ERROR_DEVICE,
+    /************************************鼠标设备模式******************************/
+    /**鼠标模式获取成功*/
+    DEVICE_MOUSE_MODEL_GET_SUCCESS,
+    /**鼠标模式改变成功*/
+    DEVICE_MOUSE_MODEL_CHANGE_SUCCESS,
     
 }DeviceState;
 
@@ -584,6 +610,18 @@ typedef enum {
 
 /*!
  @enum
+ @abstract 点结构类型
+ */
+typedef enum {
+    /** 2点结构 **/
+    PointStructType2 = 0,
+    /** 3点结构 **/
+    PointStructType3,
+}PointStructType;
+
+
+/*!
+ @enum
  @abstract SDK类型
  @discussion MAC方法
  */
@@ -610,7 +648,20 @@ typedef enum {
     
 }RobotPenDeviceModel;
 
+/*!
+ @enum
+ @abstract SDK类型
+ @discussion MAC方法
+ */
+typedef enum {
+    /** 鼠标模式 **/
+    MouseModel = 0,
+    /** 手写模式 **/
+    HandModel,
+    
+}RobotPenMouseDeviceModel;
 
+#endif /* RobotPenHeader_h */
 
 
 
