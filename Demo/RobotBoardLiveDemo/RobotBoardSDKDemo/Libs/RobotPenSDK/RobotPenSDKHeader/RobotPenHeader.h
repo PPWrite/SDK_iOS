@@ -1,7 +1,7 @@
 
 /*********************************************************/
 /*********************************************************/
-/*----------------------SDK 4.1.1------------------------*/
+/*----------------------SDK 4.1.2------------------------*/
 /*********************************************************/
 /*********************************************************/
 
@@ -25,7 +25,7 @@
 #define ShowBLEAlert NO
 
 /** 最大设备号*/
-#define DeviceNumber_MAX 63
+#define DeviceNumber_MAX 65
 
 //注意：必看！！！
 //此处的宽高为板子横向的宽高。
@@ -34,18 +34,18 @@
 //HEIGHT 表示板子短边的像素值
 
 
-//对应设备：T8A/J0_A4/T9A/T7PL/T9_J0/J0_A4_P/T9E/J0-T9/T8B/T9B-YD/T9W/T8C/P1_CX_M3/T9A_EN/T9W_A/T8S/T9W_QX/T9W_YJ/T7PL_CL/T9W_WX/T8B_DH2/T9W_B_KZ/C5/T9B/T9B_ZXB/T8B_D2
-//硬件号 6/11/12/14/18/19/20/21/30/31/34/35/40/41/42/48/50/55/56/57/58/59/60/61/62/63
-/** 标准A4设备纵向 纵向 宽度**/
+//对应设备：T8A/J0_A4/T9A/T7PL/T9_J0/J0_A4_P/T9E/J0-T9/T8B/T9B-YD/T9W/T8C/P1_CX_M3/T9A_EN/T9W_A/T8S/T9W_QX/T9W_YJ/T7PL_CL/T9W_WX/T8B_DH2/T9W_B_KZ/C5/T9B/T9B_ZXB/T8B_D2/T9W_A_TY/T9W_A_XF
+//硬件号 6/11/12/14/18/19/20/21/30/31/34/35/40/41/42/48/50/55/56/57/58/59/60/61/62/63/64/65
+/** A4设备纵向 纵向 宽度**/
 #define VALUE_A4_WIDTH  22600.0f
-/** 标准A4设备纵向 高度**/
+/** A4设备纵向 高度**/
 #define VALUE_A4_HEIGHT 16650.0f
 
 //对应设备：P7/T7/T7E_TS/T7_TS/T7_LW/T7_CY/C7/S7_JD/T7A/T7_HI/T7B_HF/S7_SD/T7E/T7E_HFHH/S7_JD_M3/S1_DE/J7E/J7B_HF/J7B_ZY/J7B/K7W/T7C_BN
 //硬件号 1/2/15/16/17/22/24/26/28/29/32/36/37/38/39/44/45/46/47/49/53/54
-/** 标准A5设备纵向 纵向 宽度**/
+/** A5设备纵向 纵向 宽度**/
 #define VALUE_A5_WIDTH  14335.0f
-/** 标准A5设备纵向 高度**/
+/** A5设备纵向 高度**/
 #define VALUE_A5_HEIGHT 8191.0f
 
 /**USB P1纵向 宽度**/ //4 25
@@ -92,6 +92,16 @@
 #define VALUE_DM6_WIDTH  109.0f
 /**BLE DM6 纵向 高度**/
 #define VALUE_DM6_HEIGHT  175.0f
+
+/** 标准A4纸 宽度**/
+#define VALUE_S_A4_WIDTH  210.0f
+/** 标准A4纸 高度**/
+#define VALUE_S_A4_HEIGHT 297.0f
+
+/** 标准A5纸 宽度**/
+#define VALUE_S_A5_WIDTH  148.0f
+/** 标准A5纸 高度**/
+#define VALUE_S_A5_HEIGHT 210.0f
 
 /*!
  @enum
@@ -227,6 +237,10 @@ typedef enum {
     
     T8B_D2 = 63,
     
+    T9W_A_TY = 64,
+    
+    T9W_A_XF = 65,
+    
 } DeviceType;
 
 /*!
@@ -355,48 +369,57 @@ typedef enum {
 
 /*!
  @enum
- @abstract 系统状态
+ @abstract 坐标点的状态
  */
-typedef enum{
-    /** 默认主线程*/
-    BLEQueueType_Main = 0,
-    /** 全局高优先级队列*/
-    BLEQueueType_High,
-    /** 全局中优先级队列*/
-    BLEQueueType_Default,
-    /** 全局低优先级队列*/
-    BLEQueueType_Low,
-    /** 全局后台队列*/
-    BLEQueueType_Background,
-    /** 自定义队列*/
-    BLEQueueType_User,
+typedef enum {
+    /** 悬浮状态 **/
+    RobotPenPointFloat = 0,
+    /** touchBegin状态 **/
+    RobotPenPointTouchBegin,
+    /** touchMove状态 **/
+    RobotPenPointTouchMove,
+    /** touchEnd状态 **/
+    RobotPenPointTouchEnd,
+    /** 离开感应范围 **/
+    RobotPenPointLeave,
+    /** 侧键按下touchBegin状态**/
+    RobotPenPointAssistTouchBegin = 5,
+    /** 侧键按下touchMove状态**/
+    RobotPenPointAssistTouchMove,
+    /** 侧键按下touchEnd状态**/
+    RobotPenPointAssistTouchEnd,
+    /** 侧键按下悬浮状态 **/
+    RobotPenPointAssistFloat
     
-}BLEQueueType;
+}RobotPenPointTouchStatus;
 
 /*!
  @enum
- @abstract 系统状态
+ @abstract 同步笔记状态
  */
-typedef enum{
-    /** 未知设备*/
-    OSDeviceState_BLE_Unknown = 0,
-    /** 蓝牙已重启*/
-    OSDeviceState_BLE_Resetting,
-    /** 蓝牙不支持*/
-    OSDeviceState_BLE_Unsupported,
-    /** 蓝牙未授权*/
-    OSDeviceState_BLE_Unauthorized,
-    /** 蓝牙已关闭*/
-    OSDeviceState_BLE_PoweredOff,
-    /** 蓝牙已打开*/
-    OSDeviceState_BLE_PoweredOn,
-    //MAC方法
-    /** USB打开成功*/
-    OSDeviceState_USB_SUCCESS  = 6,
-    /** USB打开失败*/
-    OSDeviceState_USB_Error,
-
-}OSDeviceStateType;
+typedef enum {
+    /** 同步错误*/
+    SYNC_ERROR,
+    /** 有未同步笔记*/
+    SYNC_NOTE,
+    /** 没有未同步笔记*/
+    SYNC_NO_NOTE,
+    /** 单个笔记同步成功*/
+    SYNC_SUCCESS,
+    /** 开始同步*/
+    SYNC_START,
+    /** 停止同步*/
+    SYNC_STOP = 5,
+    /** 全部笔记同步完成*/
+    SYNC_COMPLETE,
+    /** 笔记同步密码校验成功*/
+    SYNC_PASSWORD_SUCCESS,
+    /** 笔记同步密码校验失败*/
+    SYNC_PASSWORD_FAIL,
+    /** 笔记同步密码尚未启用*/
+    SYNC_PASSWORD_NULL,
+    
+}SYNCState;
 
 /*!
  @enum
@@ -461,7 +484,30 @@ typedef enum{
     DeviceEvent_SELF2_Long,
 }DeviceEventType;
 
+/*!
+ @enum
+ @abstract 系统状态
+ */
+typedef enum{
+    /** 未知设备*/
+    OSDeviceState_BLE_Unknown = 0,
+    /** 蓝牙已重启*/
+    OSDeviceState_BLE_Resetting,
+    /** 蓝牙不支持*/
+    OSDeviceState_BLE_Unsupported,
+    /** 蓝牙未授权*/
+    OSDeviceState_BLE_Unauthorized,
+    /** 蓝牙已关闭*/
+    OSDeviceState_BLE_PoweredOff,
+    /** 蓝牙已打开*/
+    OSDeviceState_BLE_PoweredOn,
+    //MAC方法
+    /** USB打开成功*/
+    OSDeviceState_USB_SUCCESS  = 6,
+    /** USB打开失败*/
+    OSDeviceState_USB_Error,
 
+}OSDeviceStateType;
 
 /*!
  @enum
@@ -501,37 +547,25 @@ typedef enum {
     
 }SensorState;
 
-
 /*!
  @enum
- @abstract 同步笔记状态
+ @abstract 线程设置
  */
-typedef enum {
-    /** 同步错误*/
-    SYNC_ERROR,
-    /** 有未同步笔记*/
-    SYNC_NOTE,
-    /** 没有未同步笔记*/
-    SYNC_NO_NOTE,
-    /** 单个笔记同步成功*/
-    SYNC_SUCCESS,
-    /** 开始同步*/
-    SYNC_START,
-    /** 停止同步*/
-    SYNC_STOP = 5,
-    /** 全部笔记同步完成*/
-    SYNC_COMPLETE,
-    /** 笔记同步密码校验成功*/
-    SYNC_PASSWORD_SUCCESS,
-    /** 笔记同步密码校验失败*/
-    SYNC_PASSWORD_FAIL,
-    /** 笔记同步密码尚未启用*/
-    SYNC_PASSWORD_NULL,
+typedef enum{
+    /** 默认主线程*/
+    BLEQueueType_Main = 0,
+    /** 全局高优先级队列*/
+    BLEQueueType_High,
+    /** 全局中优先级队列*/
+    BLEQueueType_Default,
+    /** 全局低优先级队列*/
+    BLEQueueType_Low,
+    /** 全局后台队列*/
+    BLEQueueType_Background,
+    /** 自定义队列*/
+    BLEQueueType_User,
     
-}SYNCState;
-
-
-
+}BLEQueueType;
 /*!
  @enum
  @abstract 电磁板电量状态
@@ -560,26 +594,8 @@ typedef enum {
 
 /*!
  @enum
- @abstract 坐标点的状态
+ @abstract 坐标原点方向
  */
-typedef enum {
-    /** 悬浮状态 **/
-    RobotPenPointFloat = 0,
-    /** touchBegin状态 **/
-    RobotPenPointTouchBegin,
-    /** touchMove状态 **/
-    RobotPenPointTouchMove,
-    /** touchEnd状态 **/
-    RobotPenPointTouchEnd,
-    /** 离开感应范围 **/
-    RobotPenPointLeave,
-    /** 侧键按下touch状态**/
-    RobotPenPointAssistTouch = 5,
-    /** 侧键按下悬浮状态 **/
-    RobotPenPointAssistFloat
-    
-}RobotPenPointTouchStatus;
-
 typedef enum {
     /** 设备默认坐标系点**/
     RobotPenCoordinateDefault = 0,
@@ -593,6 +609,20 @@ typedef enum {
     RobotPenCoordinateLowerRight,
     
 }RobotPenCoordinateSystem;
+
+/*!
+ @enum
+ @abstract 数据点范围尺寸
+ */
+typedef enum {
+    /** 设备原始尺寸 **/
+    RobotPaperSizeType_Original = 0,
+    /** 标准A4尺寸 **/
+    RobotPaperSizeType_A4,
+    /** 标准A5尺寸 **/
+    RobotPaperSizeType_A5,
+    
+}RobotPaperSizeType;
 
 /*!
  @enum

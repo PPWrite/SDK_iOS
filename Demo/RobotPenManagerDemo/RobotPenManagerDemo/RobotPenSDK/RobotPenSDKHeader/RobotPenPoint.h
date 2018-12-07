@@ -12,7 +12,7 @@
 @interface RobotPenPoint : NSObject
 /*!
  @property
- @brief 坐标点 Y
+ @brief 坐标点 X
  */
 @property (assign , nonatomic) short originalX;
 /*!
@@ -49,7 +49,7 @@
 
 /*!
  @method
- @abstract 转换点坐标(以原始点为基础)
+ @abstract 获取场景转换点坐标(以原始点为基础)
  @param isHorizontal NO:电磁板左上角为(0,0)点,YES:电磁板左下角为(0,0)点
  @result 返回结果
  */
@@ -57,11 +57,21 @@
 
 /*!
  @method
- @abstract 获取转换点坐标(以原始点为基础)
+ @abstract 获取设备转换点坐标(以原始点为基础)
  @param type 坐标系原点位置
  @result 返回结果
  */
 - (CGPoint)getTransformsPointWithType:(RobotPenCoordinateSystem)type;
+
+/**
+ @method
+ @abstract 获取标准纸张缩放点(以原始点为基础)
+ @discussion 以高固定缩放
+ @param type 转换类型
+ @param coordinateType 坐标系原点位置
+ @result 返回结果
+ */
+- (CGPoint)getScalePointTo:(RobotPaperSizeType)type CoordinateSystemType:(RobotPenCoordinateSystem)coordinateType;
 
 /*!
  @method

@@ -49,7 +49,7 @@
 
 /*!
  @method
- @abstract 根据原始点获取显示场景点坐标
+ @abstract 根据优化点点获取显示场景点坐标
  @param sceneWidth 场景宽
  @param sceneHeight 场景高
  @param isHorizontal 场景是否竖屏
@@ -59,7 +59,7 @@
 
 /*!
  @method
- @abstract 根据屏幕点获取原始点坐标
+ @abstract 根据屏幕点获取优化点坐标
  @param sceneWidth 场景宽
  @param sceneHeight 场景高
  @param isHorizontal 场景是否竖屏
@@ -69,12 +69,20 @@
 
 /*!
  @method
- @abstract 获取转换点坐标(以原始点为基础)
+ @abstract 获取转换点坐标(以原始坐标尺寸为基础)
  @param type 坐标系原点位置
  @result 返回结果
  */
 - (CGPoint)getTransformsPointWithType:(RobotPenCoordinateSystem)type;
-
+/**
+ @method
+ @abstract 获取标准纸张缩放点(以原始坐标尺寸为基础)
+ @discussion 以高固定缩放
+ @param type 转换类型
+ @param coordinateType 坐标系原点位置
+ @result 返回结果
+ */
+- (CGPoint)getScalePointTo:(RobotPaperSizeType)type CoordinateSystemType:(RobotPenCoordinateSystem)coordinateType;
 /*!
  @method
  @abstract 转换MAC坐标系的Y坐标

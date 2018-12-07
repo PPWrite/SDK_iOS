@@ -157,6 +157,25 @@ typedef enum {
 + (void)GetAllNoteListBeforePage:(int)Page Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
 
 
+/*!
+ @method 获取某一用户指定页的笔记列表
+ @abstract 根据传入的页码值获取该页笔记列表，返回该页的笔记列表数据
+ @param Page page >=0
+ @param Success 成功结果返回
+ @param Failure 失败结果返回
+ */
++ (void)GetAllNoteListForUser:(long)UserID WithPage:(int)Page Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
+
+/*!
+ @method 获取某一用户指定页之前的所有笔记列表
+ @abstract 根据传入的页码值获取Page页之前所有笔记列表，返回0 - Page页的所有笔记列表数据
+ @param Page page >=0
+ @param Success 成功结果返回
+ @param Failure 失败结果返回
+ */
++ (void)GetAllNoteListForUser:(long)UserID BeforePage:(int)Page Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
+
+
 #pragma mark 临时笔记相关
 
 /*!

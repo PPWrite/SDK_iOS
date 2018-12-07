@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../RobotPenManagerDemo/RobotPenSDK/Libraries/libRobotPenSDK 2.a">
+   </FileRef>
+   <FileRef
       location = "self:">
    </FileRef>
 </Workspace>

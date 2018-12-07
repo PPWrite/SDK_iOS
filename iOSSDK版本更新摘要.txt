@@ -1,5 +1,92 @@
+/************************************4.1.2**************************************/
+iOS SDK 4.1.2已更新
+地址：https://github.com/PPWrite/SDK_iOS
+Cocoapods支持：
+	笔服务：pod 'RobotPenSDK/RobotPenSDK'
+ 	白板服务：pod 'RobotPenSDK/RobotBoardSDK'
+ 	录课服务：pod 'RobotPenSDK/RobotRecordSDK' 或 pod 'RobotPenSDK'
+ 	Tips:使用Cocoapods导入，只需要拉取相应的服务即可自动配置所包含的其他服务。
+版本号在RobotPenHeader头可见 或 调用getSDKVersion方法可在控制台打印。
+更新内容详情见“更新概要”
+
+更新概要：
+ 1、增加新固件支持。
+ 2、增加点数据转换方法。
+ 3、新增点数据状态。
+ 4、优化点阵设备的笔迹。
+ 5、修改鼠标模式设置方法。
+
+主要涉及到的设备：
+ 1、新增设备：T9W_A_TY、T9W_A_XF。
+ 2、点数据状态：带有侧键的笔及M3K。
+ 3、点阵设备：DM6
+ 4、模式修改：T8B_D2
+
+新增特性及方法：
+ 1、新增设置坐标系原点方法。
+ 2、新增转换标准A4、A5比例方法。
+
+一、RobotPenHeader.h中
+新增：
+ 1、新增宏定义
+ /** 标准A4纸 宽度**/
+ #define VALUE_S_A4_WIDTH  210.0f
+ /** 标准A4纸 高度**/
+ #define VALUE_S_A4_HEIGHT 297.0f
+
+ /** 标准A5纸 宽度**/
+ #define VALUE_S_A5_WIDTH  148.0f
+ /** 标准A5纸 高度**/
+ #define VALUE_S_A5_HEIGHT 210.0f
+ 1.DeviceType枚举增加
+    T9W_A_TY = 64,
+    T9W_A_XF = 65,
+ 2.增加RobotPaperSizeType枚举。
+修改：
+ RobotPenPointTouchStatus中
+ RobotPenPointAssistTouch（侧键按下状态）拆分成三个状态，按下、移动、抬起。
+ /** 侧键按下touchBegin状态**/
+ RobotPenPointAssistTouchBegin = 5,
+ /** 侧键按下touchMove状态**/
+ RobotPenPointAssistTouchMove,
+ /** 侧键按下touchEnd状态**/
+ RobotPenPointAssistTouchEnd,
+	
+二、RobotPenManager.h中
+新增：
+ #pragma mark ----------------------------------------------------转换相关------------------------------------------------------
+ /*!
+ @method
+ @abstract 设置设备转换点坐标
+ @param type 坐标系原点位置
+ */
+ - (void)setTransformsPointWithType:(RobotPenCoordinateSystem)type;
+ /**
+ @method
+ @abstract 设置数据点转换比例，强制转换。
+ @discussion 默认为原始比例
+ @param type 转换类型
+ */
+ - (void)setScalePointTo:(RobotPaperSizeType)type;
+
+修改：
+ - (void)changeMouseDeviceMode;
+ ===》- (void)changeMouseDeviceMode:(RobotPenMouseDeviceModel)model;
+
+三、RobotPenPoint.h与RobotPenUtilPoint.h中
+ /**
+ @method
+ @abstract 获取标准纸张缩放点(以原始点为基础)
+ @discussion 以高固定缩放
+ @param type 转换类型
+ @param coordinateType 坐标系原点位置
+ @result 返回结果
+ */
+ - (CGPoint)getScalePointTo:(RobotPaperSizeType)type CoordinateSystemType:(RobotPenCoordinateSystem)coordinateType;
+
+/************************************4.1.2**************************************/
 /************************************4.1.1**************************************/
-Mac SDK 4.1.1已更新
+iOS SDK 4.1.1已更新
 地址：https://github.com/PPWrite/SDK_iOS
 Cocoapods支持：
 	笔服务：pod 'RobotPenSDK/RobotPenSDK'
@@ -48,7 +135,7 @@ RobotPenManager.h中
 
 /************************************4.1.1**************************************/
 /************************************4.0.2**************************************/
-Mac SDK 4.0.2已更新
+iOS SDK 4.0.2已更新
 地址：https://github.com/PPWrite/SDK_iOS
 Cocoapods支持：
 	笔服务：pod 'RobotPenSDK/RobotPenSDK'

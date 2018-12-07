@@ -98,6 +98,12 @@
  @param trails 轨迹数据
  */
 - (void)getTrailsInfo:(RobotTrails *)trails;
+/*!
+ @method
+ @abstract 获取左上角转换点轨迹数据
+ @param trails 轨迹数据
+ */
+- (void)getTransformsTrailsInfo:(RobotTrails *)trails;
 
 /*!
  @method
@@ -195,8 +201,7 @@
  */
 @property (nonatomic, assign) BOOL isSaveScreenShot;
 
-@property (nonatomic, strong) NSMutableDictionary *tagDict;
-@property (nonatomic, strong) NSMutableDictionary *tagPointDict;
+
 
 
 #pragma mark 设置类方法

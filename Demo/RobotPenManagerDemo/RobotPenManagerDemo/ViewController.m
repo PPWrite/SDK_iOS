@@ -210,6 +210,16 @@
 }
 
 #pragma mark- ========== SDK 协议内容 ===========
+/*!
+ @method
+ @abstract 设备电磁板点击事件
+ @param Type 事件类型
+ */
+- (void)getDeviceEvent:(DeviceEventType)Type
+{
+    NSLog(@"getDeviceEvent = %u",Type);
+}
+
 
 -(void)getPointInfo:(RobotPenPoint *)point{    //获取点的信息
     

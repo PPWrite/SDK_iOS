@@ -466,7 +466,19 @@
 
 
 #pragma mark ---------------------------转换相关---------------------------
-
+/*!
+ @method
+ @abstract 设置设备转换点坐标
+ @param type 坐标系原点位置
+ */
+- (void)setTransformsPointWithType:(RobotPenCoordinateSystem)type;
+/**
+ @method
+ @abstract 设置数据点转换比例，强制转换。
+ @discussion 默认为原始比例
+ @param type 转换类型
+ */
+- (void)setScalePointTo:(RobotPaperSizeType)type;
 /*!
  @method
  @abstract 以设备宽和场景宽为基础，获取原始/场景的笔迹宽度
@@ -564,9 +576,10 @@
 /*!
  @method
  @abstract 改变设备模式
- @discussion MouseMode设备USB使用
+ @discussion 改变设备的当前模式（鼠标模式、书写模式），MouseMode设备USB使用。其中T8B_D2可指定模式。
+ @param model 模式
  */
-- (void)changeMouseDeviceMode;
+- (void)changeMouseDeviceMode:(RobotPenMouseDeviceModel)model;
 
 #pragma mark ---------------------------DM6--------------------------
 
@@ -588,18 +601,18 @@
  */
 - (void)getDM6OriginImageWithSK:(NSString *)sk Point:(CGPoint)point Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
 
-#pragma mark ----------------------------------------------------PointStruct------------------------------------------------------
+#pragma mark ---------------------------PointStruct---------------------------
 /*!
  @method
  @abstract 自动升级为高级点模式
- @discussion T7C-BN/T8S/J7B_ZY/T9B_ZXB使用
+ @discussion T7C_BN/T8S/J7B_ZY/T9B_ZXB使用
  @discussion 默认为YES
  */
 - (void)setDevicePointUpdate:(BOOL)update;
 /*!
  @method
  @abstract  设置点结构的类型
- @discussion T7C-BN/T8S/J7B_ZY/T9B_ZXB使用
+ @discussion T7C_BN/T8S/J7B_ZY/T9B_ZXB使用
  @param type 点数据结构类型
  */
 - (void)setDevicePointStruct:(PointStructType)type;

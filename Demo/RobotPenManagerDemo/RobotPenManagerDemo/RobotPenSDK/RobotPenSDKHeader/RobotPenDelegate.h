@@ -36,7 +36,7 @@
  @abstract 监听电磁板设备状态
  @param State 状态
  */
-- (void)getDeviceState:(DeviceState)State;
+- (void)getDeviceState:(DeviceState)State DEPRECATED_MSG_ATTRIBUTE("Please use -(void)getDeviceState:(DeviceState)State DeviceUUID:(NSString *)uuid");
 
 /*!
  @method
@@ -122,7 +122,7 @@
  @param num 数量
  @param battery 电量
  */
-- (void)getStorageNum:(int)num andBattery:(int)battery;
+- (void)getStorageNum:(int)num andBattery:(int)battery DEPRECATED_MSG_ATTRIBUTE("Please use - (void)getStorageNum:(int)num andBattery:(int)battery andNotePercent:(int)percent");
 
 /*!
  @method 监听笔记数量和电量信息
