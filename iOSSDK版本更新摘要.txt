@@ -1,3 +1,55 @@
+/************************************4.1.3**************************************/
+iOS SDK 4.1.3已更新
+地址：https://github.com/PPWrite/SDK_iOS
+Cocoapods支持：
+	笔服务：pod 'RobotPenSDK/RobotPenSDK'
+ 	白板服务：pod 'RobotPenSDK/RobotBoardSDK'
+ 	录课服务：pod 'RobotPenSDK/RobotRecordSDK' 或 pod 'RobotPenSDK'
+ 	Tips:使用Cocoapods导入，只需要拉取相应的服务即可自动配置所包含的其他服务。
+版本号在RobotPenHeader头可见 或 调用getSDKVersion方法可在控制台打印。
+更新内容详情见“更新概要”
+
+更新概要：
+ 1、增加新固件支持。
+ 2、增加点数据类型。
+ 3、新增新方法。
+ 4、修复蓝牙连接超时后的偶现你崩溃问题。
+
+主要涉及到的设备：
+ 1、新增设备：W9_XF、S7_TY_A、S7_TY_B、T7C、T9W_TAL。
+ 2、点数据类型：新增A4、A5点类型。
+
+新增特性及方法：
+ 1、新增设置坐标系原点方法。
+ 2、新增转换标准A4、A5比例方法。
+
+一、RobotPenPoint.h/RobotPenUtilPoint.h中
+新增：
+ 1、点尺寸的类型 RobotPaperSizeType pointSizeType；
+	
+二、RobotPenManager.h中
+新增：
+ /*!
+ @method
+ @abstract 设置电磁板报点尺寸类型，非强转。
+ @discussion 默认为原始比例，暂时只用于T9W_A
+ @param type 转换类型
+ */
+- (void)setDeviceScalePointType:(RobotPaperSizeType)type;
+三、RobotWhiteBoardView.h 中
+/*!
+ @method
+ @abstract 设置画板显示大小
+ @param size size
+ */
+- (void)setupSceneSize: (CGSize)size;
+/*!
+ @method
+ @abstract 设置白板屏幕点的偏移
+ @param offset 偏移量
+ */
+-(void)setPointOffSet:(CGPoint)offset;
+/************************************4.1.3**************************************/
 /************************************4.1.2**************************************/
 iOS SDK 4.1.2已更新
 地址：https://github.com/PPWrite/SDK_iOS

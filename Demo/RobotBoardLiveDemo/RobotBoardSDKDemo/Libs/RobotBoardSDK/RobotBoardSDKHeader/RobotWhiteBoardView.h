@@ -201,7 +201,8 @@
  */
 @property (nonatomic, assign) BOOL isSaveScreenShot;
 
-
+@property (nonatomic, strong) NSMutableDictionary *tagDict;
+@property (nonatomic, strong) NSMutableDictionary *tagPointDict;
 
 
 #pragma mark 设置类方法
@@ -213,6 +214,13 @@
  @param frame fame
  */
 - (void)setSceneSize:(CGRect)frame;
+
+/*!
+ @method
+ @abstract 设置画板显示大小
+ @param size size
+ */
+- (void)setupSceneSize: (CGSize)size;
 
 /*!
  @method
@@ -367,10 +375,26 @@
 
 /*!
  @method
+ @abstract 删除某一页
+ @param page 要删除的页
+ @param success 删除成功回调
+ @param failure 删除失败回调
+ */
+- (void)deletePage: (int)page Success:(void (^)(id responseObject))success Failure:(void (^)(NSError *error))failure;
+
+/*!
+ @method
  @abstract 获取当前页面的Block
  @result 返回结果
  */
 - (NSString *)getCurrentBlock;
+
+/*!
+ @method
+ @abstract 获取上个页面的Block
+ @result 返回结果
+ */
+- (nullable NSString *)getPreviousBlock;
 
 /*!
  @method
@@ -627,7 +651,21 @@
  */
 -(void)SetLiveImageWith:(RobotTrails *)model;
 
+/*!
+ @method
+ @abstract 设置白板屏幕点的偏移
+ @param offset 偏移量
+ */
+-(void)setPointOffSet:(CGPoint)offset;
 
+
+/**
+ 设置笔记宽度变化幅度
+
+ @param max 最大幅度
+ @param min 最小幅度
+ */
+-(void)setNoteWidthRangeWithMaxVaule:(CGFloat) max MinValue:(CGFloat)min;
 
 @end
 

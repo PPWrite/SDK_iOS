@@ -282,6 +282,25 @@ typedef enum {
 + (void)GetPageInfosWithNoteKey:(NSString *)NoteKey Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
 
 /*!
+ @method 获取当前笔记的页码信息 点阵笔专用
+ @abstract 根据笔记的唯一标识（noteKey），获取当前笔记页码信息,总页码 当前页 活动页
+ @param noteKey noteKey
+ @param Success 成功结果返回
+ @param Failure 失败结果返回
+ */
++ (void)getNewPageInfosWithNoteKey:(NSString *)noteKey Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
+
+/*!
+ @method 获取当前笔记的页码信息
+ @abstract 根据笔记的唯一标识（noteKey,blockKey），获取当前笔记页码信息: 总页码,当前页
+ @param noteKey noteKey
+ @param blockKey blockKey
+ @param Success 成功结果返回
+ @param Failure 失败结果返回
+ */
++ (void)GetPageInfosWithNoteKey:(NSString * __nonnull)noteKey andBlockKey:(NSString * __nonnull)blockKey Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
+
+/*!
  @method 获取上一页的页码唯一标识
  @abstract 根据笔记的唯一标识（NoteKey），获取上一页的BlockKey
  @param NoteKey NoteKey

@@ -1,4 +1,4 @@
-SDK服务分为四种服务：笔服务（RobotPenSDK）、白板服务（RobotBoardSDK）、录课服务（RobotRecordSDK）和直播服务（RobotLiveSDK）。
+SDK服务分为四种服务：笔服务（RobotPenSDK）、白板服务（RobotBoardSDK）、录课服务（RobotRecordSDK）和直播服务（RobotLiveSDK）。   
 
 笔服务为基础服务，白板服务、录课服务、直播服务为插件形式存在。其中前者包含数据库服务，后三者服务存在向前依赖关系。
 举例：使用录课服务需要导入RobotPenSDK、RobotBoardSDK和RobotRecordSDK。

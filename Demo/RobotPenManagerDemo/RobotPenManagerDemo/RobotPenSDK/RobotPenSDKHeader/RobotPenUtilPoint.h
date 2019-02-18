@@ -40,6 +40,12 @@
  @brief 状态 0：离开(悬浮)状态 1：touchBegin状态 2：touchMove状态 3：touchEnd状态 4:离开感应范围
  */
 @property (nonatomic, assign) int touchState;
+
+/*!
+ @property
+ @brief 点尺寸的类型
+ */
+@property (assign, nonatomic) RobotPaperSizeType pointSizeType;
 /*!
  @method
  @abstract 获取优化点坐标
@@ -52,7 +58,7 @@
  @abstract 根据优化点点获取显示场景点坐标
  @param sceneWidth 场景宽
  @param sceneHeight 场景高
- @param isHorizontal 场景是否竖屏
+ @param isHorizontal 场景是否横屏
  @result 返回结果
  */
 - (CGPoint)getScenePointWithSceneWidth:(float)sceneWidth SceneHeight:(float)sceneHeight IsHorizontal:(BOOL)isHorizontal;
@@ -62,7 +68,7 @@
  @abstract 根据屏幕点获取优化点坐标
  @param sceneWidth 场景宽
  @param sceneHeight 场景高
- @param isHorizontal 场景是否竖屏
+ @param isHorizontal 场景是否横屏
  @result 返回结果
  */
 - (CGPoint)getOriginalPointWithSceneWidth:(float)sceneWidth SceneHeight:(float)sceneHeight IsHorizontal:(BOOL)isHorizontal;

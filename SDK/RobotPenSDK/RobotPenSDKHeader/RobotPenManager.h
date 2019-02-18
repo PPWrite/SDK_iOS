@@ -309,6 +309,13 @@
  */
 -(void)deleteAllSyncNote;
 
+/**
+ 设置离线笔记的笔迹宽度
+
+ @param width 笔迹宽度
+ */
+-(void)setSyncNoteWidth: (CGFloat) width;
+
 #pragma mark ---------------------------OTA(固件升级)相关---------------------------
 /*!
  @method
@@ -479,6 +486,13 @@
  @param type 转换类型
  */
 - (void)setScalePointTo:(RobotPaperSizeType)type;
+/*!
+ @method
+ @abstract 设置电磁板报点尺寸类型，非强转。
+ @discussion 默认为原始比例，暂时只用于T9W_A
+ @param type 转换类型
+ */
+- (void)setDeviceScalePointType:(RobotPaperSizeType)type;
 /*!
  @method
  @abstract 以设备宽和场景宽为基础，获取原始/场景的笔迹宽度
@@ -670,6 +684,13 @@
  @abstract 设置离线笔记轨迹的Block
  */
 - (void)SetBlockWithBlock:(NSString *)blocks;
+
+/*!
+ @method
+ @abstract 清楚BLE的一些缓存数据
+ */
+-(void)cleanCache;
+
 
 @end
 
