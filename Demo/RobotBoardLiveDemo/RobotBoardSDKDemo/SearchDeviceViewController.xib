@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,7 +16,6 @@
                 <outlet property="RSSILabel" destination="iPF-D5-89n" id="RRq-5M-d4Y"/>
                 <outlet property="SyncButton" destination="18C-tH-S3Q" id="xPe-8t-JxX"/>
                 <outlet property="SyncNumberLabel" destination="bLz-e5-gEh" id="QhH-WD-cpO"/>
-                <outlet property="UpdateButton" destination="SHW-E6-Ojc" id="QCK-cc-nPQ"/>
                 <outlet property="VersionLabel" destination="rzO-BS-evi" id="tAl-ok-IQi"/>
                 <outlet property="blueToothButton" destination="xux-eY-Oeb" id="rm4-3G-bQr"/>
                 <outlet property="deviceName" destination="6NH-Jm-MAW" id="2Ee-j4-S19"/>
@@ -147,9 +146,13 @@
                                 <constraint firstAttribute="width" constant="215" id="EcS-TZ-bbx"/>
                                 <constraint firstAttribute="height" constant="40" id="UFI-zg-NhS"/>
                             </constraints>
-                            <state key="normal" title="搜索">
+                            <state key="normal" title="查找设备">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <state key="selected" title="断开连接"/>
+                            <connections>
+                                <action selector="blueToothButtonPressed:" destination="-1" eventType="touchUpInside" id="UyN-b9-4zl"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未同步笔记" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCV-iE-aOS">
                             <rect key="frame" x="15" y="176" width="78" height="25"/>
@@ -183,16 +186,6 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18C-tH-S3Q">
-                            <rect key="frame" x="173" y="176" width="69" height="30"/>
-                            <color key="backgroundColor" red="0.21176470589999999" green="0.74117647060000003" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="69" id="Fdg-iE-FlT"/>
-                                <constraint firstAttribute="height" constant="30" id="fFl-Dq-PzF"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <state key="normal" title="同步"/>
-                        </button>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="teb-4R-o3c">
                             <rect key="frame" x="0.0" y="296" width="343" height="217"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -200,12 +193,6 @@
                                 <constraint firstAttribute="height" constant="217" id="0r8-7g-sXx"/>
                             </constraints>
                         </tableView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHW-E6-Ojc">
-                            <rect key="frame" x="252" y="176" width="69" height="30"/>
-                            <color key="backgroundColor" red="0.21176470589999999" green="0.74117647060000003" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <state key="normal" title="升级"/>
-                        </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电磁板电量" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AeP-Uw-39I">
                             <rect key="frame" x="15" y="256" width="78" height="25"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -239,10 +226,23 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18C-tH-S3Q">
+                            <rect key="frame" x="291" y="176" width="69" height="30"/>
+                            <color key="backgroundColor" red="0.21176470589999999" green="0.74117647060000003" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="69" id="Fdg-iE-FlT"/>
+                                <constraint firstAttribute="height" constant="30" id="fFl-Dq-PzF"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="同步"/>
+                            <state key="selected" title="停止同步"/>
+                            <connections>
+                                <action selector="SyncButtonPressed:" destination="-1" eventType="touchUpInside" id="byV-z7-vee"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="SHW-E6-Ojc" firstAttribute="width" secondItem="18C-tH-S3Q" secondAttribute="width" id="0Ow-hK-lxB"/>
                         <constraint firstAttribute="trailing" secondItem="6NH-Jm-MAW" secondAttribute="trailing" constant="15" id="1kx-NB-fZW"/>
                         <constraint firstItem="RCV-iE-aOS" firstAttribute="height" secondItem="CK9-7b-Gqv" secondAttribute="height" id="3rP-A0-Gfw"/>
                         <constraint firstItem="pBu-5O-Pad" firstAttribute="top" secondItem="NHh-UO-iHz" secondAttribute="top" constant="16" id="49H-dO-tdd"/>
@@ -251,7 +251,6 @@
                         <constraint firstItem="rzO-BS-evi" firstAttribute="leading" secondItem="J3i-ii-uWU" secondAttribute="trailing" constant="15" id="6Wg-3f-xuy"/>
                         <constraint firstItem="AeP-Uw-39I" firstAttribute="leading" secondItem="J3i-ii-uWU" secondAttribute="leading" id="82p-2D-tp6"/>
                         <constraint firstItem="18C-tH-S3Q" firstAttribute="top" secondItem="bLz-e5-gEh" secondAttribute="top" id="8sS-y2-0IT"/>
-                        <constraint firstItem="SHW-E6-Ojc" firstAttribute="height" secondItem="18C-tH-S3Q" secondAttribute="height" id="A63-fr-wCt"/>
                         <constraint firstItem="L07-hK-jjs" firstAttribute="top" secondItem="AeP-Uw-39I" secondAttribute="top" id="AQW-KK-TQ9"/>
                         <constraint firstItem="q7k-ll-K6n" firstAttribute="top" secondItem="KmT-G3-Ccd" secondAttribute="bottom" constant="15" id="AXW-8h-HWE"/>
                         <constraint firstItem="CK9-7b-Gqv" firstAttribute="height" secondItem="q7k-ll-K6n" secondAttribute="height" id="CH7-zz-cZI"/>
@@ -265,7 +264,6 @@
                         <constraint firstItem="rzO-BS-evi" firstAttribute="top" secondItem="J3i-ii-uWU" secondAttribute="top" id="Fbj-Hh-4pa"/>
                         <constraint firstAttribute="bottom" secondItem="xux-eY-Oeb" secondAttribute="bottom" constant="25" id="GAe-A2-mTr"/>
                         <constraint firstAttribute="trailing" secondItem="teb-4R-o3c" secondAttribute="trailing" constant="32" id="H6L-rD-MZW"/>
-                        <constraint firstItem="18C-tH-S3Q" firstAttribute="leading" secondItem="bLz-e5-gEh" secondAttribute="trailing" constant="15" id="HaE-zW-d95"/>
                         <constraint firstItem="b47-Is-u9Z" firstAttribute="top" secondItem="bPq-ye-qa0" secondAttribute="top" id="IBF-d5-TTM"/>
                         <constraint firstItem="RCV-iE-aOS" firstAttribute="top" secondItem="CK9-7b-Gqv" secondAttribute="bottom" constant="15" id="IeF-d1-526"/>
                         <constraint firstItem="6NH-Jm-MAW" firstAttribute="height" secondItem="CK9-7b-Gqv" secondAttribute="height" id="Ikj-hg-7rC"/>
@@ -282,7 +280,6 @@
                         <constraint firstItem="rzO-BS-evi" firstAttribute="height" secondItem="J3i-ii-uWU" secondAttribute="height" id="SHp-Pi-g9c"/>
                         <constraint firstItem="J3i-ii-uWU" firstAttribute="top" secondItem="bLz-e5-gEh" secondAttribute="bottom" constant="15" id="SdP-xk-NIP"/>
                         <constraint firstItem="L07-hK-jjs" firstAttribute="leading" secondItem="AeP-Uw-39I" secondAttribute="trailing" constant="15" id="VMB-y2-Tjp"/>
-                        <constraint firstItem="SHW-E6-Ojc" firstAttribute="leading" secondItem="18C-tH-S3Q" secondAttribute="trailing" constant="10" id="VOP-wt-S2r"/>
                         <constraint firstItem="2v0-sV-Dqa" firstAttribute="height" secondItem="ywc-Bl-FU5" secondAttribute="height" id="Vls-c0-2pe"/>
                         <constraint firstItem="J3i-ii-uWU" firstAttribute="leading" secondItem="RCV-iE-aOS" secondAttribute="leading" id="WZr-hj-h2P"/>
                         <constraint firstItem="CK9-7b-Gqv" firstAttribute="leading" secondItem="q7k-ll-K6n" secondAttribute="leading" id="Y27-0S-3ps"/>
@@ -300,7 +297,6 @@
                         <constraint firstItem="xux-eY-Oeb" firstAttribute="centerX" secondItem="NHh-UO-iHz" secondAttribute="centerX" id="j0A-Eq-W5y"/>
                         <constraint firstItem="LRr-LD-zsv" firstAttribute="height" secondItem="pBu-5O-Pad" secondAttribute="height" id="j1C-AZ-jwe"/>
                         <constraint firstItem="bLz-e5-gEh" firstAttribute="top" secondItem="6NH-Jm-MAW" secondAttribute="bottom" constant="15" id="jP4-XQ-oWC"/>
-                        <constraint firstItem="SHW-E6-Ojc" firstAttribute="top" secondItem="18C-tH-S3Q" secondAttribute="top" id="jiX-cc-i9g"/>
                         <constraint firstItem="KmT-G3-Ccd" firstAttribute="top" secondItem="93a-Fd-YoM" secondAttribute="top" id="kKJ-7T-pk9"/>
                         <constraint firstItem="AeP-Uw-39I" firstAttribute="top" secondItem="J3i-ii-uWU" secondAttribute="bottom" constant="15" id="nw8-Ot-VzI"/>
                         <constraint firstItem="qKz-1m-vUa" firstAttribute="height" secondItem="q7k-ll-K6n" secondAttribute="height" id="qUn-HP-rNb"/>
@@ -311,6 +307,7 @@
                         <constraint firstItem="qKz-1m-vUa" firstAttribute="leading" secondItem="q7k-ll-K6n" secondAttribute="trailing" constant="15" id="tm8-NF-Oq2"/>
                         <constraint firstItem="fwG-qg-NkB" firstAttribute="height" secondItem="L07-hK-jjs" secondAttribute="height" id="uo5-rV-x4d"/>
                         <constraint firstItem="b47-Is-u9Z" firstAttribute="height" secondItem="bPq-ye-qa0" secondAttribute="height" id="vCB-Tw-kvk"/>
+                        <constraint firstAttribute="trailing" secondItem="18C-tH-S3Q" secondAttribute="trailing" constant="15" id="vXz-RT-YhK"/>
                         <constraint firstItem="RCV-iE-aOS" firstAttribute="width" secondItem="CK9-7b-Gqv" secondAttribute="width" id="vu1-xP-38a"/>
                         <constraint firstItem="bPq-ye-qa0" firstAttribute="top" secondItem="KmT-G3-Ccd" secondAttribute="top" id="wJZ-gj-9Ma"/>
                         <constraint firstItem="q7k-ll-K6n" firstAttribute="leading" secondItem="NHh-UO-iHz" secondAttribute="leading" constant="15" id="xZM-LJ-DlV"/>

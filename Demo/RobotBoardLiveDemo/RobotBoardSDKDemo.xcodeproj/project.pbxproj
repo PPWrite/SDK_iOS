@@ -340,6 +340,7 @@
 		C0D9C9B61E5D8AC9008D0093 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C0D9C9B81E5D8B27008D0093 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		C0D9C9BA1E5D8B2F008D0093 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		C0F006D42255B40E00914266 /* RobotPenDeviceFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenDeviceFunction.h; sourceTree = "<group>"; };
 		C0F1FD621FD13E2A00053830 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -739,6 +740,7 @@
 		C058C564214140E0001CD1DE /* RobotPenSDKHeader */ = {
 			isa = PBXGroup;
 			children = (
+				C0F006D42255B40E00914266 /* RobotPenDeviceFunction.h */,
 				C058C565214140E0001CD1DE /* RobotPenManager.h */,
 				C058C566214140E0001CD1DE /* RobotTrails.h */,
 				C058C567214140E0001CD1DE /* RobotSqlManager.h */,

@@ -46,6 +46,7 @@
 		C09057681E57DED0000D004D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C090576A1E57DED0000D004D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C09057AA1E57F1CA000D004D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		C0F006D32255A32100914266 /* RobotPenDeviceFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotPenDeviceFunction.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +99,7 @@
 		C058C49E2141406A001CD1DE /* RobotPenSDKHeader */ = {
 			isa = PBXGroup;
 			children = (
+				C0F006D32255A32100914266 /* RobotPenDeviceFunction.h */,
 				C058C49F2141406A001CD1DE /* RobotPenManager.h */,
 				C058C4A02141406A001CD1DE /* RobotTrails.h */,
 				C058C4A12141406A001CD1DE /* RobotSqlManager.h */,

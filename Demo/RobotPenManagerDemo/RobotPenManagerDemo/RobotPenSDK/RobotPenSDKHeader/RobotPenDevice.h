@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RobotPenHeader.h"
 #import <CoreBluetooth/CoreBluetooth.h>
-
+#import "RobotPenDeviceFunction.h"
 
 @interface RobotPenDevice : NSObject<NSCoding>
 /*!
@@ -17,6 +16,11 @@
  @brief 设备类型
  */
 @property (nonatomic, assign) DeviceType deviceType;
+/*!
+ @property
+ @brief 设备类型名称
+ */
+@property (nonatomic, copy) NSString *deviceTypeName;
 /*!
  @property
  @brief UUID
@@ -93,25 +97,28 @@
  */
 @property (nonatomic, assign) int RSSI;
 
+
+/*!
+ @property
+ @brief 设备功能列表
+ */
+@property (nonatomic, strong ) RobotPenDeviceFunction *function;
+
+
+
+#pragma mark ---------------------------Tool --------------------------
 /*!
  @method
  @abstract 获取设备名
  @result 返回结果
  */
 - (NSString *)getName;
-
 /*!
  @method
  @abstract 获取电量百分比显示
  @result 返回结果
  */
 - (int)getDevicePercentageBattery;
-/*!
- @method
- @abstract 获取笔记前缀字符串
- @result 返回结果
- */
-- (NSString *)getPrefixString;
 
 /*!
  @method
@@ -120,13 +127,18 @@
  */
 - (NSString *)getHardPrefixString;
 
-
 /*!
  @method
- @abstract 根据方向获取屏幕方向获取设备原始宽高
+ @abstract 获取笔记前缀字符串
+ @result 返回结果
+ */
+- (NSString *)getPrefixString DEPRECATED_MSG_ATTRIBUTE("Please use RobotPenDevice.deviceTypeName");
+/*!
+ @method
+ @abstract 根据方向获取屏幕方向获取设备尺寸
  @param isHorizontal 设备方向
  @result 返回结果
  */
-- (CGSize)getDeviceSizeWithIsHorizontal:(BOOL)isHorizontal;
+- (CGSize)getDeviceSizeWithIsHorizontal:(BOOL)isHorizontal DEPRECATED_MSG_ATTRIBUTE("Please use RobotPenDevice.function.deviceSize");
 
 @end

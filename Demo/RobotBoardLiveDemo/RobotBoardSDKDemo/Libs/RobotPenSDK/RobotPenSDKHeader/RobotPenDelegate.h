@@ -133,6 +133,13 @@
  */
 - (void)getStorageNum:(int)num andBattery:(int)battery andNotePercent:(int)percent;
 
+/*!
+ @method
+ @abstract  获取离线笔记的原始笔迹数据（需要验证）
+ @param data 笔迹数据
+ */
+- (void)getSyncOriginalData:(NSData *)data;
+
 #pragma mark OTA监听
 
 /*!

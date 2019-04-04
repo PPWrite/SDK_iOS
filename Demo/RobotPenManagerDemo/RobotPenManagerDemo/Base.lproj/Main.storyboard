@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -134,9 +134,13 @@
                                     <constraint firstAttribute="height" constant="50" id="UTM-GB-Gan"/>
                                     <constraint firstAttribute="width" constant="215" id="txf-Et-hls"/>
                                 </constraints>
-                                <state key="normal" title="搜索">
+                                <state key="normal" title="查找设备">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" title="断开连接"/>
+                                <connections>
+                                    <action selector="blueToothButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n06-Pg-lPY"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未同步笔记" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNE-YF-bfY">
                                 <rect key="frame" x="15" y="195" width="78" height="25"/>
@@ -177,16 +181,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kcC-kL-dwX">
-                                <rect key="frame" x="290" y="195" width="70" height="25"/>
-                                <color key="backgroundColor" red="0.21176470588235294" green="0.74117647058823533" blue="0.64313725490196072" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="fp5-sW-Jfq"/>
-                                    <constraint firstAttribute="height" constant="25" id="wDs-gp-rca"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="升级"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电磁板电量" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzc-AE-va8">
                                 <rect key="frame" x="15" y="275" width="78" height="25"/>
                                 <constraints>
@@ -228,7 +222,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BR6-X1-7vf">
-                                <rect key="frame" x="205" y="195" width="70" height="25"/>
+                                <rect key="frame" x="290" y="195" width="70" height="25"/>
                                 <color key="backgroundColor" red="0.21176470588235294" green="0.74117647058823533" blue="0.64313725490196072" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="2GA-g5-eYt"/>
@@ -236,6 +230,10 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="同步"/>
+                                <state key="selected" title="停止同步"/>
+                                <connections>
+                                    <action selector="SyncButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LPI-5Z-vcU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -285,18 +283,16 @@
                             <constraint firstItem="E40-o8-KQe" firstAttribute="height" secondItem="JSo-vy-Lyr" secondAttribute="height" id="aDr-R1-pNx"/>
                             <constraint firstItem="gcl-Bv-E41" firstAttribute="leading" secondItem="ke1-gA-LD0" secondAttribute="leading" id="bcB-eE-fIB"/>
                             <constraint firstItem="JSo-vy-Lyr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="cfC-F5-7eI"/>
-                            <constraint firstItem="kcC-kL-dwX" firstAttribute="leading" secondItem="BR6-X1-7vf" secondAttribute="trailing" constant="15" id="dTk-Oe-rAI"/>
                             <constraint firstItem="i9J-M4-daq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="dal-KD-phN"/>
                             <constraint firstItem="1Pc-rz-oMS" firstAttribute="leading" secondItem="Kzc-AE-va8" secondAttribute="trailing" constant="15" id="f1r-cZ-JmM"/>
                             <constraint firstItem="J2W-Ql-huY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="g5a-pA-EJR"/>
                             <constraint firstItem="EFm-33-FZU" firstAttribute="leading" secondItem="rIZ-Xp-jsh" secondAttribute="trailing" constant="15" id="gct-f3-wnl"/>
-                            <constraint firstItem="kcC-kL-dwX" firstAttribute="top" secondItem="qLG-QC-YyB" secondAttribute="bottom" constant="15" id="ivO-1v-VRX"/>
                             <constraint firstAttribute="trailing" secondItem="EFm-33-FZU" secondAttribute="trailing" constant="15" id="sAD-CK-uzO"/>
+                            <constraint firstAttribute="trailing" secondItem="BR6-X1-7vf" secondAttribute="trailing" constant="15" id="seC-XP-V2v"/>
                             <constraint firstItem="1Pc-rz-oMS" firstAttribute="top" secondItem="EFm-33-FZU" secondAttribute="bottom" constant="15" id="thq-3R-2Lj"/>
                             <constraint firstItem="rIZ-Xp-jsh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="u40-AH-SqO"/>
                             <constraint firstItem="sO0-vr-QtV" firstAttribute="leading" secondItem="JSo-vy-Lyr" secondAttribute="leading" id="u6w-Bq-cvh"/>
                             <constraint firstItem="J2W-Ql-huY" firstAttribute="top" secondItem="YgQ-W4-q9D" secondAttribute="bottom" constant="25" id="uGe-dj-soL"/>
-                            <constraint firstAttribute="trailing" secondItem="kcC-kL-dwX" secondAttribute="trailing" constant="15" id="vIE-sB-dKu"/>
                             <constraint firstItem="ke1-gA-LD0" firstAttribute="height" secondItem="E40-o8-KQe" secondAttribute="height" id="xLZ-od-XkC"/>
                             <constraint firstItem="o0E-ZX-7eY" firstAttribute="top" secondItem="qLG-QC-YyB" secondAttribute="bottom" constant="15" id="ym2-BW-Hvg"/>
                             <constraint firstItem="qLG-QC-YyB" firstAttribute="leading" secondItem="aIo-Eb-maH" secondAttribute="trailing" constant="15" id="zLx-3r-ypT"/>
@@ -308,7 +304,6 @@
                         <outlet property="RSSILabel" destination="YgQ-W4-q9D" id="I5z-pK-Dgz"/>
                         <outlet property="SyncButton" destination="BR6-X1-7vf" id="8se-B4-UiT"/>
                         <outlet property="SyncNumberLabel" destination="o0E-ZX-7eY" id="gBE-0F-kW9"/>
-                        <outlet property="UpdateButton" destination="kcC-kL-dwX" id="dGz-gN-QPx"/>
                         <outlet property="VersionLabel" destination="EFm-33-FZU" id="VWV-kR-z20"/>
                         <outlet property="blueToothButton" destination="Yab-Oj-5rf" id="F3U-5V-HxZ"/>
                         <outlet property="deviceName" destination="qLG-QC-YyB" id="3bJ-CV-aet"/>
