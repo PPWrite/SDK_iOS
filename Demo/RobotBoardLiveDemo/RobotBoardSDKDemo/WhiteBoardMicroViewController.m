@@ -101,7 +101,7 @@ static int interval_Board = 10;
     // 获取当前已连接设备
     RobotPenDevice *device = [[RobotPenManager sharePenManager] getConnectDevice];
     
-    DeviceTypes = device.deviceType;//用于setDeviceType传值
+    DeviceTypes = device.deviceType?device.deviceType:T7;//用于setDeviceType传值
     
     //本地数据库，RobotSqlManager包含白板所有产生数据（笔记、截图、各种资源、文件等）详情查看RobotSqlManager.h
     [RobotSqlManager checkRobotSqlManager];

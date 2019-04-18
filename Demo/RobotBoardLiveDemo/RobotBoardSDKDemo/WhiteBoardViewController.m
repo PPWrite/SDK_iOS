@@ -43,7 +43,7 @@ static int interval_Board = 10;
     
     [super viewDidLoad];
     
-    DeviceTypes = 1;//已1为例，具体看电磁板设备类型
+    DeviceTypes = T7;//已1为例，具体看电磁板设备类型
     
     [self BulidWhiteBoard];//初始化白板
     
@@ -62,7 +62,7 @@ static int interval_Board = 10;
     //获取当前连接设备
     RobotPenDevice *device = [[RobotPenManager sharePenManager] getConnectDevice];
     
-    DeviceTypes = device.deviceType;//用于setDeviceType传值
+    DeviceTypes = device.deviceType?device.deviceType:T7;//用于setDeviceType传值
     
     //数据库
     [RobotSqlManager checkRobotSqlManager]; //检测 数据库

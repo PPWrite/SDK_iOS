@@ -103,6 +103,7 @@ typedef enum {
     T7PL_XDF = 76,
     K8_HF = 77,
     K8 = 78,
+    J7B_XY = 79,
     
     A4 = 998,//A4占位
     A5 = 999,//A5占位
