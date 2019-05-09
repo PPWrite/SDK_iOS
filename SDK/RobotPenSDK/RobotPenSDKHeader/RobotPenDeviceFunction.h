@@ -135,5 +135,9 @@ typedef enum{
  */
 @property (nonatomic, assign) BOOL getSize;
 
-
+/*!
+ @property
+ @brief 点数据默认偏移
+ */
+@property (nonatomic, assign) CGSize pointOffset;
 @end

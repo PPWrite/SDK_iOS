@@ -81,7 +81,13 @@
  */
 - (void)setOffset:(CGPoint)point;
 
-
+/*!
+ @method
+ @abstract 设置原始点的偏移
+ @discussion 用于标准A4设备对齐使用
+ @param offset 偏移量
+ */
+-(void)setPointOffset:(CGPoint)offset;
 #pragma mark ---------------------------设备相关---------------------------
 #pragma mark 设备连接
 
@@ -598,7 +604,7 @@
 /*!
  @method
  @abstract 改变设备模式
- @discussion 改变设备的当前模式（鼠标模式、书写模式），MouseMode设备USB使用。其中T8B_D2可指定模式。
+ @discussion 改变设备的当前模式（鼠标模式、书写模式），MouseMode设备USB使用。
  @param model 模式
  */
 - (void)changeMouseDeviceMode:(RobotPenMouseDeviceModel)model;

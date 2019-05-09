@@ -1,3 +1,47 @@
+/************************************4.2.1**************************************/
+iOS SDK 4.2.1已更新
+地址：https://github.com/PPWrite/SDK_iOS
+Cocoapods支持：
+	笔服务：pod 'RobotPenSDK/RobotPenSDK'
+ 	白板服务：pod 'RobotPenSDK/RobotBoardSDK'
+ 	录课服务：pod 'RobotPenSDK/RobotRecordSDK' 或 pod 'RobotPenSDK'
+ 	Tips:使用Cocoapods导入，只需要拉取相应的服务即可自动配置所包含的其他服务。
+版本号在RobotPenHeader头可见 或 调用getSDKVersion方法可在控制台打印。
+更新内容详情见“更新概要”
+
+特别注意：4.2.0版本及之后版本由于统一了设备识别范围的获取方式，与原宏定义的设备范围可能相反。
+当前获取到的识别范围与手写板物理范围方向一致，一般来说电磁板长边对应的范围为获取得到的CGSize.height(长边),宽度为电磁板长边对应的范围为获取得到的CGSize.width(短边)。
+4.2.0之前的版本升级时，需要注意涉及到入参为设备识别范围的方法，需要注意修改。
+
+
+更新概要：
+ 1、增加新固件支持。
+ 2、新增新方法。
+ 3、模型中添加新的属性。
+
+主要涉及到的设备：
+ 1、新增设备：T9C、T9C_FB。
+ 2、针对T9W_H增加默认对齐偏移。
+
+新增特性及方法：
+ 1、新增获设置原始点坐标偏移方法。
+ 2、新增设备默认偏移属性。
+
+一、RobotPenDeviceFunction.h中
+新增属性：
+ 1、点数据默认偏移 pointOffset
+二、RobotPenManager.h中
+新增：
+
+/*!
+ @method
+ @abstract 设置原始点的偏移
+ @param offset 偏移量
+ */
+- (void)setPointOffset:(CGPoint)offset;
+/************************************4.2.1**************************************/
+
+
 /************************************4.2.0**************************************/
 iOS SDK 4.2.0已更新
 地址：https://github.com/PPWrite/SDK_iOS
