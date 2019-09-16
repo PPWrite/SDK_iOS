@@ -53,7 +53,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUI];
-    [self refreshAll];
     //遵守RobotPenManager协议，必须实现
     [[RobotPenManager sharePenManager] setPenDelegate:self];
     // Do any additional setup after loading the view, typically from a nib.
@@ -97,7 +96,7 @@
     
     if ([SDKManager share].device) {
         self.deviceName.text = [NSString stringWithFormat:@"%@",[[SDKManager share].device getName]];
-        self.deviceUUID.text = [NSString stringWithFormat:@"%@",[SDKManager share].device.uuID];
+        self.deviceUUID.text = [NSString stringWithFormat:@"%@",[SDKManager share].device.Mac];
         self.VersionLabel.text =[NSString stringWithFormat:@"%@",[SDKManager share].device.SWStr];
         self.BatteryLabel.text =[NSString stringWithFormat:@"%d",[SDKManager share].device.Battery];
         self.RSSILabel.text =[NSString stringWithFormat:@"%d",[SDKManager share].device.RSSI];

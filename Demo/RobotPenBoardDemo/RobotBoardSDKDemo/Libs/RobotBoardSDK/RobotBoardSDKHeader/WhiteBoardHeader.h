@@ -71,9 +71,11 @@ typedef enum {
  */
 typedef enum {
     /** 居中*/
-    CENTER,
+    ScaleType_Center,
     /** 填充*/
-    FIT,
+    ScaleType_Fill,
+    /** 顶部对齐*/
+    ScaleType_Top,
 }ScaleType;
 
 /*!

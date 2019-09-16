@@ -514,27 +514,44 @@
 /*!
  @method
  @abstract 根据路径插入图片
- @param Path 路径
+
+ @param path 路径
  */
-- (void)insterPhotoWithPath:(NSString *)Path;
+- (void)insterPhotoWithPath:(NSString *)path;
+/*!
+ @method
+ @abstract 根据路径数组插入图片
+ @discussion 自动创建页码，获取失败的图片会自动过滤
+ @param pathArray 路径数组
+ */
+- (void)insterPhotoWithPathArray:(NSArray *)pathArray;
 
 /*!
  @method
- @abstract 根据路径数组插入多页图片
- @param  urlsArray 路径数组
+ @abstract 根据链接数组（URL）插入多页图片
+ @discussion 自动创建页码，获取失败的图片会自动过滤
+ @param  urlsArray 链接数组（URLL）
  */
 - (void)insterPhotoWithUrls:(NSArray *)urlsArray;
 
 /*!
  @method
- @abstract 根据路径数组设置多页图片 PS:尽量使用insterPhotoWithUrls函数
- @param urlsArray 数组
+ @abstract 根据链接数组（URL）设置多页图片 PS:尽量使用insterPhotoWithUrls函数
+ @discussion 自动创建页码，获取失败的图片会自动过滤
+ @param urlsArray 链接数组（URLL）
  */
 - (void)insterLivePhotoWithUrls:(NSArray *)urlsArray;
 
 /*!
  @method
- @abstract 设置图片的模式
+ @abstract 设置图片的显示默认模式
+ @param type 类型
+ */
+- (void)setDefaultPhotoScaleType:(ScaleType)type;
+
+/*!
+ @method
+ @abstract 设置图片的显示模式
  @param type 类型
  */
 - (void)setPhotoScaleType:(ScaleType)type;

@@ -58,7 +58,7 @@
     
     self.deviceName.text = self.device?[NSString stringWithFormat:@"%@",self.device.deviceName]:@"";
     self.SyncNumberLabel.text =self.device?[NSString stringWithFormat:@"%d",self.device.NoteNumber]:@"";
-    self.deviceUUID.text = self.device?[NSString stringWithFormat:@"%@",self.device.uuID]:@"";
+    self.deviceUUID.text = self.device?[NSString stringWithFormat:@"%@",self.device.Mac]:@"";
     self.VersionLabel.text = self.device?[NSString stringWithFormat:@"%@",self.device.SWStr]:@"";
     self.BatteryLabel.text = self.device?[NSString stringWithFormat:@"%d",self.device.Battery]:@"";
     self.RSSILabel.text = self.device?[NSString stringWithFormat:@"%d",self.device.RSSI]:@"";
