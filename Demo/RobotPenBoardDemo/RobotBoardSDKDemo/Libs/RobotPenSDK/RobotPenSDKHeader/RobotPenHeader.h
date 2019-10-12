@@ -1,7 +1,7 @@
 
 /*********************************************************/
 /*********************************************************/
-/*----------------------SDK 4.2.3------------------------*/
+/*----------------------SDK 4.2.4------------------------*/
 /*********************************************************/
 /*********************************************************/
 
@@ -322,7 +322,7 @@ typedef enum{
       /** 电源键双击*/
       DeviceEvent_NewPage,
       /** A*/
-      DeviceEvent_A ,
+      DeviceEvent_A = 5,
       /** B*/
       DeviceEvent_B ,
       /** C*/
@@ -332,7 +332,7 @@ typedef enum{
       /** E/UP*/
       DeviceEvent_E ,
       /** F/DOWN*/
-      DeviceEvent_F ,
+      DeviceEvent_F = 10 ,
       /** 正确*/
       DeviceEvent_TRUE ,
       /** 错误*/
@@ -344,7 +344,7 @@ typedef enum{
       
       /**J7B-HF事件*/
       /**上翻页单击*/
-      DeviceEvent_FRONT_Single,
+      DeviceEvent_FRONT_Single = 15,
       /**上翻页双击*/
       DeviceEvent_FRONT_Double,
       /**上翻页长按*/
@@ -354,7 +354,7 @@ typedef enum{
       /**下翻页双击*/
       DeviceEvent_NEXT_Double,
       /**下翻页长按*/
-      DeviceEvent_NEXT_Long,
+      DeviceEvent_NEXT_Long = 20,
       /**自定义按键1单击*/
       DeviceEvent_SELF1_Single,
       /**自定义按键1双击*/
@@ -364,7 +364,7 @@ typedef enum{
       /**自定义按键2单击*/
       DeviceEvent_SELF2_Single,
       /**自定义按键2双击*/
-      DeviceEvent_SELF2_Double,
+      DeviceEvent_SELF2_Double = 25,
       /**自定义按键2长按*/
       DeviceEvent_SELF2_Long,
 }DeviceEventType;

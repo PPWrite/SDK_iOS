@@ -398,6 +398,13 @@
 
 /*!
  @method
+ @abstract 获取下个页面的Block
+ @result 返回结果
+ */
+- (nullable NSString *)getNextBlock;
+
+/*!
+ @method
  @abstract 获取当前是否是图片编辑状态
  @result 返回结果
  */
@@ -482,6 +489,12 @@
 
 /*!
  @method
+ @abstract 根据轨迹画线
+ @param trails 轨迹
+ */
+-(void)drawWithTrails:(NSArray <RobotTrails *> *)trails;
+/*!
+ @method
  @abstract 刷新画板
  */
 - (void)RefreshAll;
@@ -538,7 +551,7 @@
  @method
  @abstract 根据链接数组（URL）设置多页图片 PS:尽量使用insterPhotoWithUrls函数
  @discussion 自动创建页码，获取失败的图片会自动过滤
- @param urlsArray 链接数组（URLL）
+ @param urlsArray 链接数组（URL）
  */
 - (void)insterLivePhotoWithUrls:(NSArray *)urlsArray;
 
