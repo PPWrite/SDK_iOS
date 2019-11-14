@@ -610,7 +610,13 @@
 - (void)changeMouseDeviceMode:(RobotPenMouseDeviceModel)model;
 
 #pragma mark ---------------------------DM6--------------------------
-
+/*!
+ @method
+ @abstract 设置DM6点阵排列适配方式
+ @discussion DM6 使用,默认为NO
+ @param isHorizontal 是否是g横向
+ */
+- (BOOL)setDM6Arrangement:(BOOL)isHorizontal;
 /*!
  @method
  @abstract 设置原点坐标

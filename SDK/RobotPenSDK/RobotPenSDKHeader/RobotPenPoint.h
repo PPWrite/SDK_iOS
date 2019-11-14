@@ -80,6 +80,15 @@
  */
 - (CGPoint)getTransformsPointWithType:(RobotPenCoordinateSystem)type;
 
+/*!
+ @method
+ @abstract 获取设备转换点坐标(以原始点为基础)
+ @param type 坐标系原点位置
+ @param size 屏幕显示范围
+ @result 返回结果
+ */
+- (CGPoint)getTransformsPointWithType:(RobotPenCoordinateSystem)type SceneSize:(CGSize)size;
+
 /**
  @method
  @abstract 获取标准纸张缩放点(以原始点为基础)

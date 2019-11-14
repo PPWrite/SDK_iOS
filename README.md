@@ -13,4 +13,3 @@ SDK服务分为四种服务：笔服务（RobotPenSDK）、白板服务（RobotB
 
 SDK文档分为四个文档：笔文档（RobotPenSDK参考手册）、白板文档（RobotBoardSDK参考手册）、录课文档（RobotRecordSDK参考手册）和数据库文档（RobotSqlManager参考手册）。
 与SDK服务统一，故使用录课服务需参考全部文档，使用白板服务需参考白板文档和笔文档，如有数据库需要参考数据库文档。
-

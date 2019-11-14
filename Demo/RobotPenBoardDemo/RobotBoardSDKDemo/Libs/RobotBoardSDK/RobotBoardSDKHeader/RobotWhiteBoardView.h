@@ -256,6 +256,12 @@
  @param page 当前页码
  */
 - (void)setManagePageWithPage:(int)page;
+/*!
+ @methodzi
+ @abstract 设置自动调整
+ @param open 是否开启，默认开启。
+ */
+- (void)setAutomaticallyAdjusts:(BOOL)open;
 /** ************************画板UI设置*************************/
 
 /*!

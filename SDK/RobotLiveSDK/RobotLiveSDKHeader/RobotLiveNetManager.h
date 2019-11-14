@@ -1,6 +1,6 @@
 //
-//  RobotNetManager.h
-//  RobotNetManager
+//  RobotLiveNetManager.h
+//  RobotLiveSDK
 //
 //  Created by JMS on 2016/11/20.
 //  Copyright © 2016年 Robot.cn. All rights reserved.
@@ -9,12 +9,11 @@
 #import <Foundation/Foundation.h>
 
 
-@interface RobotNetManager : NSObject
-
+@interface RobotLiveNetManager : NSObject
 /**
  单例初始化
  */
-+ (RobotNetManager *)shareNetManager;
++ (RobotLiveNetManager *)shareNetManager;
 
 /** 重置session*/
 - (void)sessionManagerSet;
@@ -54,7 +53,7 @@
  @param userSession 用户UserSession
  @param about 直播间简介
  @param tags 直播间标签数组
-
+ 
  */
 - (void)BuildLiveStudioWithName:(NSString *)name Password:(NSString *)password UserID:(NSString *)userID UserSession:(NSString *)userSession About:(NSString *)about Tags:(NSArray *)tags Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
 
@@ -96,6 +95,5 @@
  @abstract文件头信息获取
  */
 - (void)GetFileWithFilePath:(NSString *)FilePath Token:(NSString *)Token Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
-
-
 @end
+

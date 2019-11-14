@@ -1,3 +1,50 @@
+/************************************4.2.5**************************************/
+iOS SDK 4.2.5已更新
+地址：https://github.com/PPWrite/SDK_iOS
+Cocoapods支持：
+  笔服务：pod 'RobotPenSDK/RobotPenSDK'
+  白板服务：pod 'RobotPenSDK/RobotBoardSDK'
+  录课服务：pod 'RobotPenSDK/RobotRecordSDK' 或 pod 'RobotPenSDK'
+  Tips:使用Cocoapods导入，只需要拉取相应的服务即可自动配置所包含的其他服务。
+版本号在RobotPenHeader头可见 或 调用getSDKVersion方法可在控制台打印。
+更新内容详情见“更新概要”
+
+特别注意：4.2.0版本及之后版本由于统一了设备识别范围的获取方式，与原宏定义的设备范围可能相反。
+当前获取到的识别范围与手写板物理范围方向一致，一般来说电磁板长边对应的范围为获取得到的CGSize.height(长边),宽度为电磁板长边对应的范围为获取得到的CGSize.width(短边)。
+4.2.0之前的版本升级时，需要注意涉及到入参为设备识别范围的方法，需要注意修改。
+
+更新概要：
+ 1、增加新固件支持。
+ 2、增加点坐标转换方法。
+主要涉及到的设备及问题：
+ 1、新增设备：E3W、D7、T9W_H2。
+
+ 一、RobotPenPoint.h中
+  新增方法：
+  1.
+   /*!
+   @method
+   @abstract 获取设备转换点坐标(以原始点为基础)
+   @param type 坐标系原点位置
+   @param size 屏幕显示范围
+   @result 返回结果
+   */
+  - (CGPoint)getTransformsPointWithType:(RobotPenCoordinateSystem)type SceneSize:(CGSize)size;
+
+二、RobotPenUtilPoint.h中
+  新增方法：
+  1.
+   /*!
+   @method
+   @abstract 获取设备转换点坐标(以优化点为基础)
+   @param type 坐标系原点位置
+   @param size 屏幕显示范围
+   @result 返回结果
+   */
+  - (CGPoint)getTransformsPointWithType:(RobotPenCoordinateSystem)type SceneSize:(CGSize)size;
+
+
+/************************************4.2.5**************************************/
 /************************************4.2.4**************************************/
 iOS SDK 4.2.4已更新
 地址：https://github.com/PPWrite/SDK_iOS

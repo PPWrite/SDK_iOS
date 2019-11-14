@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "RobotPenHeader.h"
+/** DM6_TAL*/
+#define isDM6_TAL YES
 
 typedef enum {
     /** 旧特性 **/
@@ -140,4 +142,10 @@ typedef enum{
  @brief 点数据默认偏移
  */
 @property (nonatomic, assign) CGSize pointOffset;
+
+/*!
+ @property
+ @brief 附加
+ */
+@property (nonatomic, assign) int extra;
 @end
