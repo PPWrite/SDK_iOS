@@ -201,7 +201,31 @@ typedef enum {
  */
 + (void)ChangeTempNoteIsHorizontal:(BOOL)isHorizontal;
 
+/*!
+ @method 保存临时笔记
+ @abstract 保存临时笔记
+ @param tempNoteKey 临时笔记notekey
+ @param targetNoteKey 目标笔记notekey
+ @param Success 成功结果返回
+ @param Failure 失败结果返回
+ */
++ (void)saveTempNoteWithTempNoteKey:(NSString *)tempNoteKey TargetNoteKey:(NSString *)targetNoteKey  Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
 
+/*!
+ @method 设置临时笔记的设备类型
+ @abstract 设置临时笔记的设备类型
+ @param DeviceType 设备类型
+ @param tempNoteKey 临时笔记notekey
+ */
++ (void)changeTempNoteWithTempNoteKey:(NSString *)tempNoteKey DeviceType:(int)DeviceType;
+
+/*!
+ @method 设置临时笔记的画板方向
+ @abstract 设置临时笔记的画板方向
+ @param tempNoteKey 临时笔记notekey
+ @param isHorizontal YES:横屏 NO:竖屏
+ */
++ (void)changeTempNoteWithTempNoteKey:(NSString *)tempNoteKey IsHorizontal:(BOOL)isHorizontal;
 #pragma mark  -----------------------------------------------------页码相关操作-----------------------------------------------------
 
 #pragma mark 页码新建

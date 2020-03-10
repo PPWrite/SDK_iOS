@@ -262,6 +262,22 @@
  @param open 是否开启，默认开启。
  */
 - (void)setAutomaticallyAdjusts:(BOOL)open;
+
+/*!
+ @method
+ @abstract 设置其他信息
+ @param info 信息。
+ */
+- (void)setAdditionalInfo:(NSDictionary *)info;
+
+/*!
+ @method
+ @abstract 设置点阵画板类型
+ @discussion D7使用
+ @param type 点阵类型
+ */
+- (void)setLatticeSizeType:(RobotLatticeSizeType)type;
+
 /** ************************画板UI设置*************************/
 
 /*!
@@ -476,6 +492,14 @@
  */
 - (CGSize)getWhiteBoardSceneSize;
 
+/*!
+ @method
+ @abstract 设置点阵画板类型
+ @discussion D7使用
+ @param type 点阵类型
+ */
+- (RobotLatticeSizeType)getWhiteBoardLatticeSizeType;
+
 #pragma mark 使用类方法
 /** --------------------------------------使用类--------------------------------------------------*/
 
@@ -529,11 +553,31 @@
  @param page 页码（显示的页码）
  */
 - (void)turnToPageWithPage:(int)page;
+/*!
+ @method
+ @abstract 根据图片插入图片
+ 
+ @param image 图片
+ */
+- (void)insterPhotoWithImage:(UIImage *)image;
 
 /*!
  @method
+ @abstract 根据图片数组插入图片
+ @discussion 自动创建页码
+ @param imageArray 图片数组
+ */
+- (void)insterPhotoWithImageArray:(NSArray *)imageArray;
+/*!
+ @method
+ @abstract 根据图片数组插入图片
+ @discussion 自动创建页码
+ @param imageArray 图片数组
+ */
+- (void)insterPhotoWithImageArray:(NSArray *)imageArray Block:(void (^)(NSDictionary *dic))block;
+/*!
+ @method
  @abstract 根据路径插入图片
-
  @param path 路径
  */
 - (void)insterPhotoWithPath:(NSString *)path;
@@ -560,6 +604,7 @@
  @param urlsArray 链接数组（URL）
  */
 - (void)insterLivePhotoWithUrls:(NSArray *)urlsArray;
+
 
 /*!
  @method

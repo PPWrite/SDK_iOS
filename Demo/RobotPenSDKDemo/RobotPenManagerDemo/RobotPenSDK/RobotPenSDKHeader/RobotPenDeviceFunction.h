@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "RobotPenHeader.h"
 /** DM6_TAL*/
-#define isDM6_TAL YES
+#define isDM6_TAL NO
 
 typedef enum {
     /** 旧特性 **/
@@ -142,7 +142,11 @@ typedef enum{
  @brief 点数据默认偏移
  */
 @property (nonatomic, assign) CGSize pointOffset;
-
+/*!
+ @property
+ @brief 是否是点阵设备
+ */
+@property (nonatomic, assign) BOOL isLatticeDevice;
 /*!
  @property
  @brief 附加

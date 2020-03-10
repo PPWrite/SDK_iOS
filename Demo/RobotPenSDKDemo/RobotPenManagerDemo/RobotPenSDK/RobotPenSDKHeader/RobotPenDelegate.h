@@ -82,7 +82,19 @@
  @param point 优化点
  */
 - (void)getOptimizesPointInfo:(RobotPenUtilPoint *)point;
-
+/*!
+ @method
+ @abstract 获取优化点路径数据
+ @param line 优化点
+ */
+- (void)getOptimizesPathInfo:(float *)line lenth:(int)lenth;
+/*!
+ @method
+ @abstract 获取点读码数据
+ @discussion 点读码专用
+ @param bookID 点读数据
+ */
+- (void)getBookID:(int)bookID;
 
 #pragma mark 离线笔记监听
 

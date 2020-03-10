@@ -27,6 +27,14 @@
  */
 - (void)setPenDelegate:(id<RobotPenDelegate>)delegate;
 
+#pragma mark Path优化库相关Beta
+/*!
+ @method
+ @abstract 是否开启新优化笔迹
+ @param open 是否开启新优化库
+ */
+- (void)openIntegrationOptimize:(BOOL)open;
+
 #pragma mark 实时报点类型相关
 
 /*!
@@ -527,7 +535,16 @@
  @result 返回结果
  */
 - (CGFloat)getDeviceScaleWithDeviceType:(DeviceType)deviceType andIsHorizontal:(BOOL)ishorizontal;
-
+/*!
+ @method
+ @abstract 获取电磁板宽高比
+ @discussion 点阵数据用
+ @param deviceType 设备类型
+ @param ishorizontal 是否为横向
+ @param type 点阵类型
+ @result 返回结果
+ */
+- (CGFloat)getDeviceScaleWithDeviceType:(DeviceType)deviceType andIsHorizontal:(BOOL)ishorizontal latticeSizeType:(RobotLatticeSizeType)type;
 /*!
  @method
  @abstract 根据原始图片尺寸获取屏幕图片尺寸
@@ -614,7 +631,7 @@
  @method
  @abstract 设置DM6点阵排列适配方式
  @discussion DM6 使用,默认为NO
- @param isHorizontal 是否是g横向
+ @param isHorizontal 是否是横向
  */
 - (BOOL)setDM6Arrangement:(BOOL)isHorizontal;
 /*!
@@ -634,6 +651,23 @@
  @param point 坐标
  */
 - (void)getDM6OriginImageWithSK:(NSString *)sk Point:(CGPoint)point Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
+
+#pragma mark ---------------------------D7--------------------------
+/*!
+ @method
+ @abstract 设置分页原始数据上报
+ @discussion D7使用，默认为YES
+ @param ispaged 是否分页
+ */
+- (void)setPagedPoint:(BOOL)ispaged;
+
+/*!
+ @method
+ @abstract 开启RobotA5分页
+ @discussion D7使用，默认为NO
+ @param isRobotA5 是否分页
+ */
+- (void)setRobotA5PagedPoint:(BOOL)isRobotA5;
 
 #pragma mark ---------------------------PointStruct---------------------------
 /*!

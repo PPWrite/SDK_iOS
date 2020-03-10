@@ -45,6 +45,10 @@ typedef enum {
     WBMessage_Page_Info,
     /** 页码识别信息*/
     WBMessage_Page_TA_Info = 10,
+    /** 第一页*/
+    WBMessage_Page_First,
+    /** 最后一页*/
+    WBMessage_Page_Last,
     
     
 }WBMessageType;

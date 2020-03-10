@@ -47,6 +47,21 @@
  */
 @property (assign, nonatomic) RobotPaperSizeType pointSizeType;
 /*!
+ @property
+ @brief 点阵坐标点 X
+ */
+@property (assign , nonatomic) int latticeX;
+/*!
+ @property
+ @brief 点阵坐标点 Y
+ */
+@property (assign , nonatomic) int latticeY;
+/*!
+ @property
+ @brief 点阵点尺寸的类型
+ */
+@property (assign, nonatomic) RobotLatticeSizeType latticeSizeType;
+/*!
  @method
  @abstract 获取优化点坐标
  @result 返回结果
