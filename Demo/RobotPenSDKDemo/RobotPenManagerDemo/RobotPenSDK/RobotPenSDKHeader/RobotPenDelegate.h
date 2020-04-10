@@ -183,16 +183,25 @@
  */
 - (void)SensorUpdateProgress:(float)progess;
 
-#pragma mark OEM系列
 /*!
  @method
  @abstract 获取设备笔记和页码编号
- @discussion T9系列专用
+ @discussion 页码识别设备专用
  @param page 页码编号
  @param NoteId 笔记编号
  */
 - (void)getDevicePage:(int)page andNoteId:(int)NoteId;
 
+/*!
+ @method
+ @abstract 回调纸张偏移，仅仅部分设备支持
+ @discussion 页码识别设备专用
+ @param ofsset 纸张偏移
+ @param angle 纸张旋转角度，大于0为顺时针旋转
+ */
+- (void)robotPenPaperOffset:(CGPoint)ofsset angle:(CGFloat)angle;
+
+#pragma mark OEM系列
 /*!
  @method
  @abstract 获取设备笔记页码合并编号

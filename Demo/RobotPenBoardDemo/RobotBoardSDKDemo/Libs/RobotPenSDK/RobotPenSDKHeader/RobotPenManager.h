@@ -96,6 +96,14 @@
  @param offset 偏移量
  */
 -(void)setPointOffset:(CGPoint)offset;
+
+/*!
+ @method
+ @abstract 是否自动纠正偏移，包括：纸张偏移、设备工装偏移。默认为true
+ @param isAuto 是否自动
+*/
+- (void)setAutoCorrectOffset:(BOOL)isAuto;
+
 #pragma mark ---------------------------设备相关---------------------------
 #pragma mark 设备连接
 
