@@ -1,0 +1,6 @@
+framework module RbtBezierLib {
+  umbrella header "RbtBezierLib.h"
+
+  export *
+  module * { export * }
+}

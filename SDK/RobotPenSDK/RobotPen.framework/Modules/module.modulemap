@@ -1,0 +1,6 @@
+framework module RobotPen {
+  umbrella header "RobotPen.h"
+
+  export *
+  module * { export * }
+}

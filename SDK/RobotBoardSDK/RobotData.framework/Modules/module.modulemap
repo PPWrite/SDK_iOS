@@ -1,0 +1,6 @@
+framework module RobotData {
+  umbrella header "RobotData.h"
+
+  export *
+  module * { export * }
+}

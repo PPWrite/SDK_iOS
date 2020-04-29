@@ -1,0 +1,6 @@
+framework module RobotBoard {
+  umbrella header "RobotBoard.h"
+
+  export *
+  module * { export * }
+}
