@@ -1,0 +1,6 @@
+framework module RobotSimpleWhiteboard {
+  umbrella header "RobotSimpleWhiteboard.h"
+
+  export *
+  module * { export * }
+}

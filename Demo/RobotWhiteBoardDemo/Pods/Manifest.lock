@@ -1,0 +1,25 @@
+PODS:
+  - CocoaLumberjack (3.6.1):
+    - CocoaLumberjack/Core (= 3.6.1)
+  - CocoaLumberjack/Core (3.6.1)
+  - DoraemonKit/Core (3.0.2)
+  - DoraemonKit/WithLogger (3.0.2):
+    - CocoaLumberjack
+    - DoraemonKit/Core
+
+DEPENDENCIES:
+  - DoraemonKit/Core (~> 3.0.2)
+  - DoraemonKit/WithLogger (~> 3.0.2)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - CocoaLumberjack
+    - DoraemonKit
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: b17ae15142558d08bbacf69775fa10c4abbebcc9
+  DoraemonKit: 8587e7a9aae0773dfc96707d2369d89d2a21b3d2
+
+PODFILE CHECKSUM: 91e81196655fb999668222ac1792760509d3ee0d
+
+COCOAPODS: 1.9.2

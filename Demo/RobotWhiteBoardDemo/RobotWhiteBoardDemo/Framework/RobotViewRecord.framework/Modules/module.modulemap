@@ -1,0 +1,6 @@
+framework module RobotViewRecord {
+  umbrella header "RobotViewRecord.h"
+
+  export *
+  module * { export * }
+}
