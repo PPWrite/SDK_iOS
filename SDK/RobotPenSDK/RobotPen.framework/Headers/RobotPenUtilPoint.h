@@ -14,53 +14,54 @@
  @property
  @brief 优化后的坐标点 X
  */
-@property (nonatomic,assign) float optimizeX;
+@property(nonatomic, assign) float optimizeX;
 /*!
  @property
  @brief 优化后的坐标点 Y
  */
-@property (nonatomic,assign) float optimizeY;
+@property(nonatomic, assign) float optimizeY;
 /*!
  @property
  @brief 优化后的笔迹宽度
  */
-@property (nonatomic,assign) float width;
+@property(nonatomic, assign) float width;
 /*!
  @property
  @brief 笔迹类型
  */
-@property (nonatomic, assign) DeviceType deviceType;
+@property(nonatomic, assign) DeviceType deviceType;
 /*!
  @property
  @brief 点的速度
  */
-@property (nonatomic,assign) float speed;
+@property(nonatomic, assign) float speed;
 /*!
  @property
  @brief 状态 0：离开(悬浮)状态 1：touchBegin状态 2：touchMove状态 3：touchEnd状态 4:离开感应范围
  */
-@property (nonatomic, assign) int touchState;
+@property(nonatomic, assign) int touchState;
 
 /*!
  @property
  @brief 点尺寸的类型
  */
-@property (assign, nonatomic) RobotPaperSizeType pointSizeType;
+@property(assign, nonatomic) RobotPaperSizeType pointSizeType;
 /*!
  @property
  @brief 点阵坐标点 X
  */
-@property (assign , nonatomic) int latticeX;
+@property(assign, nonatomic) int latticeX;
 /*!
  @property
  @brief 点阵坐标点 Y
  */
-@property (assign , nonatomic) int latticeY;
+@property(assign, nonatomic) int latticeY;
 /*!
  @property
  @brief 点阵点尺寸的类型
  */
-@property (assign, nonatomic) RobotLatticeSizeType latticeSizeType;
+@property(assign, nonatomic) RobotLatticeSizeType latticeSizeType;
+
 /*!
  @method
  @abstract 获取优化点坐标
@@ -106,6 +107,7 @@
  @result 返回结果
  */
 - (CGPoint)getTransformsPointWithType:(RobotPenCoordinateSystem)type;
+
 /*!
  @method
  @abstract 获取设备转换点坐标(以优化点为基础)
@@ -114,6 +116,7 @@
  @result 返回结果
  */
 - (CGPoint)getTransformsPointWithType:(RobotPenCoordinateSystem)type SceneSize:(CGSize)size;
+
 /**
  @method
  @abstract 获取标准纸张缩放点(以原始坐标尺寸为基础)
@@ -123,6 +126,7 @@
  @result 返回结果
  */
 - (CGPoint)getScalePointTo:(RobotPaperSizeType)type CoordinateSystemType:(RobotPenCoordinateSystem)coordinateType;
+
 /*!
  @method
  @abstract 转换MAC坐标系的Y坐标

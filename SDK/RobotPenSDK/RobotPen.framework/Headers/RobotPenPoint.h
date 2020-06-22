@@ -14,57 +14,57 @@
  @property
  @brief 坐标点 X
  */
-@property (assign , nonatomic) short originalX;
+@property(assign, nonatomic) short originalX;
 /*!
  @property
  @brief 坐标点 Y
  */
-@property (assign , nonatomic) short originalY;
+@property(assign, nonatomic) short originalY;
 /*!
  @property
  @brief 压感值
  */
-@property (assign , nonatomic) short pressure;
+@property(assign, nonatomic) short pressure;
 /*!
  @property
  @brief 笔迹设备类型
  */
-@property (assign , nonatomic) DeviceType deviceType;
+@property(assign, nonatomic) DeviceType deviceType;
 /*!
  @property
  @brief 笔迹点的状态
  */
-@property (assign , nonatomic) RobotPenPointTouchStatus touchState;
+@property(assign, nonatomic) RobotPenPointTouchStatus touchState;
 /*!
  @property
  @brief 点尺寸的类型
  */
-@property (assign, nonatomic) RobotPaperSizeType pointSizeType;
+@property(assign, nonatomic) RobotPaperSizeType pointSizeType;
 /*!
  @property
  @brief 点阵坐标点 X
  */
-@property (assign , nonatomic) int latticeX;
+@property(assign, nonatomic) int latticeX;
 /*!
  @property
  @brief 点阵坐标点 Y
  */
-@property (assign , nonatomic) int latticeY;
+@property(assign, nonatomic) int latticeY;
 /*!
 @property
 @brief 点阵坐标点角度
 */
-@property (assign , nonatomic) short latticeAngle;
+@property(assign, nonatomic) short latticeAngle;
 /*!
 @property
 @brief 点阵坐标点时间戳
 */
-@property (assign , nonatomic) int latticeTime;
+@property(assign, nonatomic) int latticeTime;
 /*!
  @property
  @brief 点阵点尺寸的类型
  */
-@property (assign, nonatomic) RobotLatticeSizeType latticeSizeType;
+@property(assign, nonatomic) RobotLatticeSizeType latticeSizeType;
 
 /*!
  @method
@@ -131,7 +131,6 @@
  @result 返回结果
  */
 - (CGPoint)changeMacPointWithIsHorizontal:(BOOL)isHorizontal;
-
 
 
 @end

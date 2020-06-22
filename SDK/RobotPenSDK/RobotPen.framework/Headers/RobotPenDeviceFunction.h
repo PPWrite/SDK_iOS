@@ -8,44 +8,42 @@
 
 #import <Foundation/Foundation.h>
 #import "RobotPenHeader.h"
-/** DM6_TAL*/
-#define isDM6_TAL NO
 
 typedef enum {
     /** 旧特性 **/
     BluetoothModeOld = 0,
     /** 新特性 **/
     BluetoothModeNew,
-}BluetoothMode;
+} BluetoothMode;
 
 /*!
  @enum
  @abstract 设备OTA模块
  */
-typedef enum{
+typedef enum {
     /** 不支持升级*/
     RobotFirmwareOTAType_OTA_NULL = 0,
     /** BLE升级*/
     RobotFirmwareOTAType_OTA_BLE,
     /** MCU升级*/
-    RobotFirmwareOTAType_OTA_MCU ,
+    RobotFirmwareOTAType_OTA_MCU,
     /** BLE和MCU升级*/
-    RobotFirmwareOTAType_OTA_ALL ,
-}RobotFirmwareOTAType;
+    RobotFirmwareOTAType_OTA_ALL,
+} RobotFirmwareOTAType;
 /*!
  @enum
  @abstract 同步头类型
  */
-typedef enum{
+typedef enum {
     /** 未知*/
     RobotSyncHeaderType_UnKnown = 0,
     /** 短型*/
     RobotSyncHeaderType_Short,
     /** 长型*/
-    RobotSyncHeaderType_Long ,
+    RobotSyncHeaderType_Long,
     /** 超长型*/
     RobotSyncHeaderType_Overlength,
-}RobotSyncHeaderType;
+} RobotSyncHeaderType;
 
 /**
  @enum
@@ -66,95 +64,95 @@ typedef enum {
  @property
  @brief 设备识别范围
  */
-@property (nonatomic, assign) CGSize deviceSize;
+@property(nonatomic, assign) CGSize deviceSize;
 
 /*!
  @property
  @brief 原始坐标点位置
  */
-@property (nonatomic, assign) RobotPenCoordinateSystem coordinate;
+@property(nonatomic, assign) RobotPenCoordinateSystem coordinate;
 
 /*!
  @property
  @brief 支持OTA升级
  */
-@property (nonatomic, assign) RobotFirmwareOTAType overTheAir;
+@property(nonatomic, assign) RobotFirmwareOTAType overTheAir;
 /*!
  @property
  @brief 支持JEDI升级
  */
-@property (nonatomic, assign) BOOL JEDI;
+@property(nonatomic, assign) BOOL JEDI;
 /*!
  @property
  @brief 支持三点数据结构
  */
-@property (nonatomic, assign) BOOL newPointStructure;
+@property(nonatomic, assign) BOOL newPointStructure;
 /*!
  @property
  @brief 支持获取MAC地址
  */
-@property (nonatomic, assign) BOOL getMACAddress;
+@property(nonatomic, assign) BOOL getMACAddress;
 /*!
  @property
  @brief 支持获取模组版本
  */
-@property (nonatomic, assign) BOOL getSensor;
+@property(nonatomic, assign) BOOL getSensor;
 
 /*!
  @property
  @brief 支持主动删除离线笔记
  */
-@property (nonatomic, assign) BOOL deleteOfflineNote;
+@property(nonatomic, assign) BOOL deleteOfflineNote;
 /*!
  @property
  @brief 整形同步数据结构
  */
-@property (nonatomic, assign) BOOL intergerSyncData;
+@property(nonatomic, assign) BOOL intergerSyncData;
 /*!
  @property
  @brief 同步数据头结构
  */
-@property (nonatomic, assign) RobotSyncHeaderType syncHeaderType;
+@property(nonatomic, assign) RobotSyncHeaderType syncHeaderType;
 
 /*!
  @property
  @brief 支持页码显示
  */
-@property (nonatomic, assign) BOOL pageShowDevice;
+@property(nonatomic, assign) BOOL pageShowDevice;
 /*!
  @property
  @brief 支持页码识别
  */
-@property (nonatomic, assign) PageIdentificationDeviceType pageIdentificationDevice;
+@property(nonatomic, assign) PageIdentificationDeviceType pageIdentificationDevice;
 /*!
  @property
  @brief 被限制的设备
  */
-@property (nonatomic, assign) BOOL isLimitDevice;
+@property(nonatomic, assign) BOOL isLimitDevice;
 
 /*!
  @property
  @brief 是否支持蓝牙新特性
  */
-@property (nonatomic, assign) BOOL isBLENewFeatureAvailable;
+@property(nonatomic, assign) BOOL isBLENewFeatureAvailable;
 
 /*!
  @property
  @brief 当前蓝牙模式
  */
-@property (nonatomic, assign) BluetoothMode bluetoothMode;
+@property(nonatomic, assign) BluetoothMode bluetoothMode;
 
 /*!
  @property
  @brief 是否支持获取识别范围
  */
-@property (nonatomic, assign) BOOL getSize;
+@property(nonatomic, assign) BOOL getSize;
 
 /*!
  @property
  @brief 点数据默认偏移
  */
-@property (nonatomic, assign) CGSize pointOffset;
+@property(nonatomic, assign) CGSize pointOffset;
 /*!
  @property
  @brief 是否是点阵设备
@@ -164,11 +162,16 @@ typedef enum {
  @property
  @brief 附加
  */
-@property (nonatomic, assign) int extra;
+@property(nonatomic, assign) int extra;
 /*!
 @property
 @brief 心跳时间（秒），0 代表没有心跳。
 */
 @property (nonatomic, assign) int heartbeat;
+/*!
+@property
+@brief OTA 升级时需要发送版本好
+*/
+@property (nonatomic, assign) BOOL otaUpdateNeedSendVersion;
 
 @end

@@ -42,6 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)getSDKVersion;
 
 #pragma mark Path优化库相关Beta
+
 /*!
  @method
  @abstract 是否开启新优化笔迹
@@ -129,6 +130,14 @@ NS_ASSUME_NONNULL_BEGIN
                  paperRange:(CGRect)rangRect
                   paperSize:(CGSize)paperSize;
 
+/*!
+@method
+@abstract 开启上报最原始的点数据。
+@discussion 如果打开，从硬件拿到点数据后，简单的解析和必要的处理后通过代理抛出。默认此项为关闭。
+@param isOpen 是否开启
+*/
+- (void)openReportDevicePrimitivePointData:(BOOL)isOpen;
+
 #pragma mark ---------------------------设备相关---------------------------
 #pragma mark 设备连接
 
@@ -150,7 +159,7 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract 连接设备
  @param penDevice 设备
  */
-- (void)connectDevice:(RobotPenDevice *)penDevice ;
+- (void)connectDevice:(RobotPenDevice *)penDevice;
 
 /*!
  @method
@@ -258,6 +267,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)openLimitedDevice:(NSString *)deviceKey;
 
 #pragma mark 设备配对
+
 /*!
  @method
  @abstract 检查是否有配对过的设备
@@ -306,6 +316,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)cleanAllPairingDevice;
 
 #pragma mark 设备改名
+
 /*!
  @method
  @abstract 修改设备名字
@@ -336,6 +347,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)readDeviceRSSI;
 
 #pragma mark ---------------------------离线笔记相关---------------------------
+
 /*!
  @method
  @abstract 设置同步离线笔记抛点
@@ -376,6 +388,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setSyncNoteWidth:(CGFloat)width;
 
 #pragma mark ---------------------------OTA(固件升级)相关---------------------------
+
 /*!
  @method
  @abstract 开始OTA升级
@@ -387,7 +400,9 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract  结束OTA升级
  */
 - (void)ExitOTA;
+
 #pragma mark ---------------------------模组相关---------------------------
+
 /*!
  @method
  @abstract 开始SENSOR升级
@@ -402,6 +417,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 #pragma mark ---------------------------硬件版本检测相关---------------------------
+
 /*!
  @method
  @abstract 检查固件（BLE&MCU）是否需要更新
@@ -443,7 +459,9 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract 获取模组版本信息、是否支持笔校准模式
  */
 - (void)getSensorVersion DEPRECATED_MSG_ATTRIBUTE("Please use RobotPenDevice.function.getSensor");
+
 #pragma mark ---------------------------硬件版本检测相关-OEM系列---------------------------
+
 /*!
  @method
  @abstract 获取页码信息
@@ -482,12 +500,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /*!
  @method
- @abstract 设置是否获取mac、Sensor和Name
+ @abstract 设置是否获取mac、Sensor
  @param getMAC 布尔值
  @param getSensor 布尔值
- @param getName 布尔值
  */
-- (void)setGetMAC:(BOOL)getMAC getSensor:(BOOL)getSensor getName:(BOOL)getName;
+- (void)setGetMAC:(BOOL)getMAC getSensor:(BOOL)getSensor;
 
 
 /*!
@@ -562,6 +579,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 #pragma mark ---------------------------转换相关---------------------------
+
 /*!
  @method
  @abstract 设置设备转换点坐标
@@ -595,7 +613,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param isOriginal 原始/场景
  @result 返回结果
  */
-- (CGFloat)getWidth:(CGFloat)W  andSceneWidth:(CGFloat)width andisHorizontal:(BOOL)ishorizontal andDevicetype:(DeviceType)deviceType  isOriginal:(BOOL)isOriginal;
+- (CGFloat)getWidth:(CGFloat)W andSceneWidth:(CGFloat)width andisHorizontal:(BOOL)ishorizontal andDevicetype:(DeviceType)deviceType isOriginal:(BOOL)isOriginal;
 
 /*!
  @method
@@ -678,6 +696,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)resetDeviceSleepTime;
 
 #pragma mark ---------------------------MouseMode--------------------------
+
 /*!
  @method
  @abstract 是否是支持鼠标模式的设备
@@ -700,34 +719,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)changeMouseDeviceMode:(RobotPenMouseDeviceModel)model;
 
-#pragma mark ---------------------------DM6--------------------------
-/*!
- @method
- @abstract 设置DM6点阵排列适配方式
- @discussion DM6 使用,默认为NO
- @param isHorizontal 是否是横向
- */
-- (BOOL)setDM6Arrangement:(BOOL)isHorizontal;
-
-/*!
- @method
- @abstract 设置原点坐标
- @discussion DM6 使用
- @param upleftPoint 左上角坐标
- @param lowrightPoint 右下坐标
- */
-- (void)setDM6OriginPointWithUpleftPoint:(CGPoint)upleftPoint LowrightPoint:(CGPoint)lowrightPoint;
-
-/*!
- @method
- @abstract 获取点阵纸的图片
- @discussion DM6 使用
- @param sk 用户秘钥
- @param point 坐标
- */
-- (void)getDM6OriginImageWithSK:(NSString *)sk Point:(CGPoint)point Success:(void (^)(id responseObject))Success Failure:(void (^)(NSError *error))Failure;
-
 #pragma mark ---------------------------D7--------------------------
+
 /*!
  @method
  @abstract 设置分页原始数据上报
@@ -745,6 +738,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setRobotA5PagedPoint:(BOOL)isRobotA5;
 
 #pragma mark ---------------------------PointStruct---------------------------
+
 /*!
  @method
  @abstract 自动升级为高级点模式
